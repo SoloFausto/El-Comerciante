@@ -5,7 +5,7 @@
     $PostPass = $_POST['pass'];
 
     if( !isset($_POST['boton'])){
-      header("Location:index.html");    
+      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");    
     }else{
   
     $con = conectar();
@@ -21,9 +21,9 @@
        $nam = $row['name'];
        echo "Ingresaste $PostUser $PostPass, el resultado es $nam $pass";
       if(($PostPass == $pass)||($PostUser == $nam)){
-          header("Location: inicio.php"); // Poner la pagina de inicio en el sistema
+          header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
       }else{
-        header("Location: index.html");
+        header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
       }
     }
   }
