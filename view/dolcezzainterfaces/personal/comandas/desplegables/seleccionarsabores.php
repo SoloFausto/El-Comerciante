@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Agregar a la orden</title>
+    <title>Seleccionar Sabores</title>
 </head>
 <body>
     
-    <h1 class="title">Agregar a la orden</h1>
+    <h1 class="title">Selecciona sabores</h1>
         
     <a href="agregarcomanda.php">
     <div class="close">
@@ -19,31 +19,27 @@
 </svg>
 </div>
     </a>
-<table class="envases1">
+<table class="sabor1">
     <tr>
-        <td><h2>Envases</h2></td>
+        <td><h2>(Nombre el sabor)</h2></td>
     </tr>
 </table>
-<table class="envases2">
+<table class="sabor2">
     <tr>
-    <td><h2>Envases N Kilos</h2></td>
+    <td><h2>(Nombre del sabor)</h2></td>
     </tr>
     </table>
-<table class="envases3">
+<table class="sabor3">
     <tr>
-        <td><h2>Envases N Kilos</h2></td>
+        <td><h2>(Nombre del sabor)</h2></td>
     </tr>
 </table>
-<table class="envases4">
+<table class="sabor4">
     <tr>
-        <td><h2>Envases N Kilos</h2></td>
+        <td><h2>(Nombre del sabor)</h2></td>
     </tr>
 </table>
-<table class="envases5">
-    <tr>  
-        <td><h2>Cono de N sabores</h2></td>
-    </tr>
-</table>
+
 <table class="cash">
         <tr>
     <td><a href="agregarcomanda.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="auto" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
@@ -70,28 +66,28 @@
         width: 550px;
         border-radius: 15px;
     }
-    .envases1{
+    .sabor1{
         float: right;
         margin-right: 5%;
         margin-top: 5%;
         
     }
-    .envases2{
+    .sabor2{
         float: right;
         margin-right: 33%;
         
     }
-    .envases3{
+    .sabor3{
         float: right;
         margin-right: 33%;
         
     }
-    .envases4{
+    .sabor4{
         float: right;
         margin-right: 33%;
         
     }
-    .envases5{
+    .sabor5{
         float: right;
         margin-right: 33%;
         
