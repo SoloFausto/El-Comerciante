@@ -8,10 +8,7 @@
     <title>Inicio</title>
 </head>
 
-      </table>
-    </div>
-  </div>
-</div>
+
 <body>
   <table class="estadisticas">
   <td ><h1 class="x">Estadisticas</h1></td>
