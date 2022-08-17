@@ -176,6 +176,6 @@
         .pro{
             text-align: center;
         }
-        </style>
+</style>
 </body>
 </html>
