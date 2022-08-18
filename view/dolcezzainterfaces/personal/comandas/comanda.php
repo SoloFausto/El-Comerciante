@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../estiloPersonal/estiloComanda.css">
     <title>Comandas</title>
 </head>
 
@@ -117,105 +118,7 @@
     </div>
 
 
-<style>
-  .ped1{
-    text-align: left;
-    float:right;
-    border: 1px solid black;
-    width: 550px;
-    height: 90px;
-    float: right;
-    margin-right: 20%;
-    margin-top: 3%;
-  }
 
-  .ped2{
-    text-align: left;
-    float:right;
-    border: 1px solid black;
-    width: 550px;
-    height: 90px;
-    float: right;
-    margin-right: 20%;
-    margin-top: 3%;
-  }
- 
-    .delete{
-        float:right;
-        
-    }
-    
-    .info{
-        float:right;
-        margin-bottom: 15px;
-    }
-    .add{
-       float:right;
-       padding-right: 90%;
-    }
-  .home{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-
-  
-  .tablet{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-  .comandas1{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-  .estadisticas1{
-    border-left: 5px solid black;
-            height: 50px;
-          }
-  
-    .comandas{
-    text-align:center;
-    float:right;
-    margin-right:19%;
-    }
-    .estadisticas{
-    text-align:center;
-    float:right;
-    margin-right:19%;
-    } 
-    .stock{
-    text-align:center;
-    float:right;
-    margin-right: 16%;
-    margin-top: 45px;
-    }
-    .dispositivos{
-    text-align:center;
-    float:right;
-    margin-right:16%;
-    margin-top: 45px;
-    }
-    div{
-        margin-top:10px;
-        
-    }
-    a{
-        text-decoration:none;
-        color:black;
-    }
-    a:hover{ text-decoration:none;
-        color:black;
-        
-    }
-    .settings{
-        margin-top:230px;
-        border-left: 5px solid black;
-            height: 50px;
-    }
-    .warning{
-        float:right;
-    }
-   
-</style>
 </body>
 </html>
 

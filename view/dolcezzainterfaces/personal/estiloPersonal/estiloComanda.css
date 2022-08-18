@@ -1,0 +1,96 @@
+.ped1{
+    text-align: left;
+    float:right;
+    border: 1px solid black;
+    width: 550px;
+    height: 90px;
+    float: right;
+    margin-right: 20%;
+    margin-top: 3%;
+  }
+
+  .ped2{
+    text-align: left;
+    float:right;
+    border: 1px solid black;
+    width: 550px;
+    height: 90px;
+    float: right;
+    margin-right: 20%;
+    margin-top: 3%;
+  }
+ 
+    .delete{
+        float:right;
+        
+    }
+    
+    .info{
+        float:right;
+        margin-bottom: 15px;
+    }
+    .add{
+       float:right;
+       padding-right: 90%;
+    }
+  .home{
+    border-left: 5px solid black;
+            height: 50px;
+  }
+
+  
+  .tablet{
+    border-left: 5px solid black;
+            height: 50px;
+  }
+  .comandas1{
+    border-left: 5px solid black;
+            height: 50px;
+  }
+  .estadisticas1{
+    border-left: 5px solid black;
+            height: 50px;
+          }
+  
+    .comandas{
+    text-align:center;
+    float:right;
+    margin-right:19%;
+    }
+    .estadisticas{
+    text-align:center;
+    float:right;
+    margin-right:19%;
+    } 
+    .stock{
+    text-align:center;
+    float:right;
+    margin-right: 16%;
+    margin-top: 45px;
+    }
+    .dispositivos{
+    text-align:center;
+    float:right;
+    margin-right:16%;
+    margin-top: 45px;
+    }
+    div{
+        margin-top:10px;
+        
+    }
+    a{
+        text-decoration:none;
+        color:black;
+    }
+    a:hover{ text-decoration:none;
+        color:black;
+        
+    }
+    .settings{
+        margin-top:230px;
+        border-left: 5px solid black;
+            height: 50px;
+    }
+    .warning{
+        float:right;
+    }

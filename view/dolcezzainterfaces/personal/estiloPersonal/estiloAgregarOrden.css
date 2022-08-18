@@ -1,0 +1,46 @@
+.cash{
+    text-align: center;
+    border: 2px solid black;
+    width: 550px;
+    height: 50px;
+    float: right;
+    margin-right: 33%;
+    margin-top: 3%;
+    border-radius: 15px;
+    background-color: #BDECB6;
+    }
+    table{
+    border: 1px solid black;
+    width: 550px;
+    border-radius: 15px;
+    }
+    .envases1{
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;    
+    }
+    .envases2{
+    float: right;
+    margin-right: 33%;    
+    }
+    .envases3{
+    float: right;
+    margin-right: 33%;
+        
+    }
+    .envases4{
+    float: right;
+    margin-right: 33%;    
+    }
+    .envases5{
+    float: right;
+    margin-right: 33%;
+        
+    }
+    .close{
+    float: right;
+    margin-right: 25%;
+    }
+    .title{
+    text-align: center;
+    }

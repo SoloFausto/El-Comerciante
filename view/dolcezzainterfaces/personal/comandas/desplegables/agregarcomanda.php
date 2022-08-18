@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../estiloPersonal/estiloAgregarComanda.css">
     <title>Agregar Comanda</title>
     </head>
     <body>
@@ -98,84 +99,7 @@
     </svg></td>
     </tr>
     </table>
-    <style>
-        table{
-            border-radius: 15px;
-        }
-        .cash{
-            text-align: left;
-            float:right;
-            border: 1px solid black;
-            width: 550px;
-            height: 50px;
-            float: right;
-            margin-right: 27%;
-            margin-top: 1%;
-            background-color: #BDECB6;
-        }
-        .second{
-            text-align: left;
-            float:right;
-            border: 1px solid black;
-            width: 550px;
-            height: 50px;
-            float: right;
-            margin-right: 27%;
-            margin-top: 1%;
-        }
-        .log{
-            float: right;
-            margin-right: 10%;
-        }
-        .tastes{
-            text-align: left;
-            float:right;
-            border: 1px solid black;
-            width: 550px;
-            height: 50px;
-            float: right;
-            margin-right: 27%;
     
-        }
-        .first{
-            text-align: left;
-            float:right;
-            border: 1px solid black;
-            width: 550px;
-            height: 50px;
-            float: right;
-            margin-right: 13%;
-            margin-top: 3%;
-        }
-        .add{
-            float: right;
-            margin-right: 150px;
-        }
-        .close{
-            float: right;
-            margin-right: 150px;
-            margin-top:2px;
-        }
-        .mesas{
-            border:1px solid black;
-            padding:10px;
-            text-align: center;
-            margin-top:10px;
-            margin-left: 150px;
-        }
-        .llevar{
-            border:1px solid black;
-            padding:10px;
-            text-align: center;
-            margin-top: 10px;
-            margin-left: 150px;
-        }
-        .addcom{
-            text-align: center;
-        }
-        .pro{
-            text-align: center;
-        }
-</style>
+
 </body>
 </html>

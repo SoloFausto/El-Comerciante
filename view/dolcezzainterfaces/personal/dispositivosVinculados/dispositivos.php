@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estiloPersonal/estiloDispositivos.css">
     <title>Dispositivos vinculados</title>
 </head>
 <body>
@@ -111,63 +112,5 @@
     </svg>
     </a>
 
-    <style>
-        .b{
-            float: right;
-            margin-right: 22%;
-            border:1px solid black;
-            margin-top: 5%;
-            width: 750px;
-            height: 100px;
-        }
-        .a{
-            float: right;
-            margin-right: 30%;
-            border:1px solid black;
-            margin-top: 5%;
-            width: 550px;
-            height: 50px;
-        }
-        .title{
-            float: right;
-            margin-right: 40%;
-            border:1px solid black;
-        }
-        .notes{
-            border-left: 5px solid black;
-            height: 50px;
-        }
-        .home{
-            border-left: 5px solid black;
-            height: 50px;
-        }
-        .comandas1{
-            border-left: 5px solid black;
-            height: 50px;
-        }
-        .estadisticas1{
-            border-left: 5px solid black;
-            height: 50px;
-          }
- 
-        div{
-            margin-top:10px;
-        
-           }
-        a{
-           text-decoration:none;
-            color:black;
-           }
-        a:hover{ 
-            text-decoration:none;
-            color:black;
-        
-           }
-        .settings{
-            margin-top:230px;
-            border-left: 5px solid black;
-            height: 50px;
-          }
-</style>
 </body>
 </html>

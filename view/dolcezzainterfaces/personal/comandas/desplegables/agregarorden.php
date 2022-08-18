@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../estiloPersonal/estiloAgregarOrden.css">
     <title>Agregar a la orden</title>
 </head>
 <body>
@@ -52,54 +53,6 @@
     </svg></td>
     </tr>
     </table>
-<style>
-   
-    .cash{
-    text-align: center;
-    border: 2px solid black;
-    width: 550px;
-    height: 50px;
-    float: right;
-    margin-right: 33%;
-    margin-top: 3%;
-    border-radius: 15px;
-    background-color: #BDECB6;
-    }
-    table{
-    border: 1px solid black;
-    width: 550px;
-    border-radius: 15px;
-    }
-    .envases1{
-    float: right;
-    margin-right: 5%;
-    margin-top: 5%;    
-    }
-    .envases2{
-    float: right;
-    margin-right: 33%;    
-    }
-    .envases3{
-    float: right;
-    margin-right: 33%;
-        
-    }
-    .envases4{
-    float: right;
-    margin-right: 33%;    
-    }
-    .envases5{
-    float: right;
-    margin-right: 33%;
-        
-    }
-    .close{
-    float: right;
-    margin-right: 25%;
-    }
-    .title{
-    text-align: center;
-    }
-</style>
+
 </body>
 </html>
