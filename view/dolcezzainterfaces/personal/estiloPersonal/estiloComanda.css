@@ -1,96 +1,66 @@
-.ped1{
-    text-align: left;
-    float:right;
-    border: 1px solid black;
-    width: 550px;
-    height: 90px;
-    float: right;
-    margin-right: 20%;
-    margin-top: 3%;
-  }
-
-  .ped2{
-    text-align: left;
-    float:right;
-    border: 1px solid black;
-    width: 550px;
-    height: 90px;
-    float: right;
-    margin-right: 20%;
-    margin-top: 3%;
-  }
- 
-    .delete{
-        float:right;
-        
-    }
-    
-    .info{
-        float:right;
-        margin-bottom: 15px;
-    }
-    .add{
-       float:right;
-       padding-right: 90%;
-    }
-  .home{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-
+.empty{
+  height:50vh;
+  width:50px;
+}
+.title{
+  display: flex;
+  align-items: center;
+  border:1px solid black;
+  width: 97.4vw;
+  position: fixed;
+  height: 50px;
+  left: 51px;
+  top: 0px;
+}
+.selected_item{
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
+}
+.page{
   
-  .tablet{
-    border-left: 5px solid black;
-            height: 50px;
+}
+.navbar{
+  position:fixed;
+  border:1px solid black;
+  width: fit-content;
+  flex: 0 1 0;
+  flex-direction: column;
+  display: flex;
+  bottom: -2px;
+  left: 0px;
+  height: 100vh;
+
+}
+.icon{
+  flex-direction: column;
+  flex: auto;
+  display: flex;
+  width:auto;
+  filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+svg:hover{
+  flex-direction: column;
+  flex: auto;
+  display: flex;
+  width:auto;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
   }
-  .comandas1{
-    border-left: 5px solid black;
-            height: 50px;
+.icon:hover{
+  background-color: black;
+}
+.a_icon{
+  height: 54px;
+}
+.content{
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  position: fixed;
+  left: 51px;
+  width: 97.4vw;
+  top:50px;
   }
-  .estadisticas1{
-    border-left: 5px solid black;
-            height: 50px;
-          }
+  .stat{
+    flex:auto;
+    border:1px solid black;
+  }
   
-    .comandas{
-    text-align:center;
-    float:right;
-    margin-right:19%;
-    }
-    .estadisticas{
-    text-align:center;
-    float:right;
-    margin-right:19%;
-    } 
-    .stock{
-    text-align:center;
-    float:right;
-    margin-right: 16%;
-    margin-top: 45px;
-    }
-    .dispositivos{
-    text-align:center;
-    float:right;
-    margin-right:16%;
-    margin-top: 45px;
-    }
-    div{
-        margin-top:10px;
-        
-    }
-    a{
-        text-decoration:none;
-        color:black;
-    }
-    a:hover{ text-decoration:none;
-        color:black;
-        
-    }
-    .settings{
-        margin-top:230px;
-        border-left: 5px solid black;
-            height: 50px;
-    }
-    .warning{
-        float:right;
-    }

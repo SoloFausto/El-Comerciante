@@ -12,6 +12,18 @@
 <body>
 <div class="title">
     <h1>Estadisticas</h1>
+    <h1>GGF</h1>
+    <div class="icon">
+    <a href="inicio.php">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="58" fill="black" class="bi bi-house" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+      </svg>
+      
+    </div>
+    </a>
+  </div>
   </div>
 <div class="page">
 <div class="content">
@@ -54,7 +66,7 @@
       </a>
   </div>
 
-  <div class="icon">
+  <div class="icon  selected_item">
     <a href="../estadisticas/estadisticas.php">
     <div>
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="58" fill="black" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
@@ -112,6 +124,9 @@
     height: 50px;
     left: 51px;
     top: 0px;
+  }
+  .selected_item{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
   }
   .page{
     
