@@ -3,7 +3,7 @@
         $host = "localhost";
         $user = "root";
         $pass = "";
-        $db = "login_dolcezza";
+        $db = "dolcezza";
 
         $con = mysqli_connect($host, $user, $pass);
         mysqli_select_db($con, $db);
