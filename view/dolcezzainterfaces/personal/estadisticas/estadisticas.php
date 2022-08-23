@@ -6,23 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Inicio</title>
+    <style>
+  .empty{
+    height:50vh;
+    width:50px;
+  }
+  .title{
+    display: flex;
+    align-items: center;
+    border:1px solid black;
+    width: 97.4vw;
+    position: fixed;
+    height: 50px;
+    left: 51px;
+    top: 0px;
+  }
+  .selected_item{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
+  }
+  .page{
+    
+  }
+  .navbar{
+    position:fixed;
+    border:1px solid black;
+    width: fit-content;
+    flex: 0 1 0;
+    flex-direction: column;
+    display: flex;
+    bottom: -2px;
+    left: 0px;
+    height: 100vh;
+  
+  }
+  .icon{
+    flex-direction: column;
+    flex: auto;
+    display: flex;
+    width:auto;
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  svg:hover{
+    flex-direction: column;
+    flex: auto;
+    display: flex;
+    width:auto;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
+    }
+  .icon:hover{
+    background-color: black;
+  }
+  .a_icon{
+    height: 54px;
+  }
+  .content{
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    position: fixed;
+    left: 51px;
+    width: 97.4vw;
+    top:50px;
+    }
+    .stat{
+      flex:auto;
+      border:1px solid black;
+    }
+    
+
+   
+</style>
 </head>
 
 
 <body>
 <div class="title">
     <h1>Estadisticas</h1>
-    <h1>GGF</h1>
-    <div class="icon">
-    <a href="inicio.php">
-    <div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="58" fill="black" class="bi bi-house" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-      </svg>
-      
-    </div>
-    </a>
   </div>
   </div>
 <div class="page">
@@ -110,75 +169,6 @@
 </div>
 
 
-<style>
-  .empty{
-    height:50vh;
-    width:50px;
-  }
-  .title{
-    display: flex;
-    align-items: center;
-    border:1px solid black;
-    width: 97.4vw;
-    position: fixed;
-    height: 50px;
-    left: 51px;
-    top: 0px;
-  }
-  .selected_item{
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
-  }
-  .page{
-    
-  }
-  .navbar{
-    position:fixed;
-    border:1px solid black;
-    width: fit-content;
-    flex: 0 1 0;
-    flex-direction: column;
-    display: flex;
-    bottom: -2px;
-    left: 0px;
-    height: 100vh;
-  
-  }
-  .icon{
-    flex-direction: column;
-    flex: auto;
-    display: flex;
-    width:auto;
-    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-  }
-  svg:hover{
-    flex-direction: column;
-    flex: auto;
-    display: flex;
-    width:auto;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
-    }
-  .icon:hover{
-    background-color: black;
-  }
-  .a_icon{
-    height: 54px;
-  }
-  .content{
-    display: flex;
-    flex: auto;
-    flex-direction: row;
-    position: fixed;
-    left: 51px;
-    width: 97.4vw;
-    top:50px;
-    }
-    .stat{
-      flex:auto;
-      border:1px solid black;
-    }
-    
 
-   
-</style>
 </body>
 </html>
