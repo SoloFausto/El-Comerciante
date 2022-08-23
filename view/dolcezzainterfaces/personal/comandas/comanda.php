@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+
     <link rel="stylesheet" href="../estiloPersonal/estiloComanda.css">
     <title>Comandas</title>
 </head>
 <body>
-<div class="title">
-    <h1>Estadisticas</h1>
+<div class="titlebox">
+<div>
+<button type="button" class="btn btn-success"><i class="bi bi-plus-circle"><br>Agregar </i>
+</button>
+
+</div>
+    
+    <h1>Comandas</h1>
+  <div class="titleboxspacer"></div>
   </div>
 <div class="page">
-<div class="content">
-  <div class="stat"><h1>Este mes</h1></div>
-  <div class="stat"><h1>Generales</h1></div>
-  <div class="stat"><h1>Este año</h1></div>
-  <div class="stat"><h1>stock de helados</h1></div>
-</div>
-<div class="navbar">
+  <div class="content">
+
+  </div>
+  <div class="navbar">
   <div class="icon">
     <a href="inicio.php">
     <div>
@@ -94,7 +101,7 @@
     </a>
   </div>
 
-</div>
+  </div>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
   height:50vh;
   width:50px;
 }
-.title{
+.titlebox{
   display: flex;
   align-items: center;
   border:1px solid black;
@@ -11,12 +11,16 @@
   height: 50px;
   left: 51px;
   top: 0px;
+  justify-content: space-between;
 }
 .selected_item{
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
 }
 .page{
   
+}
+.titleboxspacer{
+  width: 250;
 }
 .navbar{
   position:fixed;
@@ -28,7 +32,7 @@
   bottom: -2px;
   left: 0px;
   height: 100vh;
-
+  top:0px;
 }
 .icon{
   flex-direction: column;
