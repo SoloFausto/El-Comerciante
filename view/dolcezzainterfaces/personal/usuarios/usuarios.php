@@ -169,6 +169,69 @@
 </div>
 
 
+<<<<<<< Updated upstream:view/dolcezzainterfaces/personal/usuarios/usuarios.php
+=======
+<style>
+  .empty{
+    height:50vh;
+    width:50px;
+  }
+  .title{
+    display: flex;
+    align-items: center;
+    border:1px solid black;
+    width: 97.4vw;
+    position: fixed;
+    height: 50px;
+    left: 51px;
+    top: 0px;
+  }
+ .navbar{
+    position:fixed;
+    border:1px solid black;
+    width: fit-content;
+    flex: 0 1 0;
+    flex-direction: column;
+    display: flex;
+    bottom: -2px;
+    left: 0px;
+    height: 100vh;
+  }
+  .icon{
+    flex-direction: column;
+    flex: auto;
+    display: flex;
+    width:auto;
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  svg:hover{
+    flex-direction: column;
+    flex: auto;
+    display: flex;
+    width:auto;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
+    }
+  .icon:hover{
+    background-color: black;
+  }
+  .a_icon{
+    height: 54px;
+  }
+  .content{
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    position: fixed;
+    left: 51px;
+    width: 97.4vw;
+    top:50px;
+    }
+    .stat{
+      flex:auto;
+      border:1px solid black;
+    }
+    
+>>>>>>> Stashed changes:view/dolcezzainterfaces/personal/estadisticas/estadisticas.php
 
 </body>
-</html>
+</html>   

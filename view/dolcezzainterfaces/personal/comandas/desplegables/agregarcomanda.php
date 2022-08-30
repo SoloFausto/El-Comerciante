@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../estiloPersonal/estiloAgregarComanda.css">
     <title>Agregar Comanda</title>
+    
     </head>
     <body>
     <h1 class="addcom">Agregar Comanda</h1>
@@ -99,7 +100,5 @@
     </svg></td>
     </tr>
     </table>
-    
-
 </body>
 </html>
