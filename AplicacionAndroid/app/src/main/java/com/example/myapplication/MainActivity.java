@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         WebView w = (WebView) findViewById(R.id.web);
 
         // loading http://www.google.com url in the the WebView.
-        //w.loadUrl("file:///android_asset/tablausuarios.html");
-        w.loadUrl("https://www.facebook.com");
+        w.loadUrl("file:///android_asset/personal/paginaPrincipal/inicio.html");
+        //w.loadUrl("https://www.facebook.com");
         // this will enable the javascript.
         w.getSettings().setJavaScriptEnabled(true);
 
