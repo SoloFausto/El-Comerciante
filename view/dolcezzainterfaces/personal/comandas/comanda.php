@@ -13,60 +13,204 @@
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <script>
-function agregarComanda() {
-  var popup =`<div class="popup">
-    <div class="background"></div>
-    <div class="menuPop">
-      <form action="">
-        <div class="popTitle">
-          <div>
-            <label for="mesa">Mesa:</label>
-            <input type="number" id="mesa" name="mesa" min="1">
-            <label for="llevar">Llevar:</label>
-            <input type="checkbox" id="llevar" onclick="disableMesa()">
+  function formattable(){
+    $('#tablaprods').DataTable();}
+  function agregarComanda() {
+    var popup =`<div class="popup">
+      <div class="background"></div>
+      <div class="menuPop">
+        <form action="">
+          <div class="popTitle">
+            <div>
+              <label for="mesa">Mesa:</label>
+              <input type="number" id="mesa" name="mesa" min="1" >
+              <label for="llevar">Llevar:</label>
+              <input type="checkbox" id="llevar" onclick="disableMesa()">
+            </div>
+            <h2>Agregar</h2>
+            <button type="button" onclick="agregarPlato()" style="border:0px;" id="agregar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg>
+              <p>Agregar plato a la comanda</p>
+            </button>
+            <button type="button" onclick="removeAgregarComanda()" style="border:0px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            </button>
           </div>
-          <h2 style="margin-right: 20vh;">Agregar</h2>
-          <button type="button" onclick="removeAgregarComanda()" style="border:0px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>`;
-  $("body").append(popup);
-  var popup = document.getElementById("agregarpop");
-}
-function disableMesa(){
-  var checkbox = document.getElementById("llevar");
-  var mesa = document.getElementById("mesa");
-  
-  if (mesa.disabled == true){
-    mesa.value = '';
-    mesa.disabled = false;
-  } 
-  else if(mesa.disabled == false){
-    mesa.value = '';
-    mesa.disabled = true;
+          
+        </form>
+        <hr>
+        <h3 style="text-align: center;">Productos a pedir</h3>
+          <div class="">
+              <table class="table tablaprods">
+                  
+                      <tr class="envase">
+                          <td><div><p>*Nombre de el envase*</p></div></td>
+                          <td><div><p>*Cantidad de sabores*</p></div></td>
+                          <td><div><p>*Precio*</p></div></td>
+                          <td>
+                              <div> 
+                                  <button style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                      </svg>
+                                  </button>
+                              </div>
+                          </td> 
+                      </tr>
+                      <tr>
+                          <td></td>
+                          <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
+                          <td>
+                              <button type="button" onclick="" style="border:0px;">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                  </svg>
+                              </button>
+                          </td>
+                      </tr>
+                          <tr>
+                              <td></td>
+                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td><div><p>*Nombre de el plato*</p></div></td>
+                              <td>Cantidad</td>
+                              <td>Precio</td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td><div><p>*Nombre de el plato*</p></div></td>
+                              <td>Cantidad</td>
+                              <td>Precio</td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td><div><p>*Nombre de el plato*</p></div></td>
+                              <td>Cantidad</td>
+                              <td>Precio</td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td><div><p>*Nombre de el plato*</p></div></td>
+                              <td>Cantidad</td>
+                              <td>Precio</td>
+                              <td>
+                                  <button type="button" onclick="" style="border:0px;">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                      </svg>
+                                  </button>
+                              </td>
+                          </tr>
+              </table>
+          </div>
+    </div>`;
+    $("body").append(popup);
+    var popup = document.getElementById("agregarpop");
+  formattable();
   }
-}
-function removeAgregarComanda(){
-  $(".popup").remove();
-}
+  function disableMesa(){
+    var checkbox = document.getElementById("llevar");
+    var mesa = document.getElementById("mesa");
+    
+    if (mesa.disabled == true){
+      mesa.value = '';
+      mesa.disabled = false;
+    } 
+    else if(mesa.disabled == false){
+      mesa.value = '';
+      mesa.disabled = true;
+    }
+  }
+  function removeAgregarComanda(){
+    $(".popup").remove();
+  }
+
 </script>
 
 <div>
   <div class="titlebox">
-  <div id="agregarpop">
-  <button type="button" class="btn btn-success" onclick="agregarComanda()"><i class="bi bi-plus-circle"><br>Agregar </i>
-  </button>
-
-  </div>
-      
+    <div id="agregarpop">
+      <button type="button" class="btn btn-success" onclick="agregarComanda()"><i class="bi bi-plus-circle"><br>Agregar </i>
+      </button>
+    </div>
       <h1>Comandas</h1>
     <div class="titleboxspacer"></div>
     </div>
@@ -87,8 +231,10 @@ function removeAgregarComanda(){
                     </svg>
                   </button>
                   <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" transform = "rotate(45 0 0)"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"  />
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
                   </button>
                 </div>
               </td> 
@@ -97,7 +243,7 @@ function removeAgregarComanda(){
         </table>
       </div>  
     </div>
-    <div class="navbar">
+    <div class="navbar barnav">
       <div class="icon">
         <a href="../paginaPrincipal/inicio.php">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="58" fill="black" class="bi bi-house" viewBox="0 0 16 16">
@@ -132,7 +278,7 @@ function removeAgregarComanda(){
       </div>
 
       <div class="icon">
-        <a href="#">
+        <a href="../menu/menu.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="58" fill="black" class="bi bi-list-ol" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
           <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z"/>

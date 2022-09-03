@@ -1,62 +1,68 @@
-.notes{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-  .tablet{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-  .comandas1{
-    border-left: 5px solid black;
-            height: 50px;
-  }
-  .estadisticas1{
-    border-left: 5px solid black;
-            height: 50px;
-          }
-  table{
+.barnav{
+    position:fixed;
     border:1px solid black;
-    padding:50px;
+    width: fit-content;
+    flex: 0 1 0;
+    flex-direction: column;
+    display: flex;
+    bottom: -2px;
+    left: 0px;
+    height: 100vh;
+    top:0px;
+    z-index: -1;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .icon{
+    flex-direction: column;
+    flex: 0 1 1;
+    display: flex;
+    width:auto;
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  a svg:hover{
+    flex-direction: column;
+    flex: auto;
+    display: flex;
+    width:auto;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
     }
-    .comandas{
-    text-align:center;
-    float:right;
-    margin-right:19%;
+  .icon:hover{
+    background-color: black;
+  }
+  .a_icon{
+    height: 54px;
+  }
+  .titleboxspacer{
+    width: 250;
+  }
+  .titlebox{
+    display: flex;
+    align-items: center;
+    border:1px solid black;
+    width: 97.4vw;
+    position: fixed;
+    height: 50px;
+    left: 51px;
+    top: 0px;
+    justify-content: space-between;
+    z-index: -1;
+  }
+  .content{
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    position: fixed;
+    left: 51px;
+    width: 97.4vw;
+    top:50px;
+    z-index: -2;
     }
-    .estadisticas{
-    text-align:center;
-    float:right;
-    margin-right:19%;
-    } 
-    .stock{
-    text-align:center;
-    float:right;
-    margin-right: 16%;
-    margin-top: 45px;
+    .stat{
+      flex:auto;
+      border:1px solid black;
     }
-    .dispositivos{
-    text-align:center;
-    float:right;
-    margin-right:16%;
-    margin-top: 45px;
-    }
-    div{
-        margin-top:10px;
-        
-    }
-    a{
-        text-decoration:none;
-        color:black;
-    }
-    a:hover{ text-decoration:none;
-        color:black;
-        
-    }
-    .settings{
-        margin-top:230px;
-        border-left: 5px solid black;
-            height: 50px;
-    }
-    .warning{
-        float:right;
-    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }

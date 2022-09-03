@@ -39,7 +39,7 @@ table{
 .titleboxspacer{
   width: 250;
 }
-.navbar{
+.barnav{
   position:fixed;
   border:1px solid black;
   width: fit-content;
@@ -53,6 +53,9 @@ table{
   z-index: -1;
   justify-content: flex-start;
   gap: 20px;
+}
+.plato {
+  padding: 5px;
 }
 .icon{
   flex-direction: column;
