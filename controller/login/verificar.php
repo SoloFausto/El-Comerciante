@@ -25,9 +25,10 @@
        echo "Ingresaste $PostUser $PostPass, el resultado es $nam $pass";
 
       if($rol != ""){ /*Verifica que el Usuario tenga Rol*/
+
       if(($PostPass == $pass)||($PostUser == $nam)){ /*Si tiene Rol Este verifica que la cuenta sea correcta o exista*/
           header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
-          session_start();
+          session_start(); /*Si Todo esta bien, Crea una sesión*/
       }
     }else{ /*Si NO tiene Rol o La cuenta esta mal ingresada, lo devuelve al inicio*/
         header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
