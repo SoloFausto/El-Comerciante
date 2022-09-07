@@ -148,3 +148,8 @@ a svg:hover{
     width: 100vw;
     z-index: 2;
   }
+  .popupHelado{
+    height: 100vh;
+    width: 100vw;
+    z-index: 6;
+  }
