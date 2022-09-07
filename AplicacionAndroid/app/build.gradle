@@ -3,10 +3,16 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        app1 {
+            storeFile file('C:\\Users\\faust\\keystore1.jks')
+            storePassword 'masteroftheorder'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId 'com.corvus.dolcezzaapp'
         minSdk 28
         targetSdk 32
         versionCode 1
