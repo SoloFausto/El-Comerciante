@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@
   <h1>Pagina Principal</h1>
   <div class="titleboxspacer"></div>
 </div>
-  <?php include("../../../dolcezzainterfaces/Barnew/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+  <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
 <div class="content">
 </div>
   </body>

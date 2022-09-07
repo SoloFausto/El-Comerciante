@@ -19,7 +19,7 @@
   <div class="titleboxspacer"></div>
 </div>
 
-  <?php include("../../../dolcezzainterfaces/Barnew/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+  <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
 
 <div class="content">
 <div class="stat"><h1>Este mes</h1></div>
