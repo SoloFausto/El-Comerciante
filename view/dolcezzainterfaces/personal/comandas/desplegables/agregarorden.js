@@ -1,4 +1,6 @@
-<div class="agregarPlatoPopUp">
+function agregarPlato(){
+    var agregar = `
+    <div class="agregarPlatoPopUp">
         <div class="background" style="z-index: 2;"></div>
         <div class="menuAdd">
             <div class="addOrderTitle">
@@ -66,3 +68,9 @@
         <br>
         </div>
     </div>
+    `;
+    $(".popup").before(agregar);
+  }
+  function removeAgregarPlato(){
+    $(".agregarPlatoPopUp").remove();
+  }

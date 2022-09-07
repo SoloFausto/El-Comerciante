@@ -40,7 +40,9 @@
   <h1>Pagina Principal</h1>
   <div class="titleboxspacer"></div>
 </div>
+
   <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+  
 <div class="content">
 </div>
   </body>

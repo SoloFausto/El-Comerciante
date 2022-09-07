@@ -16,55 +16,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-<script>
-  function formattable(){
-    $('#tablaprods').DataTable();}
-  function agregarComanda() {
-    var popup =`
-      <?php include("desplegables/agregarcomanda.php")?>
-    `;
-    $("body").append(popup);
-    var popup = document.getElementById("agregarpop");
-  formattable();
-  }
-  function disableMesa(){
-    var checkbox = document.getElementById("llevar");
-    var mesa = document.getElementById("mesa");
-    
-    if (mesa.disabled == true){
-      mesa.value = '';
-      mesa.disabled = false;
-    } 
-    else if(mesa.disabled == false){
-      mesa.value = '';
-      mesa.disabled = true;
-    }
-  }
-  function removeAgregarComanda(){
-    $(".popup").remove();
-  }
-  function agregarPlato(){
-    var agregar = `
-    <?php include("desplegables/agregarorden.php");?>
-    `;
-    $(".popup").before(agregar);
-  }
-  function removeAgregarPlato(){
-    $(".agregarPlatoPopUp").remove();
-  }
-  function agregarHelado(){
-    var agregarHelado = `  
-    <?php include("desplegables/seleccionarsabores.php");?>
-    `;
-    $(".agregarPlatoPopUp").before(agregarHelado);
-
-  }
-  function removeAgregarHelado(){
-    $(".popupHelado").remove();
-  }
-
-</script>
-
+<!-- Estos 3 traen los desplegables desde esas rutas. -->
+<script src="desplegables/agregarcomanda.js"></script>
+<script src="desplegables/agregarorden.js"></script>
+<script src="desplegables/seleccionarsabores.js"></script>
+<!--  ----------------------------------------------  -->
 <div>
   <div class="titlebox">
     <div id="agregarpop">

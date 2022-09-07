@@ -1,4 +1,8 @@
-<div class="popup">
+function formattable(){
+    $('#tablaprods').DataTable();}
+  function agregarComanda() {
+    var popup =`
+    <div class="popup">
       <div class="background" style="z-index: 0;"></div>
       <div class="menuPop">
         <form action="">
@@ -161,3 +165,23 @@
               </table>
           </div>
     </div>
+    `;
+    $("body").append(popup);
+    var popup = document.getElementById("agregarpop");
+  formattable();
+  }
+  function disableMesa(){
+    var checkbox = document.getElementById("llevar");
+    var mesa = document.getElementById("mesa");
+    
+    if (mesa.disabled == true){
+      mesa.value = '';
+      mesa.disabled = false;
+    } 
+    else if(mesa.disabled == false){
+      mesa.value = '';
+      mesa.disabled = true;
+    }
+  }function removeAgregarComanda(){
+    $(".popup").remove();
+  }

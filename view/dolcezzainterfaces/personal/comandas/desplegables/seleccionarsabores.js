@@ -1,4 +1,6 @@
-<div class="popupHelado">
+function agregarHelado(){
+    var agregarHelado = `  
+    <div class="popupHelado">
         <div class="background" style="z-index:7;"></div>
         <div class="menuAdd"style="z-index:8;">
             <div class="addOrderTitle">
@@ -71,3 +73,10 @@
         <br>
         </div>
     </div>
+    `;
+    $(".agregarPlatoPopUp").before(agregarHelado);
+
+  }
+  function removeAgregarHelado(){
+    $(".popupHelado").remove();
+  }
