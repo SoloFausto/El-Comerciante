@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2022 at 10:59 AM
+-- Generation Time: Sep 09, 2022 at 04:26 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -20,31 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `elcomerciantedb`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cafereposteria`
---
-
-CREATE TABLE `cafereposteria` (
-  `id` int(255) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `precio` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cafereposteria_comanda`
---
-
-CREATE TABLE `cafereposteria_comanda` (
-  `idCafeReposteria` int(255) DEFAULT NULL,
-  `numComanda` int(255) DEFAULT NULL,
-  `cantidad` int(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -67,7 +42,7 @@ CREATE TABLE `comanda` (
 --
 
 CREATE TABLE `comanda_envase_helado` (
-  `idEnvase` int(255) DEFAULT NULL,
+  `idEnvase` int(255) NOT NULL,
   `idHelado` int(255) DEFAULT NULL,
   `numComanda` int(255) DEFAULT NULL,
   `numEnvase` int(255) DEFAULT NULL,
@@ -85,18 +60,6 @@ CREATE TABLE `combo` (
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `precio` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `combo_cafereposteria`
---
-
-CREATE TABLE `combo_cafereposteria` (
-  `idCombo` int(255) DEFAULT NULL,
-  `idCafeReposteria` int(255) NOT NULL,
-  `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -126,12 +89,12 @@ CREATE TABLE `combo_envase` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `combo_paleta`
+-- Table structure for table `combo_producto`
 --
 
-CREATE TABLE `combo_paleta` (
+CREATE TABLE `combo_producto` (
   `idCombo` int(255) DEFAULT NULL,
-  `idPaleta` int(255) DEFAULT NULL,
+  `idProducto` int(255) DEFAULT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -177,10 +140,10 @@ CREATE TABLE `helado` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paleta`
+-- Table structure for table `producto`
 --
 
-CREATE TABLE `paleta` (
+CREATE TABLE `producto` (
   `id` int(255) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
@@ -190,11 +153,11 @@ CREATE TABLE `paleta` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paleta_comanda`
+-- Table structure for table `producto_comanda`
 --
 
-CREATE TABLE `paleta_comanda` (
-  `idPaleta` int(255) DEFAULT NULL,
+CREATE TABLE `producto_comanda` (
+  `idProducto` int(255) DEFAULT NULL,
   `numComanda` int(255) DEFAULT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -239,19 +202,6 @@ CREATE TABLE `usuario` (
 --
 
 --
--- Indexes for table `cafereposteria`
---
-ALTER TABLE `cafereposteria`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `cafereposteria_comanda`
---
-ALTER TABLE `cafereposteria_comanda`
-  ADD KEY `FK_CafeComanda_Cafe` (`idCafeReposteria`),
-  ADD KEY `FK_CafeComanda_Comanda` (`numComanda`);
-
---
 -- Indexes for table `comanda`
 --
 ALTER TABLE `comanda`
@@ -262,8 +212,8 @@ ALTER TABLE `comanda`
 -- Indexes for table `comanda_envase_helado`
 --
 ALTER TABLE `comanda_envase_helado`
+  ADD PRIMARY KEY (`idEnvase`),
   ADD KEY `FK_ComandaEnvaseHelado_Comanda` (`numComanda`),
-  ADD KEY `FK_ComandaEnvaseHelado_Envase` (`idEnvase`),
   ADD KEY `FK_ComandaEnvaseHelado_Helado` (`idHelado`);
 
 --
@@ -271,13 +221,6 @@ ALTER TABLE `comanda_envase_helado`
 --
 ALTER TABLE `combo`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `combo_cafereposteria`
---
-ALTER TABLE `combo_cafereposteria`
-  ADD KEY `FK_CafeCombo_Cafe` (`idCafeReposteria`),
-  ADD KEY `FK_CafeCombo_Combo` (`idCombo`);
 
 --
 -- Indexes for table `combo_comanda`
@@ -294,11 +237,11 @@ ALTER TABLE `combo_envase`
   ADD KEY `FK_ComboEnvase_Envase` (`idEnvase`);
 
 --
--- Indexes for table `combo_paleta`
+-- Indexes for table `combo_producto`
 --
-ALTER TABLE `combo_paleta`
+ALTER TABLE `combo_producto`
   ADD KEY `FK_ComboPaleta_Combo` (`idCombo`),
-  ADD KEY `FK_ComboPaleta_Paleta` (`idPaleta`);
+  ADD KEY `FK_ComboProducto_Producto` (`idProducto`);
 
 --
 -- Indexes for table `envase`
@@ -310,7 +253,8 @@ ALTER TABLE `envase`
 -- Indexes for table `envase_helado`
 --
 ALTER TABLE `envase_helado`
-  ADD KEY `FK_EnvaseHelado_Envase` (`idEnvase`);
+  ADD KEY `FK_EnvaseHelado_Envase` (`idEnvase`),
+  ADD KEY `FK_EnvaseHelado_Helado` (`idHelado`);
 
 --
 -- Indexes for table `helado`
@@ -319,17 +263,17 @@ ALTER TABLE `helado`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `paleta`
+-- Indexes for table `producto`
 --
-ALTER TABLE `paleta`
+ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `paleta_comanda`
+-- Indexes for table `producto_comanda`
 --
-ALTER TABLE `paleta_comanda`
-  ADD KEY `FK_PaletaComanda_Paleta` (`idPaleta`),
-  ADD KEY `FK_PaletaComanda_Comanda` (`numComanda`);
+ALTER TABLE `producto_comanda`
+  ADD KEY `FK_ComandaProducto_Producto` (`idProducto`),
+  ADD KEY `FK_ComandaProducto_Comanda` (`numComanda`);
 
 --
 -- Indexes for table `rol`
@@ -351,15 +295,54 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `cafereposteria_comanda`
+-- AUTO_INCREMENT for table `comanda`
 --
-ALTER TABLE `cafereposteria_comanda`
-  ADD CONSTRAINT `FK_CafeComanda_Cafe` FOREIGN KEY (`idCafeReposteria`) REFERENCES `cafereposteria` (`id`),
-  ADD CONSTRAINT `FK_CafeComanda_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`);
+ALTER TABLE `comanda`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `combo`
+--
+ALTER TABLE `combo`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `envase`
+--
+ALTER TABLE `envase`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `helado`
+--
+ALTER TABLE `helado`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
 
 --
 -- Constraints for table `comanda`
@@ -376,13 +359,6 @@ ALTER TABLE `comanda_envase_helado`
   ADD CONSTRAINT `FK_ComandaEnvaseHelado_Helado` FOREIGN KEY (`idHelado`) REFERENCES `helado` (`id`);
 
 --
--- Constraints for table `combo_cafereposteria`
---
-ALTER TABLE `combo_cafereposteria`
-  ADD CONSTRAINT `FK_CafeCombo_Cafe` FOREIGN KEY (`idCafeReposteria`) REFERENCES `cafereposteria` (`id`),
-  ADD CONSTRAINT `FK_CafeCombo_Combo` FOREIGN KEY (`idCombo`) REFERENCES `combo` (`id`);
-
---
 -- Constraints for table `combo_comanda`
 --
 ALTER TABLE `combo_comanda`
@@ -397,24 +373,25 @@ ALTER TABLE `combo_envase`
   ADD CONSTRAINT `FK_ComboEnvase_Envase` FOREIGN KEY (`idEnvase`) REFERENCES `envase` (`id`);
 
 --
--- Constraints for table `combo_paleta`
+-- Constraints for table `combo_producto`
 --
-ALTER TABLE `combo_paleta`
-  ADD CONSTRAINT `FK_ComboPaleta_Combo` FOREIGN KEY (`idCombo`) REFERENCES `combo` (`id`),
-  ADD CONSTRAINT `FK_ComboPaleta_Paleta` FOREIGN KEY (`idPaleta`) REFERENCES `paleta` (`id`);
+ALTER TABLE `combo_producto`
+  ADD CONSTRAINT `FK_ComboProducto_Producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`),
+  ADD CONSTRAINT `FK_comboProducto_Combo` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`);
 
 --
 -- Constraints for table `envase_helado`
 --
 ALTER TABLE `envase_helado`
-  ADD CONSTRAINT `FK_EnvaseHelado_Envase` FOREIGN KEY (`idEnvase`) REFERENCES `envase` (`id`);
+  ADD CONSTRAINT `FK_EnvaseHelado_Envase` FOREIGN KEY (`idEnvase`) REFERENCES `envase` (`id`),
+  ADD CONSTRAINT `FK_EnvaseHelado_Helado` FOREIGN KEY (`idHelado`) REFERENCES `helado` (`id`);
 
 --
--- Constraints for table `paleta_comanda`
+-- Constraints for table `producto_comanda`
 --
-ALTER TABLE `paleta_comanda`
-  ADD CONSTRAINT `FK_PaletaComanda_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`),
-  ADD CONSTRAINT `FK_PaletaComanda_Paleta` FOREIGN KEY (`idPaleta`) REFERENCES `paleta` (`id`);
+ALTER TABLE `producto_comanda`
+  ADD CONSTRAINT `FK_ComandaProducto_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`),
+  ADD CONSTRAINT `FK_ComandaProducto_Producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`);
 
 --
 -- Constraints for table `rol_usuario`
