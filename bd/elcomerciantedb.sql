@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2022 at 04:26 AM
+-- Generation Time: Sep 09, 2022 at 08:52 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -35,6 +35,15 @@ CREATE TABLE `comanda` (
   `idUsuario` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `comanda`
+--
+
+INSERT INTO `comanda` (`id`, `mesa`, `total`, `estado`, `idUsuario`) VALUES
+(1, 0, 280, 1, 2),
+(2, 0, 125, 1, 1),
+(3, 1, 185, 0, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -43,11 +52,19 @@ CREATE TABLE `comanda` (
 
 CREATE TABLE `comanda_envase_helado` (
   `idEnvase` int(255) NOT NULL,
-  `idHelado` int(255) DEFAULT NULL,
-  `numComanda` int(255) DEFAULT NULL,
-  `numEnvase` int(255) DEFAULT NULL,
+  `idHelado` int(255) NOT NULL,
+  `numComanda` int(255) NOT NULL,
+  `numEnvase` int(255) NOT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comanda_envase_helado`
+--
+
+INSERT INTO `comanda_envase_helado` (`idEnvase`, `idHelado`, `numComanda`, `numEnvase`, `cantidad`) VALUES
+(1, 1, 1, 1, 3),
+(1, 2, 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -62,6 +79,14 @@ CREATE TABLE `combo` (
   `precio` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `combo`
+--
+
+INSERT INTO `combo` (`id`, `nombre`, `descripcion`, `precio`) VALUES
+(1, 'Combo capuccino y envase grande', 'un café capuccino y un envase grande de helado :D', 185),
+(2, 'Combo de verano', 'Unas paletas de helado y un buen postre fresco para este verano:D', 125);
+
 -- --------------------------------------------------------
 
 --
@@ -69,10 +94,17 @@ CREATE TABLE `combo` (
 --
 
 CREATE TABLE `combo_comanda` (
-  `idCombo` int(255) DEFAULT NULL,
-  `numComanda` int(255) DEFAULT NULL,
+  `idCombo` int(255) NOT NULL,
+  `numComanda` int(255) NOT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `combo_comanda`
+--
+
+INSERT INTO `combo_comanda` (`idCombo`, `numComanda`, `cantidad`) VALUES
+(1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -81,10 +113,17 @@ CREATE TABLE `combo_comanda` (
 --
 
 CREATE TABLE `combo_envase` (
-  `idCombo` int(255) DEFAULT NULL,
-  `idEnvase` int(255) DEFAULT NULL,
+  `idCombo` int(255) NOT NULL,
+  `idEnvase` int(255) NOT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `combo_envase`
+--
+
+INSERT INTO `combo_envase` (`idCombo`, `idEnvase`, `cantidad`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -93,10 +132,19 @@ CREATE TABLE `combo_envase` (
 --
 
 CREATE TABLE `combo_producto` (
-  `idCombo` int(255) DEFAULT NULL,
-  `idProducto` int(255) DEFAULT NULL,
+  `idCombo` int(255) NOT NULL,
+  `idProducto` int(255) NOT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `combo_producto`
+--
+
+INSERT INTO `combo_producto` (`idCombo`, `idProducto`, `cantidad`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(2, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -112,18 +160,13 @@ CREATE TABLE `envase` (
   `precio` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `envase_helado`
+-- Dumping data for table `envase`
 --
 
-CREATE TABLE `envase_helado` (
-  `idEnvase` int(255) DEFAULT NULL,
-  `idHelado` int(255) DEFAULT NULL,
-  `numEnvase` int(255) DEFAULT NULL,
-  `cantidad` int(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `envase` (`id`, `nombre`, `descripcion`, `capacidad`, `precio`) VALUES
+(1, 'Envase grande', 'El más grande envase para el más grande disfrute', 6, 200),
+(2, 'Envase mediano', 'Envase con una cantidad moderada de helado para disfrutar con un amigo', 4, 160);
 
 -- --------------------------------------------------------
 
@@ -136,6 +179,14 @@ CREATE TABLE `helado` (
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `helado`
+--
+
+INSERT INTO `helado` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Dulce de leche granizado', 'Crema de dulce de leche con chispas de chocolate'),
+(2, 'Menta granizada', 'El segundo mejor sabor de helado después de el de café');
 
 -- --------------------------------------------------------
 
@@ -150,6 +201,16 @@ CREATE TABLE `producto` (
   `precio` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `producto`
+--
+
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`) VALUES
+(1, 'Capuccino', 'El mejor espumoso capuccino del país', 80),
+(2, 'Cheesecake', 'Un postre fresco y delicioso, perfecto para una tarde de verano', 100),
+(3, 'Escón de queso', 'Escones de queso caseros', 25),
+(4, 'Paleta helada', 'Una refrescante paleta para matar el calor', 80);
+
 -- --------------------------------------------------------
 
 --
@@ -157,33 +218,19 @@ CREATE TABLE `producto` (
 --
 
 CREATE TABLE `producto_comanda` (
-  `idProducto` int(255) DEFAULT NULL,
-  `numComanda` int(255) DEFAULT NULL,
+  `idProducto` int(255) NOT NULL,
+  `numComanda` int(255) NOT NULL,
   `cantidad` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `rol`
+-- Dumping data for table `producto_comanda`
 --
 
-CREATE TABLE `rol` (
-  `id` int(255) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `permisos` int(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rol_usuario`
---
-
-CREATE TABLE `rol_usuario` (
-  `idRol` int(255) DEFAULT NULL,
-  `idUsuario` int(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `producto_comanda` (`idProducto`, `numComanda`, `cantidad`) VALUES
+(1, 2, 1),
+(2, 2, 1),
+(3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -196,6 +243,16 @@ CREATE TABLE `usuario` (
   `nombre` varchar(255) DEFAULT NULL,
   `contrasena` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `contrasena`) VALUES
+(1, 'Lucas', 'passw'),
+(2, 'Fausto', 'passw'),
+(3, 'Mesa-1', 'XWJK'),
+(4, 'Mesa-2', 'JXOT');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +269,7 @@ ALTER TABLE `comanda`
 -- Indexes for table `comanda_envase_helado`
 --
 ALTER TABLE `comanda_envase_helado`
-  ADD PRIMARY KEY (`idEnvase`),
+  ADD PRIMARY KEY (`idEnvase`,`idHelado`,`numComanda`,`numEnvase`),
   ADD KEY `FK_ComandaEnvaseHelado_Comanda` (`numComanda`),
   ADD KEY `FK_ComandaEnvaseHelado_Helado` (`idHelado`);
 
@@ -226,21 +283,21 @@ ALTER TABLE `combo`
 -- Indexes for table `combo_comanda`
 --
 ALTER TABLE `combo_comanda`
-  ADD KEY `FK_ComandaCombo_Comanda` (`numComanda`),
-  ADD KEY `FK_ComandaCombo_Combo` (`idCombo`);
+  ADD PRIMARY KEY (`idCombo`,`numComanda`),
+  ADD KEY `FK_ComandaCombo_Comanda` (`numComanda`);
 
 --
 -- Indexes for table `combo_envase`
 --
 ALTER TABLE `combo_envase`
-  ADD KEY `FK_ComboEnvase_Combo` (`idCombo`),
+  ADD PRIMARY KEY (`idCombo`,`idEnvase`),
   ADD KEY `FK_ComboEnvase_Envase` (`idEnvase`);
 
 --
 -- Indexes for table `combo_producto`
 --
 ALTER TABLE `combo_producto`
-  ADD KEY `FK_ComboPaleta_Combo` (`idCombo`),
+  ADD PRIMARY KEY (`idCombo`,`idProducto`),
   ADD KEY `FK_ComboProducto_Producto` (`idProducto`);
 
 --
@@ -248,13 +305,6 @@ ALTER TABLE `combo_producto`
 --
 ALTER TABLE `envase`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `envase_helado`
---
-ALTER TABLE `envase_helado`
-  ADD KEY `FK_EnvaseHelado_Envase` (`idEnvase`),
-  ADD KEY `FK_EnvaseHelado_Helado` (`idHelado`);
 
 --
 -- Indexes for table `helado`
@@ -272,21 +322,8 @@ ALTER TABLE `producto`
 -- Indexes for table `producto_comanda`
 --
 ALTER TABLE `producto_comanda`
-  ADD KEY `FK_ComandaProducto_Producto` (`idProducto`),
+  ADD PRIMARY KEY (`idProducto`,`numComanda`),
   ADD KEY `FK_ComandaProducto_Comanda` (`numComanda`);
-
---
--- Indexes for table `rol`
---
-ALTER TABLE `rol`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rol_usuario`
---
-ALTER TABLE `rol_usuario`
-  ADD KEY `FK_RolUsuario_Rol` (`idRol`),
-  ADD KEY `FK_RolUsuario_Usuario` (`idUsuario`);
 
 --
 -- Indexes for table `usuario`
@@ -302,43 +339,37 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `comanda`
 --
 ALTER TABLE `comanda`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `combo`
 --
 ALTER TABLE `combo`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `envase`
 --
 ALTER TABLE `envase`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `helado`
 --
 ALTER TABLE `helado`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `rol`
---
-ALTER TABLE `rol`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -377,14 +408,7 @@ ALTER TABLE `combo_envase`
 --
 ALTER TABLE `combo_producto`
   ADD CONSTRAINT `FK_ComboProducto_Producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`),
-  ADD CONSTRAINT `FK_comboProducto_Combo` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`);
-
---
--- Constraints for table `envase_helado`
---
-ALTER TABLE `envase_helado`
-  ADD CONSTRAINT `FK_EnvaseHelado_Envase` FOREIGN KEY (`idEnvase`) REFERENCES `envase` (`id`),
-  ADD CONSTRAINT `FK_EnvaseHelado_Helado` FOREIGN KEY (`idHelado`) REFERENCES `helado` (`id`);
+  ADD CONSTRAINT `FK_comboProducto_Combo` FOREIGN KEY (`idCombo`) REFERENCES `combo` (`id`);
 
 --
 -- Constraints for table `producto_comanda`
@@ -392,13 +416,6 @@ ALTER TABLE `envase_helado`
 ALTER TABLE `producto_comanda`
   ADD CONSTRAINT `FK_ComandaProducto_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`),
   ADD CONSTRAINT `FK_ComandaProducto_Producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`);
-
---
--- Constraints for table `rol_usuario`
---
-ALTER TABLE `rol_usuario`
-  ADD CONSTRAINT `FK_RolUsuario_Rol` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`),
-  ADD CONSTRAINT `FK_RolUsuario_Usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
