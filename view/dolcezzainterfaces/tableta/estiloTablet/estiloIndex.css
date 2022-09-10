@@ -1,0 +1,15 @@
+body{
+    background-color: rgba(255, 213, 124, 0.623);
+    text-align: center;
+}
+.imgDolcezza{
+    width: 13%;
+    height: 13%;
+	border-radius: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+.send{
+    color: black;
+    margin-top: 2%;
+}
