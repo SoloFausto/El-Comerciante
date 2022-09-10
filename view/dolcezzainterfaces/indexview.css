@@ -4,12 +4,15 @@ body{
 .img{
     text-align: center;
     border-radius: 100px;
+	padding-top: 5%;
 }
 .imagendolcezza{
     width: 13%;
     height: 13%;
-    padding-top: 5%;
     text-align: center;
+	border-radius: 10%;
+	border-top-left-radius: 10%;
+	border-top-right-radius: 10%;
 }
 .fondo{
     background-color: rgba(255, 203, 124, 0.623);
@@ -19,6 +22,12 @@ body{
 	display:inline-flex;
     flex-direction: column;
 	padding:10px 26px;
+	width: 30%;
+	height: 70%;
+}
+.seleccion{
+	padding-top: 5%;
+	padding-bottom: 7%;
 }
 .inSesion {
 	box-shadow: 0px 1px 0px 0px #ffffff;
