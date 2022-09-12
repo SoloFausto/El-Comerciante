@@ -22,10 +22,9 @@
   <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
 
 <div class="content">
-<div class="stat"><h1>Este mes</h1></div>
-  <div class="stat"><h1>Generales</h1></div>
-  <div class="stat"><h1>Este año</h1></div>
-  <div class="stat"><h1>stock de helados</h1></div>
+<div class="stat"><h1>Estadisticas</h1></div>
+  <div class="stat"><h1>Comandas</h1></div>
+  <div class="stat"><h1>Dispositivos</h1></div>
 </div>
   </body>
 </html>

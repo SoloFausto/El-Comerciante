@@ -1,5 +1,4 @@
-function formattable(){
-    $('#tablaprods').DataTable();}
+
   function agregarComanda() {
     var popup =`
     <div class="popup">
@@ -168,7 +167,6 @@ function formattable(){
     `;
     $("body").append(popup);
     var popup = document.getElementById("agregarpop");
-  formattable();
   }
   function disableMesa(){
     var checkbox = document.getElementById("llevar");

@@ -23,10 +23,7 @@
   </div>
   <div class="page">
     <div class="content">
-      <div class="stat"><h1>Este mes</h1></div>
-      <div class="stat"><h1>Generales</h1></div>
-      <div class="stat"><h1>Este año</h1></div>
-      <div class="stat"><h1>stock de helados</h1></div>
+    
     </div>
   </div>
 
