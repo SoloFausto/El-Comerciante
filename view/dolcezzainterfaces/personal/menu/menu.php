@@ -8,29 +8,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../estiloPersonal/estiloMenu.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title>Menu de el restaurante</title>
 </head>
 
 
 <body>
-  <script src="/desplegables/agregarenvase.js"></script>
+<script src="../menu/desplegables/agregarenvase.js"></script>
+<script src="../menu/desplegables/agregarhelado.js"></script>
+<script src="../menu/desplegables/agregarproducto.js"></script>
+<script src="../menu/desplegables/agregarcombo.js"></script>
 <div class="titlebox">
 <div class="buttons">
   <div id="agregarpop">
-        <button type="button" class="btn btn-success" onclick="agregarenvase()"><img src="https://cdn0.iconfinder.com/data/icons/fastfood-29/64/ice-cream-dessert-topping-cup-food-sweet-25.png"><br>Agregar Envase </i>
+        <button type="button" class="btn btn-success" onclick="agregarEnvase()"><img src="https://cdn0.iconfinder.com/data/icons/fastfood-29/64/ice-cream-dessert-topping-cup-food-sweet-25.png"><br>Agregar Envase </i>
         </button>
       </div>
       <div id="agregarpop">
-        <button type="button" class="btn btn-success" onclick="agregarComanda()"><img src="https://cdn4.iconfinder.com/data/icons/food-and-equipment-outline/32/cup-25.png"><br>Agregar Producto </i>
+        <button type="button" class="btn btn-success" onclick="agregarProducto()"><img src="https://cdn4.iconfinder.com/data/icons/food-and-equipment-outline/32/cup-25.png"><br>Agregar Producto </i>
         </button>
       </div>
       <div id="agregarpop">
-        <button type="button" class="btn btn-success" onclick="agregarComanda()"><img src="https://cdn0.iconfinder.com/data/icons/valentine-2119/64/Valentine_Outline__ice_cream-love-valentines-sweetheart-romantic-25.png"><br>Agregar Sabor Helado </i>
+        <button type="button" class="btn btn-success" onclick="agregarHelado()"><img src="https://cdn0.iconfinder.com/data/icons/valentine-2119/64/Valentine_Outline__ice_cream-love-valentines-sweetheart-romantic-25.png"><br>Agregar Sabor Helado </i>
         </button>
       </div>
       <div id="agregarpop">
-        <button type="button" class="btn btn-success" onclick="agregarComanda()"><img src="https://cdn0.iconfinder.com/data/icons/ice-cup-cake-1/227/icecupcake-10-28.png"><br>Agregar Combo </i>
+        <button type="button" class="btn btn-success" onclick="agregarCombo()"><img src="https://cdn0.iconfinder.com/data/icons/ice-cup-cake-1/227/icecupcake-10-28.png"><br>Agregar Combo </i>
         </button>
       </div>
 </div>
