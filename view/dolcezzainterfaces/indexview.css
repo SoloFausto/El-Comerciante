@@ -1,16 +1,23 @@
 body{
     background-color: rgba(255, 213, 124, 0.623);
 }
+
+.backgroundImage{
+  background-image: url("dolcezzabckgr.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 200px;
+  width: 200px;
+}
 .img{
     text-align: center;
     border-radius: 100px;
 
 }
 .imagendolcezza{
-    width: 50%;
-	border-radius: 10%;
-	border-top-left-radius: 10%;
-	border-top-right-radius: 10%;
+    width: 70%;
+	border-radius: 30px;
+	margin-bottom: 10%;
 }
 .fondo{
     background-color: rgba(255, 203, 124, 0.623);
@@ -19,17 +26,19 @@ body{
 	border:1px solid #999999;
 	display:inline-flex;
     flex-direction: column;
-	padding:10px 26px;
-	width: 30%;
-	height: 70%;
-	object-position: 50%;
+	padding-top: 3%; 
+	margin-left: 40%;
+	width: 20%;
+	align-items: center;
+	border-radius: 20px;
 }
 .seleccion{
 	padding-top: 5%;
 	padding-bottom: 7%;
+	width: 90%;
 }
 .inSesion {
-	box-shadow: 0px 1px 0px 0px #ffffff;
+	box-shadow: 0px 1px 0px 0px #00000036;
 	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
 	background-color:#eae0c2;
 	border-radius:16px;
@@ -38,11 +47,14 @@ body{
 	cursor:pointer;
 	color:#505739;
 	font-family:Arial;
-	font-size:17px;
+	font-size:100%;
 	font-weight:bold;
-	padding:10px 26px;
+	width: 100%;
+	padding-top: 6%;
+	padding-bottom: 6%;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #c2c2c2;
+	text-shadow:0px 1px 0px #00000036;
+	margin-bottom: 1%;
 }
 .inSesion:hover {
 	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
@@ -53,7 +65,7 @@ body{
 	top:1px;
 }
 .newTablet {
-	box-shadow: 0px 1px 0px 0px #ffffff;
+	box-shadow: 0px 1px 0px 0px #00000036;
 	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
 	background-color:#eae0c2;
 	border-radius:16px;
@@ -62,11 +74,13 @@ body{
 	cursor:pointer;
 	color:#505739;
 	font-family:Arial;
-	font-size:17px;
+	font-size:100%;
 	font-weight:bold;
-	padding:10px 26px;
+	width: 100%;
+	padding-top: 6%;
+	padding-bottom: 6%;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #c2c2c2;
+	text-shadow:0px 1px 0px #00000036;
 }
 .newTablet:hover {
 	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
