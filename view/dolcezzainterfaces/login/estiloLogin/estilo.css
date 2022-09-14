@@ -3,8 +3,7 @@ body {
   padding: 0;
   background-size: cover;
   font-family: sans-serif;
-  height: 100vh;
-  background-image: url(background.png);
+  background-color: rgb(231, 191, 155);
 }
 
 .login-box {
@@ -21,7 +20,7 @@ body {
   -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
   border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10%;
+  border-radius: 20px;
 }
 
 .login-box .avatar {
