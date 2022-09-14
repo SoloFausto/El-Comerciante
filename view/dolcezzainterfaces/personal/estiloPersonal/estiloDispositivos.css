@@ -68,7 +68,7 @@
     position: fixed;
     height: 50px;
     left: 51px;
-    top: 93vh;
+    bottom: 0px;
     justify-content: space-between;
     z-index: -1;
 } 
