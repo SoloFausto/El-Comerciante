@@ -1,14 +1,6 @@
 body{
     background-color: rgba(255, 213, 124, 0.623);
 }
-
-.backgroundImage{
-  background-image: url("dolcezzabckgr.jpg");
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  height: 200px;
-  width: 200px;
-}
 .img{
     text-align: center;
     border-radius: 100px;
