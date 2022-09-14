@@ -1,16 +1,15 @@
 body{
-    background-color: rgba(255, 213, 124, 0.623);
+	background-image: url("resources/dolcezzabckgr.jpg");
+	background-repeat:no-repeat;
+	background-size: cover;
 }
 .imagendolcezza{
     width: 70%;
 	border-radius: 30px;
 	margin-bottom: 10%;
 }
-#background {
-	background-image: url(./resources/dolcezzabckgr.jpg);
+.background{
 	background-attachment: fixed;
-	background-size: cover;
-
 }
 .fondo{
     background-color: rgba(255, 203, 124, 0.623);
