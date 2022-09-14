@@ -1,4 +1,6 @@
 body{
+    font-family: var(--bs-body-font-family);
+    line-height: var(--bs-body-line-height);
     background-color: rgba(255, 213, 124, 0.623);
     text-align: center;
 }
@@ -20,8 +22,8 @@ body {
     background-size: cover;
     font-family: sans-serif;
     background-color: rgb(231, 191, 155);
-  }
-  
+  } /* Hay que Ver como sobreescribir el css del boostrapt, yo no supe hacerlo y ademas, elegir cual body dejar xD */
+
   .login-box {
     width: 320px;
     height: 420px;
@@ -77,7 +79,7 @@ body {
     font-size: 16px;
   }
   
-  .login-box input[type="submit"] {
+  .login-box button[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -87,7 +89,7 @@ body {
     border-radius: 20px;
   }
   
-  .login-box input[type="submit"]:hover {
+  .login-box button[type="submit"]:hover {
     cursor: pointer;
     background: #5c4b2d;
     color: #000;
