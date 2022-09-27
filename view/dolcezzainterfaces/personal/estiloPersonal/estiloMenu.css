@@ -109,3 +109,15 @@
         width: 100vw;
         z-index: 0;
       }
+      .agregarComboDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .popTitle{
+        margin-right: 40px;
+        margin-left: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
