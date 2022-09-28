@@ -29,7 +29,8 @@
             ?>
     </div>
     <div class="floor">
-        
+        <div class="total"><h3>Total: $</h3></div>
+        <div class="carrito"><img src="" alt="Carrito de compra"></div>
     </div>
 
 </body>
