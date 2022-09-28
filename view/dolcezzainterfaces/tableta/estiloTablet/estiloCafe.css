@@ -70,6 +70,7 @@
         width: 100%;
         z-index: -1;
         margin-top: 100px;
+        margin-bottom: 50px;
     }
     td{
         display: flex;
@@ -88,7 +89,10 @@
     .floor{
         width: 100%;
         position: fixed;
-        background-color: teal;
+        background-color: rgb(2, 156, 156);
+        z-index: 3;
+        top: 90vh;
+        bottom: 0px;
     }
     .aguanteTop{
         width: 100%;
