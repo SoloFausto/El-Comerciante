@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2022 at 08:52 AM
+-- Generation Time: Sep 28, 2022 at 06:17 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.4
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `elcomerciantedb`
+-- Database: `el_comerciante_db`
 --
 
 -- --------------------------------------------------------
@@ -240,19 +240,24 @@ INSERT INTO `producto_comanda` (`idProducto`, `numComanda`, `cantidad`) VALUES
 
 CREATE TABLE `usuario` (
   `id` int(255) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `contrasena` varchar(512) DEFAULT NULL
+  `nombre` varchar(255) NOT NULL,
+  `contrasena` varchar(512) NOT NULL,
+  `permComandas` bit(1) NOT NULL,
+  `permSLComandas` bit(1) NOT NULL,
+  `permMenu` bit(1) NOT NULL,
+  `permUsuarios` bit(1) NOT NULL,
+  `permEsTableta` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `contrasena`) VALUES
-(1, 'Lucas', 'passw'),
-(2, 'Fausto', 'passw'),
-(3, 'Mesa-1', 'XWJK'),
-(4, 'Mesa-2', 'JXOT');
+INSERT INTO `usuario` (`id`, `nombre`, `contrasena`, `permComandas`, `permSLComandas`, `permMenu`, `permUsuarios`, `permEsTableta`) VALUES
+(1, 'Lucas', 'passw', b'1', b'0', b'1', b'1', b'0'),
+(2, 'Fausto', 'passw', b'0', b'1', b'0', b'0', b'0'),
+(3, 'Mesa-1', 'XWJK', b'0', b'0', b'0', b'0', b'1'),
+(4, 'Mesa-2', 'JXOT', b'0', b'0', b'0', b'0', b'1');
 
 --
 -- Indexes for dumped tables
