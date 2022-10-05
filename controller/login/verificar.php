@@ -3,6 +3,9 @@
     
     $PostUser = $_POST['user'];
     $PostPass = $_POST['pass'];
+    if(($PostPass == "")||($PostUser == "")){
+      header("location: ../../view/dolcezzainterfaces/login");
+    }else{
 
     if( !isset($_POST['boton'])){ /*Verifica que los datos vengan del inicio de sesión*/
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
@@ -23,7 +26,7 @@
        $nam = $row['nombre'];
        echo "Ingresaste $PostUser $PostPass, el resultado es $nam $pass";
 
-      if(($PostPass == $pass)||($PostUser == $nam)){ /*Si tiene Rol Este verifica que la cuenta sea correcta o exista*/
+      if(($PostPass == $pass)&&($PostUser == $nam)){ /*Si tiene Rol Este verifica que la cuenta sea correcta o exista*/
         session_start(); /*Si Todo esta bien, Crea una sesión*/  
         header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
       }else{
@@ -32,4 +35,5 @@
 
     }
   }
+}
 ?>
