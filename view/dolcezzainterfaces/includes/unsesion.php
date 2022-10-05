@@ -1,5 +1,4 @@
 <?php
-    //session_unset();
-
-    header("location: ../../index.html");
+    session_unset();
+    header("location: ../../../");
 ?>
