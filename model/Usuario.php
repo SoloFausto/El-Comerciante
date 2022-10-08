@@ -1,5 +1,5 @@
 <?php
-class Usuario {
+class usuario {
     protected $id;
     protected $nombre;
     protected $contrasena;
@@ -12,8 +12,7 @@ class Usuario {
     function __construct($conn){
         $this->conn = $conn;
     }
-    function newUser($id,$nombre,$contrasena,$permComandas,$permSLComandas,$permUsuarios,$permEsTableta){
-        $this->id = $id;
+    function newUser($nombre,$contrasena,$permComandas,$permSLComandas,$permUsuarios,$permEsTableta){
         $this->nombre =$nombre;
         $this->contrasena = $contrasena;
         $this->permComandas = $permComandas;
@@ -21,8 +20,9 @@ class Usuario {
         $this->permMenu = $permMenu;
         $this->permUsuarios = $permUsuarios;
         $this->permEsTableta = $permEsTableta;
-        $sql = "INSERT INTO `usuario` (`id`, `nombre`, `contrasena`, `permComandas`, `permSLComandas`, `permMenu`, `permUsuarios`, `permEsTableta`)
+        $sql = "INSERT INTO `usuario` (`nombre`, `contrasena`, `permComandas`, `permSLComandas`, `permMenu`, `permUsuarios`, `permEsTableta`)
         VALUES (NULL, '$nombre', '$contrasena', b'$permComandas', b'$permSLComandas', b'$permMenu', b'$permUsuarios', b'$permEsTableta');";
+        $result = mysqli_query($this->conn,$sql);
     }
     function loadUserById($id){
         $sql = "SELECT *  FROM `usuario` WHERE `id` = $id;";
@@ -36,7 +36,6 @@ class Usuario {
         $this->permMenu = $resultObj->permMenu;
         $this->permUsuarios = $resultObj->permUsuarios;
         $this->permEsTableta = $resultObj->permEsTableta;
-
     }
     function loadUserByPassw($nombre, $contrasena){
         $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$PostUser' AND `contrasena` = '$PostPass'";
@@ -56,7 +55,18 @@ class Usuario {
             $this->permEsTableta = $resultObj->permEsTableta;
             return true;
         }
-    
+
+    }
+    function deleteUser(){
+        $sql = "DELETE FROM usuario WHERE `usuario`.`id` = $this->id";
+        $this->id = NULL;
+        $this->nombre = "";
+        $this->contrasena = "";
+        $this->permComandas = 0;
+        $this->permSLComandas = 0;
+        $this->permMenu = 0;
+        $this->permUsuarios = 0;
+        $this->permEsTableta = 0;
     }
     function refreshUser(){
         $sql = "SELECT *  FROM `usuario` WHERE `id` = $this->id;";
@@ -76,7 +86,7 @@ class Usuario {
      */ 
     public function getId()
     {
-        refreshUser();
+        $this->refreshUser();
         return $this->id;
     }
 
@@ -88,7 +98,7 @@ class Usuario {
     public function setId($id)
     {
         $this->id = $id;
-        refreshUser(); 
+        $this->refreshUser(); 
         return $this;
     }
 
@@ -133,7 +143,7 @@ class Usuario {
      */ 
     public function getPermComandas()
     {
-        refreshUser();
+        $this->refreshUser();
         return $this->permComandas;
     }
 
@@ -156,7 +166,7 @@ class Usuario {
      */ 
     public function getPermSLComandas()
     {
-        refreshUser();
+        $this->refreshUser();
         return $this->permSLComandas;
     }
 
@@ -179,7 +189,7 @@ class Usuario {
      */ 
     public function getPermMenu()
     {
-        refreshUser();
+        $this->refreshUser();
         return $this->permMenu;
     }
 
@@ -202,7 +212,7 @@ class Usuario {
      */ 
     public function getPermUsuarios()
     {
-        refreshUser();
+        $this->refreshUser();
         return $this->permUsuarios;
     }
 
@@ -225,7 +235,7 @@ class Usuario {
      */ 
     public function getPermEsTableta()
     {
-        refreshUser();
+        $this->refreshUser();
         return $this->permEsTableta;
     }
 
