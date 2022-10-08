@@ -9,7 +9,9 @@
 <body>
     
     <?php
-    require "../El-Comerciante/model/Usuario.php";
+    require "../El-Comerciante/model/usuario.php";
+    require "../El-Comerciante/model/producto.php";
+    require "../El-Comerciante/model/helado.php";
     $conn =mysqli_connect(
         'localhost',
         'root',
@@ -17,11 +19,12 @@
         'elcomerciantedb',
         '3306'
     );
-    $usr = new Usuario($conn);
-    $usr->loadUserById(2);
-    $contrasena = $usr->setContrasena("da");
-    $permiso = $usr->setPermComandas(2);
-    echo "";
+    $usr = new usuario($conn);
+    $prod = new producto($conn);
+    $hel = new helado($conn);
+    $hel->loadHeladoById(2);
+    $nombre =$hel->getNombre();
+    echo "$nombre";
     ?>
 </body>
 </html>
