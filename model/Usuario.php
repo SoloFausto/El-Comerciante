@@ -38,6 +38,26 @@ class Usuario {
         $this->permEsTableta = $resultObj->permEsTableta;
 
     }
+    function loadUserByPassw($nombre, $contrasena){
+        $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$PostUser' AND `contrasena` = '$PostPass'";
+        $result = mysqli_query($this->conn,$sql);
+        $resultObj = mysqli_fetch_object($result);
+        if(!isset($query)){ /*Verifica que haya una respuesta por parte de la BD*/
+            return false;
+          }
+        else{
+            $this->id = $id;
+            $this->nombre = $resultObj->nombre;
+            $this->contrasena = $resultObj->contrasena;
+            $this->permComandas = $resultObj->permComandas;
+            $this->permSLComandas = $resultObj->permSLComandas;
+            $this->permMenu = $resultObj->permMenu;
+            $this->permUsuarios = $resultObj->permUsuarios;
+            $this->permEsTableta = $resultObj->permEsTableta;
+            return true;
+        }
+    
+    }
     function refreshUser(){
         $sql = "SELECT *  FROM `usuario` WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
