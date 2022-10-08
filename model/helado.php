@@ -7,6 +7,7 @@ class helado{
     function __construct($conn){
         $this->conn = $conn;
     }
+    /**subir nuevo sabor de helados a la base de datos */
     function newHelado($nombre,$descripcion){
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
@@ -14,6 +15,7 @@ class helado{
         $result = mysqli_query($this->conn,$sql);
 
     }
+    /**cargar un nuevo sabor de helado por su id */
     function loadHeladoById ($id){
         $sql = "SELECT *  FROM `helado` WHERE `id` = $id;";
         $result = mysqli_query($this->conn,$sql);
@@ -22,6 +24,7 @@ class helado{
         $this->nombre = $resultObj->nombre;
         $this->descripcion = $resultObj->descripcion;
     }
+    /**actualizar sabor de helado ya existente*/
     function refreshHelado (){
         $sql = "SELECT *  FROM `helado` WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
@@ -30,6 +33,11 @@ class helado{
         $this->descripcion = $resultObj->descripcion;
         
     }
+    function modifyHelado (){
+        $sql = "UPDATE `helado` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion' WHERE `helado`.`id` = $this->id;";
+        $result = mysqli_query($this->conn,$sql);
+    }
+    /**borrar sabor de helado*/
     function deleteHelado(){
         $sql = "DELETE FROM helado WHERE `helado`.`id` = $this->id";
         $this->nombre = "";
@@ -74,7 +82,7 @@ class helado{
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-        $this->refreshHelado();
+        $this->modifyHelado();
         return $this;
     }
 
@@ -95,7 +103,7 @@ class helado{
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
-        $this->refreshHelado();
+        $this->modifyHelado();
         return $this;
     }
 }

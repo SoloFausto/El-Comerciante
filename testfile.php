@@ -23,7 +23,9 @@
     $prod = new producto($conn);
     $hel = new helado($conn);
     $hel->loadHeladoById(2);
-    $nombre =$hel->getNombre();
+    $hel->setNombre("dwadsa");
+    $nombre = $hel->getNombre();
+
     echo "$nombre";
     ?>
 </body>
