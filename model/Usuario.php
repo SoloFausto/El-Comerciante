@@ -12,8 +12,8 @@ class usuario {
     function __construct($conn){
         $this->conn = $conn;
     }
-    function newUser($nombre,$contrasena,$permComandas,$permSLComandas,$permUsuarios,$permEsTableta){
-        $this->nombre =$nombre;
+    function newUser($nombre,$contrasena,$permComandas,$permSLComandas,$permMenu,$permUsuarios,$permEsTableta){
+        $this->nombre = $nombre;
         $this->contrasena = $contrasena;
         $this->permComandas = $permComandas;
         $this->permSLComandas = $permSLComandas;
@@ -28,7 +28,7 @@ class usuario {
         $getIdSql = "SELECT id  FROM `usuario` WHERE `nombre` LIKE '$this->nombre' AND `contrasena` LIKE '$this->contrasena';";
         $getIdquery = mysqli_query($this->conn,$getIdSql);
         $resultObjId = mysqli_fetch_object($getIdquery);
-        $this->id = $resultObjId->id
+        $this->id = $resultObjId->id;
         
     }
     function loadUserById($id){
