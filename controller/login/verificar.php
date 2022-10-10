@@ -2,9 +2,9 @@
     include("conexion.php");
     require("../../model/Usuario.php");
     
-    $PostUser = $_POST['user'];
-    $PostPass = $_POST['pass'];
-    if(($PostPass == "")||($PostUser == "")){
+    $nombre = $_POST['user'];
+    $contrasena = $_POST['pass'];
+    if(($contrasena == "")||($nombre == "")){
       header("location: ../../view/dolcezzainterfaces/login");
     }else{
 
@@ -14,16 +14,13 @@
     }else{
   
     $Usuario = new usuario(conectar());
+    $veri = $Usuario->loadUserByPassw($nombre, $contrasena);
     
-    if($Usuario->loadUserByPassw($PostUser, $PostPass) == true){
+    if($veri == true){
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
     }else{
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
     }
-    /*$con = conectar();
-    $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$PostUser' AND `contrasena` = '$PostPass'";
-    $query = mysqli_query($con, $sql);*/
-    
   }  
 }
 ?>
