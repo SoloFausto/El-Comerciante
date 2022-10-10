@@ -20,7 +20,7 @@
         '3306'
     );
 $usr = new usuario($conn);
-$load = $usr->loadUserByPassw("dsa","passw");
+$load = $usr->loadUserByPassw("Lucaas","passw");
 echo $load;
     ?>
 </body>
