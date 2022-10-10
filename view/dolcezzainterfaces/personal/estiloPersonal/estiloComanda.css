@@ -13,6 +13,7 @@
   top: 0px;
   justify-content: space-between;
   z-index: -10;
+  background-color:rgb(231, 191, 155);
 }
 .selected_item{
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
@@ -35,8 +36,6 @@ table{
   overflow: auto;
   display:inline-block;
   width: 100%;
-  
-
 }
 .titleboxspacer{
   width: 250;
@@ -55,6 +54,7 @@ table{
   z-index: -1;
   justify-content: flex-start;
   gap: 20px;
+  background-color:rgb(231, 191, 155);
 }
 .plato {
   padding: 5px;
@@ -99,13 +99,16 @@ a svg:hover{
     width: 100vw;
     position: fixed;
   }
+  h1{
+    font-style: italic;
+  }
   .menuPop{
     right: 45px;
     left: 45px;
     top: 70px;
     display: inline;
     justify-content: center;
-    background-color: white;
+    background-color: gray;
     border-radius: 50px;
     position: absolute;
     z-index: auto;
@@ -115,6 +118,7 @@ a svg:hover{
     height: 100vh;
     width: 100vw;
     z-index: 0;
+    background-color:rgb(231, 191, 155);
   }
   .popTitle{
     display: flex;
@@ -122,6 +126,7 @@ a svg:hover{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background-color:white;
   }
   .addOrderTitle{
     display: flex;
@@ -137,7 +142,7 @@ a svg:hover{
     top: 70px;
     display: inline;
     justify-content: center;
-    background-color: white;
+    background-color:white;
     border-radius: 50px;
     position: absolute;
     z-index: 2;
@@ -147,9 +152,11 @@ a svg:hover{
     height: 100vh;
     width: 100vw;
     z-index: 2;
+    background-color:white;
   }
   .popupHelado{
     height: 100vh;
     width: 100vw;
     z-index: 6;
+    background-color:white;
   }

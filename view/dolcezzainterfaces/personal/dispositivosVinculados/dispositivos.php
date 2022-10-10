@@ -20,8 +20,8 @@
     <div class="content">
         <table class="dispositivos">
           <tr>
-              <td><div><p>Mesa:*numero de mesa*</p></div></td>
-              <td><div><p>Codigo de vinculacion:*Codigo*</p></div></td>
+              <td><div><p class="mesa">Mesa:*numero de mesa*</p></div></td>
+              <td><div><p class="mesa">Codigo de vinculacion:*Codigo*</p></div></td>
               <td class="edgeButton">
                 <div> 
                   <button>
@@ -41,7 +41,7 @@
     <table class="b">
         <form action="">
             <tr>
-                <td>Ingrese el numero que aparece en la pantalla para vincular: <input type="text"></td>
+                <td class="num">Ingrese el numero que aparece en la pantalla para vincular: <input type="text"></td>
                 <td class="edgeButton">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="auto" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">

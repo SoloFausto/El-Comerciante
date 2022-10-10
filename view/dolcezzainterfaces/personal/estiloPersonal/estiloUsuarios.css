@@ -12,6 +12,7 @@
     z-index: -1;
     justify-content: flex-start;
     gap: 20px;
+    background-color:rgb(231, 191, 155);
   }
   .stat{
     flex:auto;
@@ -51,6 +52,10 @@
     top: 0px;
     justify-content: space-between;
     z-index: -1;
+    background-color:rgb(231, 191, 155);
+  }
+  h1{
+    font-style: italic;
   }
   .content{
     display: flex;
