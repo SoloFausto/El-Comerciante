@@ -14,6 +14,11 @@
             $this->precio = $precio;
             $sql = "INSERT INTO `producto` (`nombre`, `descripcion`, `precio`) VALUES (NULL, '$nombre', '$descripcion', '$precio');";
             $result = mysqli_query($this->conn,$sql);
+    /* El codigo de abajo recupera la id de el helado que recien creamos*/
+            $getIdSql = "SELECT `id` FROM `producto` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion';";
+            $resultQueryId = mysqli_query($this->conn,$getIdSql);
+            $resultObjId = mysqli_fetch_object($resultQueryId);
+            $this->id = $resultObjId->id;
         }
         function loadProductoById ($id){
             $sql = "SELECT *  FROM `producto` WHERE `id` = $id;";
@@ -32,7 +37,10 @@
             $this->descripcion = $resultObj->descripcion;
             $this->precio = $resultObj->precio;
         }
-
+        function modifyProducto(){
+                $sql = "UPDATE `producto` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion', `precio` = '$this->precio' WHERE `helado`.`id` = $this->id;";
+                $result = mysqli_query($this->conn,$sql);
+        }
         /**
          * Get the value of id
          */ 

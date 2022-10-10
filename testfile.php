@@ -19,14 +19,9 @@
         'elcomerciantedb',
         '3306'
     );
-    $usr = new usuario($conn);
-    $prod = new producto($conn);
-    $hel = new helado($conn);
-    $hel->loadHeladoById(2);
-    $hel->setNombre("dwadsa");
-    $nombre = $hel->getNombre();
-
-    echo "$nombre";
+$hel = new helado($conn);
+$hel->loadHeladoById(3);
+$hel->setNombre("holaa");
     ?>
 </body>
 </html>
