@@ -1,5 +1,5 @@
 <?php
-    class producto{
+class combo{
         private $id;
         private $nombre;
         private $descripcion;
@@ -8,20 +8,20 @@
         function __construct($conn){
             $this->conn = $conn;
         }
-        function newProducto($nombre,$descripcion,$precio){
+        function newCombo($nombre,$descripcion,$precio){
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
             $this->precio = $precio;
-            $sql = "INSERT INTO `producto` (`nombre`, `descripcion`, `precio`) VALUES (NULL, '$nombre', '$descripcion', '$precio');";
+            $sql = "INSERT INTO `combo` (`nombre`, `descripcion`, `precio`) VALUES (NULL, '$nombre', '$descripcion', '$precio');";
             $result = mysqli_query($this->conn,$sql);
     /* El codigo de abajo recupera la id de el helado que recien creamos*/
-            $getIdSql = "SELECT `id` FROM `producto` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion';";
+            $getIdSql = "SELECT `id` FROM `combo` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion';";
             $resultQueryId = mysqli_query($this->conn,$getIdSql);
             $resultObjId = mysqli_fetch_object($resultQueryId);
             $this->id = $resultObjId->id;
         }
-        function loadProductoById ($id){
-            $sql = "SELECT *  FROM `producto` WHERE `id` = $id;";
+        function loadComboById ($id){
+            $sql = "SELECT *  FROM `combo` WHERE `id` = $id;";
             $result = mysqli_query($this->conn,$sql);
             $resultObj = mysqli_fetch_object($result);
             $this->id = $id;
@@ -29,16 +29,16 @@
             $this->descripcion = $resultObj->descripcion;
             $this->precio = $resultObj->precio;
         }
-        function refreshProducto (){
-            $sql = "SELECT *  FROM `producto` WHERE `id` = $this->id;";
+        function refreshCombo (){
+            $sql = "SELECT *  FROM `combo` WHERE `id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
             $resultObj = mysqli_fetch_object($result);
             $this->nombre = $resultObj->nombre;
             $this->descripcion = $resultObj->descripcion;
             $this->precio = $resultObj->precio;
         }
-        function modifyProducto(){
-                $sql = "UPDATE `producto` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion', `precio` = '$this->precio' WHERE `helado`.`id` = $this->id;";
+        function modifyCombo(){
+                $sql = "UPDATE `combo` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion', `precio` = '$this->precio' WHERE `helado`.`id` = $this->id;";
                 $result = mysqli_query($this->conn,$sql);
         }
         /**
@@ -46,7 +46,7 @@
          */ 
         public function getId()
         {
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this->id;
         }
 
@@ -58,7 +58,7 @@
         public function setId($id)
         {
                 $this->id = $id;
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this;
         }
 
@@ -67,7 +67,7 @@
          */ 
         public function getNombre()
         {
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this->nombre;
         }
 
@@ -79,7 +79,7 @@
         public function setNombre($nombre)
         {
                 $this->nombre = $nombre;
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this;
         }
 
@@ -88,7 +88,7 @@
          */ 
         public function getDescripcion()
         {
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this->descripcion;
         }
 
@@ -100,7 +100,7 @@
         public function setDescripcion($descripcion)
         {
                 $this->descripcion = $descripcion;
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this;
         }
 
@@ -109,7 +109,7 @@
          */ 
         public function getPrecio()
         {
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this->precio;
         }
 
@@ -121,15 +121,8 @@
         public function setPrecio($precio)
         {
                 $this->precio = $precio;
-                $this->refreshProducto();
+                $this->refreshCombo();
                 return $this;
         }
     }
-
-
-
-
-
-
-
-?>
+    ?>
