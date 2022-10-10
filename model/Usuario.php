@@ -45,7 +45,7 @@ class usuario {
         $this->permEsTableta = $resultObj->permEsTableta;
     }
     function loadUserByPassw($nombre, $contrasena){
-        $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$nombre' AND `contrasena` = '$contrasena'";
+        $sql = "SELECT * FROM `usuario` WHERE `nombre` LIKE '$nombre' AND `contrasena` LIKE '$contrasena'";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
         if(!isset($resultObj)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
