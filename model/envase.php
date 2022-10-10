@@ -18,13 +18,28 @@
             $reusltsql = mysqli_query($this->conn,$sql);
         /* El codigo de abajo recupera la id de el helado que recien creamos*/
             $getIdSql = "SELECT id  FROM `envase` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion' AND `capacidad` = $capacidad AND `precio` = $precio;";
-
             $resultQueryId = mysqli_query($this->conn,$getIdSql);
             $resultObjId = mysqli_fetch_object($resultQueryId);
             $this->id = $resultObjId->id;
-    
-    
         }
+        function loadEnvaseById ($id){
+            $sql = "SELECT *  FROM `envase` WHERE `id` = $id;";
+            $result = mysqli_query($this->conn,$sql);
+            $resultObj = mysqli_fetch_object($result);
+            $this->id = $id;
+            $this->nombre = $resultObj->nombre;
+            $this->descripcion = $resultObj->descripcion;
+            $this->capacidad = $resultObj->capacidad;
+            $this->precio = $resultObj->precio;
+        }
+        function refreshEnvase(){
+            $sql = "SELECT *  FROM `envase` WHERE `id` = $this->id;";
+            $result = mysqli_query($this->conn,$sql);
+            $resultObj = mysqli_fetch_object($result);
+            $this->nombre = $resultObj->nombre;
+            $this->descripcion = $resultObj->descripcion;
+        }
+
     }
 
 
