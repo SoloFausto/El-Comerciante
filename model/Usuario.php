@@ -23,6 +23,13 @@ class usuario {
         $sql = "INSERT INTO `usuario` (`nombre`, `contrasena`, `permComandas`, `permSLComandas`, `permMenu`, `permUsuarios`, `permEsTableta`)
         VALUES (NULL, '$nombre', '$contrasena', b'$permComandas', b'$permSLComandas', b'$permMenu', b'$permUsuarios', b'$permEsTableta');";
         $result = mysqli_query($this->conn,$sql);
+    /* El codigo de abajo recupera la id de el helado que recien creamos*/
+
+        $getIdSql = "SELECT id  FROM `usuario` WHERE `nombre` LIKE '$this->nombre' AND `contrasena` LIKE '$this->contrasena';";
+        $getIdquery = mysqli_query($this->conn,$getIdSql);
+        $resultObjId = mysqli_fetch_object($getIdquery);
+        $this->id = $resultObjId->id
+        
     }
     function loadUserById($id){
         $sql = "SELECT *  FROM `usuario` WHERE `id` = $id;";
@@ -38,14 +45,14 @@ class usuario {
         $this->permEsTableta = $resultObj->permEsTableta;
     }
     function loadUserByPassw($nombre, $contrasena){
-        $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$PostUser' AND `contrasena` = '$PostPass'";
+        $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$nombre' AND `contrasena` = '$contrasena'";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
-        if(!isset($query)){ /*Verifica que haya una respuesta por parte de la BD*/
+        if(!isset($query)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
             return false;
           }
         else{
-            $this->id = $id;
+            $this->id = $resultObj->id;
             $this->nombre = $resultObj->nombre;
             $this->contrasena = $resultObj->contrasena;
             $this->permComandas = $resultObj->permComandas;
@@ -55,6 +62,11 @@ class usuario {
             $this->permEsTableta = $resultObj->permEsTableta;
             return true;
         }
+
+    }
+    function modifyUser(){
+        $sql = "UPDATE `usuario` SET `nombre` = '$this->nombre', `contrasena` = '$this->contrasena', `permComandas` = b'$this->permComandas', `permSLComandas` = b'$this->permSLComandas', `permMenu` = b'$this->permMenu ', `permUsuarios` = b'$this->permUsuarios', `permEsTableta` = b'$this->permEsTableta' WHERE `usuario`.`id` = $this->id;";
+        $result = mysqli_query($this->conn,$sql);
 
     }
     function deleteUser(){

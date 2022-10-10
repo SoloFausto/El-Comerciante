@@ -12,7 +12,13 @@ class helado{
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $sql = "INSERT INTO `helado` (`id`, `nombre`, `descripcion`) VALUES (NULL, '$nombre', '$descripcion');";
-        $result = mysqli_query($this->conn,$sql);
+        $reusltsql = mysqli_query($this->conn,$sql);
+    /* El codigo de abajo recupera la id de el helado que recien creamos*/
+        $getIdSql = "SELECT `id` FROM `helado` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion';";
+        $resultQueryId = mysqli_query($this->conn,$getIdSql);
+        $resultObjId = mysqli_fetch_object($resultQueryId);
+        $this->id = $resultObjId->id;
+
 
     }
     /**cargar un nuevo sabor de helado por su id */
