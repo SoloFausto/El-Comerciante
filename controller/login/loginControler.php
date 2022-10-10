@@ -18,6 +18,7 @@
     
     if($veri == true){
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
+      session_start();
     }else{
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
     }

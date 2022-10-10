@@ -25,7 +25,7 @@ class usuario {
         $result = mysqli_query($this->conn,$sql);
     /* El codigo de abajo recupera la id de el helado que recien creamos*/
 
-        $getIdSql = "SELECT id  FROM `usuario` WHERE `nombre` LIKE '$this->nombre' AND `contrasena` LIKE '$this->contrasena';";
+        $getIdSql = "SELECT id  FROM `usuario` WHERE `nombre` = BINARY '$this->nombre' AND `contrasena` = BINARY '$this->contrasena';";
         $getIdquery = mysqli_query($this->conn,$getIdSql);
         $resultObjId = mysqli_fetch_object($getIdquery);
         $this->id = $resultObjId->id;
@@ -65,12 +65,12 @@ class usuario {
 
     }
     function modifyUser(){
-        $sql = "UPDATE `usuario` SET `nombre` = '$this->nombre', `contrasena` = '$this->contrasena', `permComandas` = b'$this->permComandas', `permSLComandas` = b'$this->permSLComandas', `permMenu` = b'$this->permMenu ', `permUsuarios` = b'$this->permUsuarios', `permEsTableta` = b'$this->permEsTableta' WHERE `usuario`.`id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `nombre` = BINARY '$this->nombre', `contrasena` = BINARY '$this->contrasena', `permComandas` = BINARY b'$this->permComandas', `permSLComandas` = BINARY b'$this->permSLComandas', `permMenu` = BINARY b'$this->permMenu ', `permUsuarios` = BINARY b'$this->permUsuarios', `permEsTableta` = BINARY b'$this->permEsTableta' WHERE `usuario`.`id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
 
     }
     function deleteUser(){
-        $sql = "DELETE FROM usuario WHERE `usuario`.`id` = $this->id";
+        $sql = "DELETE FROM usuario WHERE `usuario`.`id` = BINARY $this->id";
         $this->id = NULL;
         $this->nombre = "";
         $this->contrasena = "";
@@ -81,7 +81,7 @@ class usuario {
         $this->permEsTableta = 0;
     }
     function refreshUser(){
-        $sql = "SELECT *  FROM `usuario` WHERE `id` = $this->id;";
+        $sql = "SELECT *  FROM `usuario` WHERE `id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
         $this->nombre = $resultObj->nombre;
@@ -122,7 +122,7 @@ class usuario {
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-        $sql = "UPDATE `usuario` SET `nombre` = '$nombre' WHERE `id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `nombre` = BINARY '$nombre' WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
         return $this;
     }
@@ -143,7 +143,7 @@ class usuario {
      */ 
     public function setContrasena($contrasena)
     {
-        $sql = "UPDATE `usuario` SET `contrasena` = '$contrasena' WHERE `id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `contrasena` = BINARY '$contrasena' WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $this->contrasena = $contrasena;
         echo "";
@@ -166,7 +166,7 @@ class usuario {
      */ 
     public function setPermComandas($permComandas)
     {
-        $sql = "UPDATE `usuario` SET `permComandas` = b'$permComandas' WHERE `usuario`.`id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `permComandas` = BINARY b'$permComandas' WHERE `usuario`.`id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $this->permComandas = $permComandas;
 
@@ -189,7 +189,7 @@ class usuario {
      */ 
     public function setPermSLComandas($permSLComandas)
     {
-        $sql = "UPDATE `usuario` SET `permSLComandas` = b'$permSLComandas' WHERE `usuario`.`id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `permSLComandas` = BINARY b'$permSLComandas' WHERE `usuario`.`id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $this->permSLComandas = $permSLComandas;
 
@@ -212,7 +212,7 @@ class usuario {
      */ 
     public function setPermMenu($permMenu)
     {
-        $sql = "UPDATE `usuario` SET `permMenu` = b'$permMenu' WHERE `usuario`.`id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `permMenu` = BINARY b'$permMenu' WHERE `usuario`.`id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $this->permMenu = $permMenu;
 
@@ -235,7 +235,7 @@ class usuario {
      */ 
     public function setPermUsuarios($permUsuarios)
     {
-        $sql = "UPDATE `usuario` SET `permUsuarios` = b'$permUsuarios' WHERE `usuario`.`id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `permUsuarios` = BINARY b'$permUsuarios' WHERE `usuario`.`id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $this->permUsuarios = $permUsuarios;
 
@@ -258,7 +258,7 @@ class usuario {
      */ 
     public function setPermEsTableta($permEsTableta)
     {
-        $sql = "UPDATE `usuario` SET `permEsTableta` = b'$permEsTableta' WHERE `usuario`.`id` = $this->id;";
+        $sql = "UPDATE `usuario` SET `permEsTableta` = BINARY b'$permEsTableta' WHERE `usuario`.`id` = BINARY $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $this->permEsTableta = $permEsTableta;
 
