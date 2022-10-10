@@ -48,8 +48,8 @@ class usuario {
         $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$nombre' AND `contrasena` = '$contrasena'";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
-        if(!isset($query)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
-            return false;
+        if(isset($resultObj)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
+            return "A";
           }
         else{
             $this->id = $resultObj->id;
@@ -60,7 +60,7 @@ class usuario {
             $this->permMenu = $resultObj->permMenu;
             $this->permUsuarios = $resultObj->permUsuarios;
             $this->permEsTableta = $resultObj->permEsTableta;
-            return true;
+            return "a";
         }
 
     }

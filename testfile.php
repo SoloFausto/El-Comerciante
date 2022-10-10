@@ -19,9 +19,9 @@
         'elcomerciantedb',
         '3306'
     );
-$hel = new helado($conn);
-$hel->loadHeladoById(3);
-$hel->setNombre("holaa");
+$usr = new usuario($conn);
+$load = $usr->loadUserByPassw("dsa","passw");
+echo $load;
     ?>
 </body>
 </html>
