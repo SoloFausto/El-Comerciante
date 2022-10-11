@@ -13,7 +13,7 @@
     <!-- Este codigo es de boostrap, genera la alerta -->
     <div class="container">
       <?php if(isset($_SESSION['mensaje'])){ ?>
-          <div class="alert alert-<?= $_SESSION['mensaje-color']; ?> alert-dismissible fade show" style="margin: 10px; width: 20%; margin-left: 40%;" role="alert">
+          <div class="alert alert-<?= $_SESSION['mensaje-color']; ?> alert-dismissible fade show" style="margin: 1%; width: 20%; margin-left: 40%;" role="alert">
               <?= $_SESSION['mensaje'] ?>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
