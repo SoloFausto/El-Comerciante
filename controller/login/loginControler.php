@@ -4,7 +4,11 @@
     
     $nombre = $_POST['user'];
     $contrasena = $_POST['pass'];
-    if(($contrasena == "")||($nombre == "")){
+    
+    if(($contrasena == "")||($nombre == "")){ //  se fija que no alla campos vacios
+      session_start();
+      $_SESSION['mensaje'] = 'No se permiten los campos vacios';
+      $_SESSION['mensaje-color'] = 'danger';
       header("location: ../../view/dolcezzainterfaces/login");
     }else{
 
@@ -17,9 +21,14 @@
     $veri = $Usuario->loadUserByPassw($nombre, $contrasena);
     
     if($veri == true){
-      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
       session_start();
+      $_SESSION['mensaje'] = "Bienvenido $nombre";
+      $_SESSION['mensaje-color'] = 'success';
+      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
     }else{
+      session_start();
+      $_SESSION['mensaje'] = 'El usuario y/o la conrtaseña son incorrectos.';
+      $_SESSION['mensaje-color'] = 'danger';
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
     }
   }  
