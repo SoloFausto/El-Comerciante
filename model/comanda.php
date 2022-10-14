@@ -28,7 +28,7 @@ class usuario {
         $getIdSql = "SELECT id  FROM `usuario` WHERE `nombre` LIKE '$this->nombre' AND `contrasena` LIKE '$this->contrasena';";
         $getIdquery = mysqli_query($this->conn,$getIdSql);
         $resultObjId = mysqli_fetch_object($getIdquery);
-        $this->id = $resultObjId->id
+        $this->id = $resultObjId->id;
         
     }
     function loadUserById($id){
@@ -122,8 +122,7 @@ class usuario {
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-        $sql = "UPDATE `usuario` SET `nombre` = '$nombre' WHERE `id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
+        $this->modifyUser();
         return $this;
     }
 
@@ -143,10 +142,8 @@ class usuario {
      */ 
     public function setContrasena($contrasena)
     {
-        $sql = "UPDATE `usuario` SET `contrasena` = '$contrasena' WHERE `id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
         $this->contrasena = $contrasena;
-        echo "";
+        $this->modifyUser();
         return $this;
     }
 
@@ -166,10 +163,8 @@ class usuario {
      */ 
     public function setPermComandas($permComandas)
     {
-        $sql = "UPDATE `usuario` SET `permComandas` = b'$permComandas' WHERE `usuario`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
         $this->permComandas = $permComandas;
-
+        $this->modifyUser();
         return $this;
     }
 
@@ -189,10 +184,8 @@ class usuario {
      */ 
     public function setPermSLComandas($permSLComandas)
     {
-        $sql = "UPDATE `usuario` SET `permSLComandas` = b'$permSLComandas' WHERE `usuario`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
         $this->permSLComandas = $permSLComandas;
-
+        $this->modifyUser();
         return $this;
     }
 
@@ -212,10 +205,8 @@ class usuario {
      */ 
     public function setPermMenu($permMenu)
     {
-        $sql = "UPDATE `usuario` SET `permMenu` = b'$permMenu' WHERE `usuario`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
         $this->permMenu = $permMenu;
-
+        $this->modifyUser();
         return $this;
     }
 
@@ -235,10 +226,8 @@ class usuario {
      */ 
     public function setPermUsuarios($permUsuarios)
     {
-        $sql = "UPDATE `usuario` SET `permUsuarios` = b'$permUsuarios' WHERE `usuario`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
         $this->permUsuarios = $permUsuarios;
-
+        $this->modifyUser();
         return $this;
     }
 
@@ -258,10 +247,8 @@ class usuario {
      */ 
     public function setPermEsTableta($permEsTableta)
     {
-        $sql = "UPDATE `usuario` SET `permEsTableta` = b'$permEsTableta' WHERE `usuario`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
         $this->permEsTableta = $permEsTableta;
-
+        $this->modifyUser();
         return $this;
     }
 }
