@@ -39,13 +39,26 @@
     flex: auto;
     flex-direction: row;
     }
-    .stat{
+    .statH{
+        background-color: wheat;
         display: flex;
         flex:auto;
         border:1px solid black;
         justify-content: center;
         height: 5vh;
         font-size: 3vh;
+    }
+    .statP{
+        display: flex;
+        flex:auto;
+        border:1px solid black;
+        justify-content: center;
+        height: 5vh;
+        font-size: 3vh;
+        color: black;
+    }
+    .statP a:link{
+        text-decoration: none;
     }
     .stat h1{
         margin-top: 0px;
@@ -104,6 +117,8 @@
         height: 40%;
     }
     .carrito{
-      text-align:right;
-      width: 20%;
+      margin-top: 1%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
     }

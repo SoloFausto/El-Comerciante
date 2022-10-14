@@ -1,0 +1,255 @@
+.empty{
+  height:50vh;
+  width:50px;
+}
+.title{
+  display: flex;
+  border:1px solid black;
+  justify-content: center;
+}
+.selected_item{
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
+}
+.navbar{
+  position:fixed;
+  border:1px solid black;
+  width: fit-content;
+  flex: 0 1 0;
+  flex-direction: column;
+  display: flex;
+  bottom: -2px;
+  left: 0px;
+  height: 100vh;
+}
+.icon{
+  flex-direction: column;
+  flex: auto;
+  display: flex;
+  width:auto;
+  filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+.icon:hover{
+  background-color: black;
+}
+.a_icon{
+  height: 54px;
+}
+.content{
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  }
+  .statH{
+      display: flex;
+      flex:auto;
+      border:1px solid black;
+      justify-content: center;
+      height: 5vh;
+      font-size: 3vh;
+      color: black;
+  }
+  .statH a:link{
+      text-decoration: none;
+  }
+  .statP{
+      background-color: wheat;
+      display: flex;
+      flex:auto;
+      border:1px solid black;
+      justify-content: center;
+      height: 5vh;
+      font-size: 3vh;
+  }
+  
+  .stat h1{
+      margin-top: 0px;
+      margin-bottom: 0px;
+      
+  }
+  .icons{
+      margin-top: 2px;
+      margin-bottom: 2px;
+  }
+  .bi-bi-cup-hot{
+      margin-right: 10px;
+      
+  }
+  .bigtable{
+      display: flex;
+      flex: auto;
+      border: 1px solid black;
+      max-height: 80%;
+      overflow: auto;
+      display: inline-block;
+      width: 100%;
+      z-index: -1;
+      margin-top: 100px;
+      margin-bottom: 50px;
+  }
+  td{
+      display: flex;
+      flex: auto;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid black;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  p{
+      margin: 0;
+      font-size: 2vh;
+  }
+  .floor{
+      width: 100%;
+      position: fixed;
+      background-color: rgb(2, 156, 156);
+      z-index: 3;
+      top: 90vh;
+      bottom: 0px;
+  }
+  .aguanteTop{
+      width: 100%;
+      position: fixed;
+      background-color: white;
+  }
+  .imag{
+      width: 40%;
+      height: 40%;
+  }
+  .carrito{
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+
+  .barnav{
+    position:fixed;
+    border:1px solid black;
+    width: fit-content;
+    flex: 0 1 0;
+    flex-direction: column;
+    display: flex;
+    bottom: -2px;
+    left: 0px;
+    height: 100vh;
+    top:0px;
+    z-index: -1;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color:rgb(231, 191, 155);
+  }
+  h1 , h4 , p{
+    font-style: italic;
+  }
+  .icon{
+    flex-direction: column;
+    flex: 0 1 1;
+    display: flex;
+    width:auto;
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  a svg:hover{
+    flex-direction: column;
+    flex: auto;
+    display: flex;
+    width:auto;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
+    }
+  .icon:hover{
+    background-color: black;
+  }
+  .a_icon{
+    height: 54px;
+  }
+  .titleboxspacer{
+    width: 250;
+  }
+  .buttons{
+      display: flex;
+  }
+  .titlebox{
+    display: flex;
+    align-items: center;
+    border:1px solid black;
+    width: 97.4vw;
+    position: fixed;
+    height: 50px;
+    left: 51px;
+    top: 0px;
+    justify-content: space-between;
+    z-index: -1;
+    background-color:rgb(231, 191, 155);
+  }
+  .content{
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    position: fixed;
+    left: 51px;
+    width: 97.4vw;
+    top:50px;
+    z-index: -2;
+    }
+    .stat{
+      flex:auto;
+      border:1px solid black;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      .popupHelado{
+        height: 100vh;
+        width: 100vw;
+        z-index: 0;
+      }
+      .background{
+        background-color: rgba(92, 92, 92, 0.685);
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+      }
+      .menuAdd{
+        right: 35%;
+        left: 35%;
+        top: 70px;
+        display: inline;
+        justify-content: center;
+        background-color: white;
+        border-radius: 50px;
+        position: absolute;
+        z-index: 2;
+        align-items: center;
+      }  
+      .menuPop{
+        right: 45px;
+        left: 45px;
+        top: 70px;
+        display: inline;
+        justify-content: center;
+        background-color: white;
+        border-radius: 50px;
+        position: absolute;
+        z-index: auto;
+        align-items: center;
+      }
+      .popup{
+        height: 100vh;
+        width: 100vw;
+        z-index: 0;
+      }
+      .agregarComboDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .popTitle{
+        margin-right: 40px;
+        margin-left: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
