@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +25,7 @@
     </div>
     <div class="bigtable table-responsive">
             <?php 
-                include("../includes/listaProducto.php");
+                include("../includes/listaHelado.php");
             ?>
     </div>
     <div class="floor">
