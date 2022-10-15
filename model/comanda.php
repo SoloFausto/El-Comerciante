@@ -1,254 +1,150 @@
 <?php
-class usuario {
-    protected $id;
-    protected $nombre;
-    protected $contrasena;
-    protected $permComandas;
-    protected $permSLComandas;
-    protected $permMenu;
-    protected $permUsuarios;
-    protected $permEsTableta;
+class comanda {
+    protected $numeroComanda;
+    protected $mesa;
+    protected $total;
+    protected $estado;
+    protected $fecha;
     protected $conn;
     function __construct($conn){
         $this->conn = $conn;
     }
-    function newUser($nombre,$contrasena,$permComandas,$permSLComandas,$permUsuarios,$permEsTableta){
-        $this->nombre =$nombre;
-        $this->contrasena = $contrasena;
-        $this->permComandas = $permComandas;
-        $this->permSLComandas = $permSLComandas;
-        $this->permMenu = $permMenu;
-        $this->permUsuarios = $permUsuarios;
-        $this->permEsTableta = $permEsTableta;
-        $sql = "INSERT INTO `usuario` (`nombre`, `contrasena`, `permComandas`, `permSLComandas`, `permMenu`, `permUsuarios`, `permEsTableta`)
-        VALUES (NULL, '$nombre', '$contrasena', b'$permComandas', b'$permSLComandas', b'$permMenu', b'$permUsuarios', b'$permEsTableta');";
+    function newComanda($mesa,$total,$estado,$fecha){
+        $this->mesa = $mesa;
+        $this->total = $total;
+        $this->estado = $estado;
+        $this->fecha = $fecha;
+        $sql = "INSERT INTO `comanda` (`mesa`, `total`, `estado`, `fecha`)
+        VALUES ('$mesa', '$total', '$estado', '$fecha');";
+        $result = mysqli_query($this->conn,$sql);  
+    }
+    //El siguiente código es para sacar de la BD los datos de una comanda utilizando como input el número de la misma
+    function cargarComandaPorNumero($numeroComanda){
+        $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $numeroComanda;";
         $result = mysqli_query($this->conn,$sql);
-    /* El codigo de abajo recupera la id de el helado que recien creamos*/
-
-        $getIdSql = "SELECT id  FROM `usuario` WHERE `nombre` LIKE '$this->nombre' AND `contrasena` LIKE '$this->contrasena';";
-        $getIdquery = mysqli_query($this->conn,$getIdSql);
-        $resultObjId = mysqli_fetch_object($getIdquery);
-        $this->id = $resultObjId->id;
-        
+        $resultadoObj = mysqli_fetch_object($result);
+        $this->mesa = $resultadoObj->$mesa;
+        $this->total = $resultadoObj->$total;
+        $this->estado = $resultadoObj->$estado;
+        $this->fecha = $resultadoObj->$fecha;
     }
-    function loadUserById($id){
-        $sql = "SELECT *  FROM `usuario` WHERE `id` = $id;";
+    
+    function modifyComanda(){
+        $sql = "UPDATE `comanda` SET `nombre` = '$this->nombre', `contrasena` = '$this->contrasena', `permComandas` = b'$this->permComandas', `permSLComandas` = b'$this->permSLComandas', `permMenu` = b'$this->permMenu ', `permComandas` = b'$this->permComandas', `permEsTableta` = b'$this->permEsTableta' WHERE `comanda`.`id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
-        $resultObj = mysqli_fetch_object($result);
-        $this->id = $id;
-        $this->nombre = $resultObj->nombre;
-        $this->contrasena = $resultObj->contrasena;
-        $this->permComandas = $resultObj->permComandas;
-        $this->permSLComandas = $resultObj->permSLComandas;
-        $this->permMenu = $resultObj->permMenu;
-        $this->permUsuarios = $resultObj->permUsuarios;
-        $this->permEsTableta = $resultObj->permEsTableta;
     }
-    function loadUserByPassw($nombre, $contrasena){
-        $sql = "SELECT * FROM `usuario` WHERE `nombre` = '$nombre' AND `contrasena` = '$contrasena'";
+    function deleteComanda(){
+        $sql = "DELETE FROM comanda WHERE `comanda`.`numeroComanda` = $this->numeroComanda";
+    }
+    function refreshComanda(){
+        $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $this->numeroComanda;";
         $result = mysqli_query($this->conn,$sql);
-        $resultObj = mysqli_fetch_object($result);
-        if(!isset($query)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
-            return false;
-          }
-        else{
-            $this->id = $resultObj->id;
-            $this->nombre = $resultObj->nombre;
-            $this->contrasena = $resultObj->contrasena;
-            $this->permComandas = $resultObj->permComandas;
-            $this->permSLComandas = $resultObj->permSLComandas;
-            $this->permMenu = $resultObj->permMenu;
-            $this->permUsuarios = $resultObj->permUsuarios;
-            $this->permEsTableta = $resultObj->permEsTableta;
-            return true;
-        }
+        $resultadoObj = mysqli_fetch_object($result);
+        $this->mesa = $resultadoObj->$mesa;
+        $this->total = $resultadoObj->$total;
+        $this->estado = $resultadoObj->$estado;
+        $this->fecha = $resultadoObj->$fecha;
+    }
 
-    }
-    function modifyUser(){
-        $sql = "UPDATE `usuario` SET `nombre` = '$this->nombre', `contrasena` = '$this->contrasena', `permComandas` = b'$this->permComandas', `permSLComandas` = b'$this->permSLComandas', `permMenu` = b'$this->permMenu ', `permUsuarios` = b'$this->permUsuarios', `permEsTableta` = b'$this->permEsTableta' WHERE `usuario`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
 
-    }
-    function deleteUser(){
-        $sql = "DELETE FROM usuario WHERE `usuario`.`id` = $this->id";
-        $this->id = NULL;
-        $this->nombre = "";
-        $this->contrasena = "";
-        $this->permComandas = 0;
-        $this->permSLComandas = 0;
-        $this->permMenu = 0;
-        $this->permUsuarios = 0;
-        $this->permEsTableta = 0;
-    }
-    function refreshUser(){
-        $sql = "SELECT *  FROM `usuario` WHERE `id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
-        $resultObj = mysqli_fetch_object($result);
-        $this->nombre = $resultObj->nombre;
-        $this->contrasena = $resultObj->contrasena;
-        $this->permComandas = $resultObj->permComandas;
-        $this->permSLComandas = $resultObj->permSLComandas;
-        $this->permMenu = $resultObj->permMenu;
-        $this->permUsuarios = $resultObj->permUsuarios;
-        $this->permEsTableta = $resultObj->permEsTableta;
-    }
 
     /**
-     * Get the value of id
+     * Get the value of numeroComanda
      */ 
-    public function getId()
+    public function getNumeroComanda()
     {
-        $this->refreshUser();
-        return $this->id;
+        return $this->numeroComanda;
     }
 
     /**
-     * Set the value of id
+     * Set the value of numeroComanda
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setNumeroComanda($numeroComanda)
     {
-        $this->id = $id;
-        $this->refreshUser(); 
+        $this->numeroComanda = $numeroComanda;
+
         return $this;
     }
 
     /**
-     * Set the value of nombre
+     * Get the value of mesa
+     */ 
+    public function getMesa()
+    {
+        return $this->mesa;
+    }
+
+    /**
+     * Set the value of mesa
      *
      * @return  self
      */ 
-    public function setNombre($nombre)
+    public function setMesa($mesa)
     {
-        $this->nombre = $nombre;
-        $this->modifyUser();
+        $this->mesa = $mesa;
+
         return $this;
     }
 
     /**
-     * Get the value of contrasena
+     * Get the value of total
      */ 
-    public function getContrasena()
+    public function getTotal()
     {
-        $this->refreshUser();
-        return $this->contrasena;
+        return $this->total;
     }
 
     /**
-     * Set the value of contrasena
+     * Set the value of total
      *
      * @return  self
      */ 
-    public function setContrasena($contrasena)
+    public function setTotal($total)
     {
-        $this->contrasena = $contrasena;
-        $this->modifyUser();
+        $this->total = $total;
+
         return $this;
     }
 
     /**
-     * Get the value of permComandas
+     * Get the value of estado
      */ 
-    public function getPermComandas()
+    public function getEstado()
     {
-        $this->refreshUser();
-        return $this->permComandas;
+        return $this->estado;
     }
 
     /**
-     * Set the value of permComandas
+     * Set the value of estado
      *
      * @return  self
      */ 
-    public function setPermComandas($permComandas)
+    public function setEstado($estado)
     {
-        $this->permComandas = $permComandas;
-        $this->modifyUser();
+        $this->estado = $estado;
+
         return $this;
     }
 
     /**
-     * Get the value of permSLComandas
+     * Get the value of fecha
      */ 
-    public function getPermSLComandas()
+    public function getFecha()
     {
-        $this->refreshUser();
-        return $this->permSLComandas;
+        return $this->fecha;
     }
 
     /**
-     * Set the value of permSLComandas
+     * Set the value of fecha
      *
      * @return  self
      */ 
-    public function setPermSLComandas($permSLComandas)
+    public function setFecha($fecha)
     {
-        $this->permSLComandas = $permSLComandas;
-        $this->modifyUser();
-        return $this;
-    }
+        $this->fecha = $fecha;
 
-    /**
-     * Get the value of permMenu
-     */ 
-    public function getPermMenu()
-    {
-        $this->refreshUser();
-        return $this->permMenu;
-    }
-
-    /**
-     * Set the value of permMenu
-     *
-     * @return  self
-     */ 
-    public function setPermMenu($permMenu)
-    {
-        $this->permMenu = $permMenu;
-        $this->modifyUser();
-        return $this;
-    }
-
-    /**
-     * Get the value of permUsuarios
-     */ 
-    public function getPermUsuarios()
-    {
-        $this->refreshUser();
-        return $this->permUsuarios;
-    }
-
-    /**
-     * Set the value of permUsuarios
-     *
-     * @return  self
-     */ 
-    public function setPermUsuarios($permUsuarios)
-    {
-        $this->permUsuarios = $permUsuarios;
-        $this->modifyUser();
-        return $this;
-    }
-
-    /**
-     * Get the value of permEsTableta
-     */ 
-    public function getPermEsTableta()
-    {
-        $this->refreshUser();
-        return $this->permEsTableta;
-    }
-
-    /**
-     * Set the value of permEsTableta
-     *
-     * @return  self
-     */ 
-    public function setPermEsTableta($permEsTableta)
-    {
-        $this->permEsTableta = $permEsTableta;
-        $this->modifyUser();
         return $this;
     }
 }
