@@ -39,7 +39,7 @@
     border:1px solid black;
     width: 97.4vw;
     position: fixed;
-    height: 50px;
+    width: 102.4vw;
     left: 51px;
     top: 0px;
     justify-content: space-between;
@@ -51,7 +51,7 @@
     flex: auto;
     flex-direction: row;
     position: fixed;
-    left: 51px;
+    left: 77px;
     width: 97.4vw;
     top:50px;
     z-index: -2;
