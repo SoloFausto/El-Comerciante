@@ -1,6 +1,5 @@
-
-/*barra de navegacion left*/
-.barnav{
+  /*barra de navegacion left*/
+  .barnav{
     position:fixed;
     border:1px solid black;
     width: fit-content;
@@ -26,19 +25,11 @@
     width:auto;
     filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
   }
-  a svg:hover{
-    flex-direction: column;
-    flex: auto;
-    display: flex;
-    width:auto;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
-    }
-  .icon:hover{
-  background-color:black;
-  }
   .a_icon{
     height: 54px;
   }
+  /* Fin de la barra lateral */
+
   .titleboxspacer{
     width: 250;
   }
@@ -54,7 +45,6 @@
     justify-content: space-between;
     z-index: -1;
     background-color: rgb(231, 191, 155);
-    
   }
   .content{
     display: flex;

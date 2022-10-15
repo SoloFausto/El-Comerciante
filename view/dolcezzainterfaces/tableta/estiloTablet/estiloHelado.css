@@ -60,18 +60,18 @@
     .statP a:link{
         text-decoration: none;
     }
+    .statP a:hover {
+      color: black;
+      background-color: blanchedalmond;
+    }
     .stat h1{
         margin-top: 0px;
         margin-bottom: 0px;
         
     }
-    .icons{
-        margin-top: 2px;
-        margin-bottom: 2px;
-    }
     .bi-bi-cup-hot{
         margin-right: 10px;
-        
+
     }
     .bigtable{
         display: flex;
