@@ -22,7 +22,7 @@ class comanda {
     function cargarComandaPorNumero($numeroComanda){
         $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $numeroComanda;";
         $result = mysqli_query($this->conn,$sql);
-        $resultObj = mysqli_fetch_object($result);
+        $resultadoObj = mysqli_fetch_object($result);
         $this->mesa = $resultadoObj->$mesa;
         $this->total = $resultadoObj->$total;
         $this->estado = $resultadoObj->$estado;
@@ -39,7 +39,7 @@ class comanda {
     function refreshComanda(){
         $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $this->numeroComanda;";
         $result = mysqli_query($this->conn,$sql);
-        $resultObj = mysqli_fetch_object($result);
+        $resultadoObj = mysqli_fetch_object($result);
         $this->mesa = $resultadoObj->$mesa;
         $this->total = $resultadoObj->$total;
         $this->estado = $resultadoObj->$estado;
