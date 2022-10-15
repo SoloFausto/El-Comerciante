@@ -6,7 +6,6 @@ class comanda {
     protected $estado;
     protected $fecha;
     protected $conn;
-    Ricardo Arjona
     function __construct($conn){
         $this->conn = $conn;
     }
