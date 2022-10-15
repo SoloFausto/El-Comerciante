@@ -1,41 +1,37 @@
+    /*barra de navegacion left*/
 .barnav{
-    position:fixed;
-    border:1px solid black;
-    width: fit-content;
-    flex: 0 1 0;
-    flex-direction: column;
-    display: flex;
-    bottom: -2px;
-    left: 0px;
-    height: 100vh;
-    top:0px;
-    z-index: -1;
-    justify-content: flex-start;
-    gap: 20px;
-    background-color:rgb(231, 191, 155);
-  }
+  position:fixed;
+  border:1px solid black;
+  width: fit-content;
+  flex: 0 1 0;
+  flex-direction: column;
+  display: flex;
+  bottom: -2px;
+  left: 0px;
+  height: 100vh;
+  top:0px;
+  z-index: -1;
+  justify-content: flex-start;
+  gap: 20px;
+  background-color:rgb(231, 191, 155);
+}
+h1{
+  font-style: italic;
+}
+.icon{
+  flex-direction: column;
+  flex: 0 1 1;
+  display: flex;
+  width:auto;
+  filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+.a_icon{
+  height: 54px;
+}
+/* Fin de la barra lateral */
+
   h1 , h4 , p{
     font-style: italic;
-  }
-  .icon{
-    flex-direction: column;
-    flex: 0 1 1;
-    display: flex;
-    width:auto;
-    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
-  }
-  a svg:hover{
-    flex-direction: column;
-    flex: auto;
-    display: flex;
-    width:auto;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%);
-    }
-  .icon:hover{
-    background-color: black;
-  }
-  .a_icon{
-    height: 54px;
   }
   .titleboxspacer{
     width: 250;

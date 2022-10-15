@@ -51,6 +51,10 @@
   .statH a:link{
       text-decoration: none;
   }
+  .statH a:hover{
+    background-color: blanchedalmond;
+    color: black;
+  }
   .statP{
       background-color: wheat;
       display: flex;
