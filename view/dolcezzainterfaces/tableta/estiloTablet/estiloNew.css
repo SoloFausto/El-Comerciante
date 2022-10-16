@@ -23,8 +23,29 @@ body{
 }
 .col-sm-8{
     border: solid 2px black;
-    width: 60%;
+    width: 70%;
+    font-size: x-large;
     margin-top: 2%;
     margin-bottom: 2%;
-    margin-left: 6%;
+    margin-left: 8%;
+}
+.col-sm-4{
+    width: 20%;
+}
+.btn-secondary{
+    background-color: rgb(225, 225, 225)  ;
+    color: black;
+    border-radius: 100%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+}
+.btn-light{
+    width: 100%;
+    font-size: x-large;
+}
+.container-fluid{
+    margin-left: 0px;
+    margin-right: 0px;
 }
