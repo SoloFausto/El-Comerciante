@@ -122,8 +122,8 @@
       height: 40%;
   }
   .carrito{
-    margin-top: 1%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    margin: 1%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
   }
