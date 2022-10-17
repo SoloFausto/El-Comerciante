@@ -21,7 +21,7 @@
                 </svg>
             </button>
             <div class="container ss">
-                <h2>Seleccione los sabores</h2>
+                <h2>Resumen de tu orden.</h2>
             </div>
         </div>
         </form>
