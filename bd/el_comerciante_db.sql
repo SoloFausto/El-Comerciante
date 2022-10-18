@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2022 a las 04:44:31
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Host: 127.0.0.1
+-- Generation Time: Oct 18, 2022 at 10:01 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `el_comerciante_db`
+-- Database: `el_comerciante_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comanda`
+-- Table structure for table `comanda`
 --
 
 CREATE TABLE `comanda` (
@@ -33,22 +33,23 @@ CREATE TABLE `comanda` (
   `total` int(5) DEFAULT NULL,
   `estado` int(1) DEFAULT NULL,
   `idUsuario` int(255) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
+  `forma_pago` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `comanda`
+-- Dumping data for table `comanda`
 --
 
-INSERT INTO `comanda` (`id`, `mesa`, `total`, `estado`, `idUsuario`, `fecha`) VALUES
-(1, 0, 280, 1, 2, '2022-09-29 02:43:15'),
-(2, 0, 125, 1, 1, '2022-09-29 02:43:15'),
-(3, 1, 185, 0, 3, '2022-09-29 02:43:15');
+INSERT INTO `comanda` (`id`, `mesa`, `total`, `estado`, `idUsuario`, `fecha`, `forma_pago`) VALUES
+(1, 0, 280, 1, 2, '2022-09-29 02:43:15', 'Débito'),
+(2, 0, 125, 1, 1, '2022-09-29 02:43:15', 'Efectivo'),
+(3, 1, 185, 0, 3, '2022-09-29 02:43:15', 'Crédito');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comanda_envase_helado`
+-- Table structure for table `comanda_envase_helado`
 --
 
 CREATE TABLE `comanda_envase_helado` (
@@ -60,7 +61,7 @@ CREATE TABLE `comanda_envase_helado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `comanda_envase_helado`
+-- Dumping data for table `comanda_envase_helado`
 --
 
 INSERT INTO `comanda_envase_helado` (`idEnvase`, `idHelado`, `numComanda`, `numEnvase`, `cantidad`) VALUES
@@ -70,7 +71,27 @@ INSERT INTO `comanda_envase_helado` (`idEnvase`, `idHelado`, `numComanda`, `numE
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `combo`
+-- Table structure for table `comanda_usuario`
+--
+
+CREATE TABLE `comanda_usuario` (
+  `idUsuario` int(255) NOT NULL,
+  `idComanda` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comanda_usuario`
+--
+
+INSERT INTO `comanda_usuario` (`idUsuario`, `idComanda`) VALUES
+(1, 3),
+(3, 2),
+(4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `combo`
 --
 
 CREATE TABLE `combo` (
@@ -81,7 +102,7 @@ CREATE TABLE `combo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `combo`
+-- Dumping data for table `combo`
 --
 
 INSERT INTO `combo` (`id`, `nombre`, `descripcion`, `precio`) VALUES
@@ -91,7 +112,7 @@ INSERT INTO `combo` (`id`, `nombre`, `descripcion`, `precio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `combo_comanda`
+-- Table structure for table `combo_comanda`
 --
 
 CREATE TABLE `combo_comanda` (
@@ -101,7 +122,7 @@ CREATE TABLE `combo_comanda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `combo_comanda`
+-- Dumping data for table `combo_comanda`
 --
 
 INSERT INTO `combo_comanda` (`idCombo`, `numComanda`, `cantidad`) VALUES
@@ -110,7 +131,7 @@ INSERT INTO `combo_comanda` (`idCombo`, `numComanda`, `cantidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `combo_envase`
+-- Table structure for table `combo_envase`
 --
 
 CREATE TABLE `combo_envase` (
@@ -120,7 +141,7 @@ CREATE TABLE `combo_envase` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `combo_envase`
+-- Dumping data for table `combo_envase`
 --
 
 INSERT INTO `combo_envase` (`idCombo`, `idEnvase`, `cantidad`) VALUES
@@ -129,7 +150,7 @@ INSERT INTO `combo_envase` (`idCombo`, `idEnvase`, `cantidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `combo_producto`
+-- Table structure for table `combo_producto`
 --
 
 CREATE TABLE `combo_producto` (
@@ -139,7 +160,7 @@ CREATE TABLE `combo_producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `combo_producto`
+-- Dumping data for table `combo_producto`
 --
 
 INSERT INTO `combo_producto` (`idCombo`, `idProducto`, `cantidad`) VALUES
@@ -150,7 +171,7 @@ INSERT INTO `combo_producto` (`idCombo`, `idProducto`, `cantidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `envase`
+-- Table structure for table `envase`
 --
 
 CREATE TABLE `envase` (
@@ -162,7 +183,7 @@ CREATE TABLE `envase` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `envase`
+-- Dumping data for table `envase`
 --
 
 INSERT INTO `envase` (`id`, `nombre`, `descripcion`, `capacidad`, `precio`) VALUES
@@ -172,7 +193,7 @@ INSERT INTO `envase` (`id`, `nombre`, `descripcion`, `capacidad`, `precio`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `helado`
+-- Table structure for table `helado`
 --
 
 CREATE TABLE `helado` (
@@ -182,7 +203,7 @@ CREATE TABLE `helado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `helado`
+-- Dumping data for table `helado`
 --
 
 INSERT INTO `helado` (`id`, `nombre`, `descripcion`) VALUES
@@ -192,7 +213,7 @@ INSERT INTO `helado` (`id`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
@@ -203,7 +224,7 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`) VALUES
@@ -215,7 +236,7 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto_comanda`
+-- Table structure for table `producto_comanda`
 --
 
 CREATE TABLE `producto_comanda` (
@@ -225,7 +246,7 @@ CREATE TABLE `producto_comanda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto_comanda`
+-- Dumping data for table `producto_comanda`
 --
 
 INSERT INTO `producto_comanda` (`idProducto`, `numComanda`, `cantidad`) VALUES
@@ -236,7 +257,7 @@ INSERT INTO `producto_comanda` (`idProducto`, `numComanda`, `cantidad`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -251,7 +272,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `contrasena`, `permComandas`, `permSLComandas`, `permMenu`, `permUsuarios`, `permEsTableta`) VALUES
@@ -261,18 +282,18 @@ INSERT INTO `usuario` (`id`, `nombre`, `contrasena`, `permComandas`, `permSLComa
 (4, 'Mesa-2', 'JXOT', b'0', b'0', b'0', b'0', b'1');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comanda`
+-- Indexes for table `comanda`
 --
 ALTER TABLE `comanda`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Comanda_idUsuario` (`idUsuario`);
 
 --
--- Indices de la tabla `comanda_envase_helado`
+-- Indexes for table `comanda_envase_helado`
 --
 ALTER TABLE `comanda_envase_helado`
   ADD PRIMARY KEY (`idEnvase`,`idHelado`,`numComanda`,`numEnvase`),
@@ -280,115 +301,122 @@ ALTER TABLE `comanda_envase_helado`
   ADD KEY `FK_ComandaEnvaseHelado_Helado` (`idHelado`);
 
 --
--- Indices de la tabla `combo`
+-- Indexes for table `comanda_usuario`
+--
+ALTER TABLE `comanda_usuario`
+  ADD PRIMARY KEY (`idComanda`),
+  ADD KEY `FK_ComandaUsuario_idUsuario` (`idUsuario`);
+
+--
+-- Indexes for table `combo`
 --
 ALTER TABLE `combo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `combo_comanda`
+-- Indexes for table `combo_comanda`
 --
 ALTER TABLE `combo_comanda`
   ADD PRIMARY KEY (`idCombo`,`numComanda`),
   ADD KEY `FK_ComandaCombo_Comanda` (`numComanda`);
 
 --
--- Indices de la tabla `combo_envase`
+-- Indexes for table `combo_envase`
 --
 ALTER TABLE `combo_envase`
   ADD PRIMARY KEY (`idCombo`,`idEnvase`),
   ADD KEY `FK_ComboEnvase_Envase` (`idEnvase`);
 
 --
--- Indices de la tabla `combo_producto`
+-- Indexes for table `combo_producto`
 --
 ALTER TABLE `combo_producto`
   ADD PRIMARY KEY (`idCombo`,`idProducto`),
   ADD KEY `FK_ComboProducto_Producto` (`idProducto`);
 
 --
--- Indices de la tabla `envase`
+-- Indexes for table `envase`
 --
 ALTER TABLE `envase`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `helado`
+-- Indexes for table `helado`
 --
 ALTER TABLE `helado`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `producto_comanda`
+-- Indexes for table `producto_comanda`
 --
 ALTER TABLE `producto_comanda`
   ADD PRIMARY KEY (`idProducto`,`numComanda`),
   ADD KEY `FK_ComandaProducto_Comanda` (`numComanda`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `comanda`
+-- AUTO_INCREMENT for table `comanda`
 --
 ALTER TABLE `comanda`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `combo`
+-- AUTO_INCREMENT for table `combo`
 --
 ALTER TABLE `combo`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `envase`
+-- AUTO_INCREMENT for table `envase`
 --
 ALTER TABLE `envase`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `helado`
+-- AUTO_INCREMENT for table `helado`
 --
 ALTER TABLE `helado`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comanda`
+-- Constraints for table `comanda`
 --
 ALTER TABLE `comanda`
   ADD CONSTRAINT `FK_Comanda_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
 
 --
--- Filtros para la tabla `comanda_envase_helado`
+-- Constraints for table `comanda_envase_helado`
 --
 ALTER TABLE `comanda_envase_helado`
   ADD CONSTRAINT `FK_ComandaEnvaseHelado_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`),
@@ -396,28 +424,35 @@ ALTER TABLE `comanda_envase_helado`
   ADD CONSTRAINT `FK_ComandaEnvaseHelado_Helado` FOREIGN KEY (`idHelado`) REFERENCES `helado` (`id`);
 
 --
--- Filtros para la tabla `combo_comanda`
+-- Constraints for table `comanda_usuario`
+--
+ALTER TABLE `comanda_usuario`
+  ADD CONSTRAINT `FK_ComandaUsuario_idComanda` FOREIGN KEY (`idComanda`) REFERENCES `comanda` (`id`),
+  ADD CONSTRAINT `FK_ComandaUsuario_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
+
+--
+-- Constraints for table `combo_comanda`
 --
 ALTER TABLE `combo_comanda`
   ADD CONSTRAINT `FK_ComandaCombo_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`),
   ADD CONSTRAINT `FK_ComandaCombo_Combo` FOREIGN KEY (`idCombo`) REFERENCES `combo` (`id`);
 
 --
--- Filtros para la tabla `combo_envase`
+-- Constraints for table `combo_envase`
 --
 ALTER TABLE `combo_envase`
   ADD CONSTRAINT `FK_ComboEnvase_Combo` FOREIGN KEY (`idCombo`) REFERENCES `combo` (`id`),
   ADD CONSTRAINT `FK_ComboEnvase_Envase` FOREIGN KEY (`idEnvase`) REFERENCES `envase` (`id`);
 
 --
--- Filtros para la tabla `combo_producto`
+-- Constraints for table `combo_producto`
 --
 ALTER TABLE `combo_producto`
   ADD CONSTRAINT `FK_ComboProducto_Producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`id`),
   ADD CONSTRAINT `FK_comboProducto_Combo` FOREIGN KEY (`idCombo`) REFERENCES `combo` (`id`);
 
 --
--- Filtros para la tabla `producto_comanda`
+-- Constraints for table `producto_comanda`
 --
 ALTER TABLE `producto_comanda`
   ADD CONSTRAINT `FK_ComandaProducto_Comanda` FOREIGN KEY (`numComanda`) REFERENCES `comanda` (`id`),

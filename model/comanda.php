@@ -1,6 +1,6 @@
 <?php
 class comanda {
-    protected $numeroComanda;
+    protected $id;
     protected $mesa;
     protected $total;
     protected $estado;
@@ -19,8 +19,8 @@ class comanda {
         $result = mysqli_query($this->conn,$sql);  
     }
     //El siguiente código es para sacar de la BD los datos de una comanda utilizando como input el número de la misma
-    function cargarComandaPorNumero($numeroComanda){
-        $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $numeroComanda;";
+    function cargarComandaPorNumero($id){
+        $sql = "SELECT *  FROM `comanda` WHERE `id` = $id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
         $this->mesa = $resultadoObj->$mesa;
@@ -34,10 +34,10 @@ class comanda {
         $result = mysqli_query($this->conn,$sql);
     }
     function deleteComanda(){
-        $sql = "DELETE FROM comanda WHERE `comanda`.`numeroComanda` = $this->numeroComanda";
+        $sql = "DELETE FROM comanda WHERE `comanda`.`id` = $this->id";
     }
     function refreshComanda(){
-        $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $this->numeroComanda;";
+        $sql = "SELECT *  FROM `comanda` WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
         $this->mesa = $resultadoObj->$mesa;
@@ -49,21 +49,21 @@ class comanda {
 
 
     /**
-     * Get the value of numeroComanda
+     * Get the value of id
      */ 
-    public function getNumeroComanda()
+    public function getid()
     {
-        return $this->numeroComanda;
+        return $this->id;
     }
 
     /**
-     * Set the value of numeroComanda
+     * Set the value of id
      *
      * @return  self
      */ 
-    public function setNumeroComanda($numeroComanda)
+    public function setid($id)
     {
-        $this->numeroComanda = $numeroComanda;
+        $this->id = $id;
 
         return $this;
     }

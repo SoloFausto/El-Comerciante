@@ -3,24 +3,24 @@
     require "comanda.php";
     class comboComanda{
         private $idCombo;
-        private $numComanda;
+        private $id;
         private $conn;
         private $cantidad;
         function __construct($conn){
             $this->conn = $conn;
         }
-        function newIdComboIdComanda($idCombo,$numComanda,$cantidad){
+        function newIdComboIdComanda($idCombo,$id,$cantidad){
             $this->cantidad = $cantidad;
             $this->idCombo = $idCombo;
-            $this->numComanda = $numComanda;
-            $sql = "INSERT INTO `combo_comanda` (`idCombo`, `numComanda`, `cantidad`) VALUES ('$idCombo', '$numComanda', '$cantidad');";
+            $this->id = $id;
+            $sql = "INSERT INTO `combo_comanda` (`idCombo`, `id`, `cantidad`) VALUES ('$idCombo', '$id', '$cantidad');";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_object($result);
         }
-        function initComboComanda($idCombo,$numComanda,$cantidad){
+        function initComboComanda($idCombo,$id,$cantidad){
             $this->cantidad = $cantidad;
             $this->idCombo = $idCombo;
-            $this->numComanda = $numComanda;
+            $this->id = $id;
         }
         function load(){
             $sql = "SELECT *  FROM `combo_comanda` WHERE `idCombo` = $this->idCombo;";
@@ -29,13 +29,13 @@
             return $resultadoObj;
         }
         function load2(){
-            $sql = "SELECT *  FROM `combo_comanda` WHERE `numComanda` = $this->numComanda;";
+            $sql = "SELECT *  FROM `combo_comanda` WHERE `id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_array($result);
             return $resultadoObj;
         }
         function deleteComboComanda(){
-            $sql = "DELETE FROM `combo_comanda` WHERE `idCombo` = $this->idCombo AND `numComanda` = $this->numComanda;";
+            $sql = "DELETE FROM `combo_comanda` WHERE `idCombo` = $this->idCombo AND `id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
         }
         
@@ -57,7 +57,7 @@
         public function setCantidad($cantidad)
         {
                 $this->cantidad = $cantidad;
-                $sql = "UPDATE `combo_comanda` SET `cantidad` = '$cantidad' WHERE `combo_comanda`.`idCombo` = $this->idCombo AND `combo_comanda`.`numComanda` = $this->numComanda";
+                $sql = "UPDATE `combo_comanda` SET `cantidad` = '$cantidad' WHERE `combo_comanda`.`idCombo` = $this->idCombo AND `combo_comanda`.`id` = $this->id";
                 $result = mysqli_query($this->conn,$sql);
                 return $this;
         }
