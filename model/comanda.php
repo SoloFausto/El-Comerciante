@@ -30,8 +30,8 @@ class comanda {
     }
     
     function modifyComanda(){
-        $sql = "UPDATE `comanda` SET `nombre` = '$this->nombre', `contrasena` = '$this->contrasena', `permComandas` = b'$this->permComandas', `permSLComandas` = b'$this->permSLComandas', `permMenu` = b'$this->permMenu ', `permComandas` = b'$this->permComandas', `permEsTableta` = b'$this->permEsTableta' WHERE `comanda`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
+        $sql = "UPDATE `comanda` SET ´mesa' = $this->mesa,`total` = $this->total, `estado` = $this->estado, `fecha` = $this->fecha;"; 
+                $result = mysqli_query($this->conn,$sql);
     }
     function deleteComanda(){
         $sql = "DELETE FROM comanda WHERE `comanda`.`id` = $this->id";
