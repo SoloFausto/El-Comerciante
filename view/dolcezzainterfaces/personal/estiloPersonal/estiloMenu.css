@@ -13,7 +13,7 @@
   z-index: -1;
   justify-content: flex-start;
   gap: 20px;
-  background-color:rgb(231, 191, 155);
+  background-color:#f8d393;
 }
 h1{
   font-style: italic;
@@ -50,7 +50,7 @@ h1{
     top: 0px;
     justify-content: space-between;
     z-index: -1;
-    background-color:rgb(231, 191, 155);
+    background-color:#f8d393;
   }
   .content{
     display: flex;

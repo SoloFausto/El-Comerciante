@@ -13,7 +13,7 @@
     z-index: -1;
     justify-content: flex-start;
     gap: 20px;
-    background-color:rgb(231, 191, 155);
+    background-color:#f8d393;
   }
   h1{
     font-style: italic;
@@ -44,7 +44,7 @@
   top: 0px;
   justify-content: space-between;
   z-index: -10;
-  background-color:rgb(231, 191, 155);
+  background-color:#f8d393;
 }
 .selected_item{
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(101%) contrast(102%)
@@ -113,7 +113,7 @@ table{
     height: 100vh;
     width: 100vw;
     z-index: 0;
-    background-color:rgb(231, 191, 155);
+    background-color:white;
   }
   .popTitle{
     display: flex;
