@@ -42,7 +42,7 @@
   .statH{
       display: flex;
       flex:auto;
-      border:1px solid black;
+      border:2px solid black;
       justify-content: center;
       height: 5vh;
       font-size: 3vh;
@@ -56,10 +56,10 @@
     color: black;
   }
   .statP{
-      background-color: wheat;
+      background-color: #e6c18d;
       display: flex;
       flex:auto;
-      border:1px solid black;
+      border: 2px solid black;
       justify-content: center;
       height: 5vh;
       font-size: 3vh;
@@ -107,7 +107,7 @@
   .floor{
       width: 100%;
       position: fixed;
-      background-color: rgb(2, 156, 156);
+      background-color: #bcd890;
       z-index: 3;
       top: 90vh;
       bottom: 0px;
@@ -126,4 +126,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+  }
+  .btn1 {
+    background-color: #83d37d;
+    border-color: rgb(0, 0, 0);
+    border-radius: 5px;
   }
