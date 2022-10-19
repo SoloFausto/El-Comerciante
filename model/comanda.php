@@ -45,7 +45,17 @@ class comanda {
         $this->estado = $resultadoObj->$estado;
         $this->fecha = $resultadoObj->$fecha;
     }
+    function cargarComandaPendiente(){
+        $sql = "SELECT *  FROM `comanda` WHERE `estado` = 1;";
+        $result = mysqli_query($this->conn,$sql);
+        if (!$result) { die("Query Failed."); }
+        $respuesta = array();
+        while($objetoArray = mysqli_fetch_object($result)){
+            array_push($respuesta,$objetoArray);
+        }
+        return $respuesta;
 
+    }
 
 
     /**

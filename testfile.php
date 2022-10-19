@@ -9,6 +9,7 @@
 <body>
     
     <?php
+    require "../El-Comerciante/model/comanda.php";
     require "../El-Comerciante/model/usuario.php";
     require "../El-Comerciante/model/producto.php";
     require "../El-Comerciante/model/helado.php";
@@ -19,9 +20,11 @@
         'elcomerciantedb',
         '3306'
     );
-$usr = new usuario($conn);
-$load = $usr->loadUserByPassw("Lucaas","passw");
-echo $load;
+$com = new comanda($conn);
+$compenarr = $com->cargarComandaPendiente();
+$salida = $compenarr[1];
+//$precio = $salida->getTotal();
+echo get_class($salida);
     ?>
 </body>
 </html>
