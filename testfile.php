@@ -21,7 +21,7 @@
         '3306'
     );
 $com = new comanda($conn);
-$compenarr = $com->cargarComandaPendiente();
+$compenarr = $comanda::cargarComandaPendiente($conn);
 $salida = $compenarr[1];
 //$precio = $salida->getTotal();
 echo get_class($salida);

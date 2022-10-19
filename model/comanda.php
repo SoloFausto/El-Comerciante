@@ -6,14 +6,14 @@ class comanda {
     protected $estado;
     protected $fecha;
     protected $conn;
-    
+
     static function cargarComandaPendiente($conn){
         $sql = "SELECT *  FROM `comanda` WHERE `estado` = 1;";
         $result = mysqli_query($conn,$sql);
         if (!$result) { die("Query Failed."); }
         $respuesta = array();
         while($objetoArray = mysqli_fetch_object($result)){
-            $comandaArray = new Comanda(NULL);
+            $comandaArray = new Comanda($conn);
             $comandaArray->initcomanda($objetoArray->id,$objetoArray->mesa,$objetoArray->total,$objetoArray->estado,$objetoArray->fecha);
             array_push($respuesta,$comandaArray);
         }
