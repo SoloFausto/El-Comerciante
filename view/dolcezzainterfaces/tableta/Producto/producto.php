@@ -14,7 +14,7 @@
 <body>
     <div class="aguanteTop">
         <div class="title">
-            <h1>Menu</h1>
+            <h1>Menu Productos</h1>
         </div>
         <div class="page">
             <div class="content">
