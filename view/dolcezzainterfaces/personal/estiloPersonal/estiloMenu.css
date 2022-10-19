@@ -46,7 +46,7 @@ h1{
     width: 97.4vw;
     position: fixed;
     height: 50px;
-    left: 51px;
+    left: 84px;
     top: 0px;
     justify-content: space-between;
     z-index: -1;
@@ -57,7 +57,7 @@ h1{
     flex: auto;
     flex-direction: row;
     position: fixed;
-    left: 51px;
+    left: 90px;
     width: 97.4vw;
     top:50px;
     z-index: -2;

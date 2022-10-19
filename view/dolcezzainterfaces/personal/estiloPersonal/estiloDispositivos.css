@@ -56,7 +56,7 @@ h1{
     flex: auto;
     flex-direction: row;
     position: fixed;
-    left: 51px;
+    left: 80px;
     width: 97.4vw;
     top:50px;
     z-index: -2;
@@ -70,13 +70,13 @@ h1{
     width: 97.4vw;
     position: fixed;
     height: 50px;
-    left: 51px;
+    left: 80px;
     bottom: 0px;
     justify-content: space-between;
     z-index: -1;
 } 
 .edgeButton{
-    width: 7%;
+    width: 9%;
 }
 .dispositivos{
     width: 100vw;
