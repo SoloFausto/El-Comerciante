@@ -24,7 +24,7 @@
     <div class="login-box">
       <img src="../resources/dolcezza.png" class="avatar" alt="Avatar Image">
       <h1>Ingrese aqui</h1>
-      <form method="POST" action="/../../../El-Comerciante/controller/login/loginControler.php">
+      <form method="POST" action="../../../controller/login/loginControler.php">
 
         <!-- USERNAME INPUT -->
         <label for="username">Nombre de usuario</label>
