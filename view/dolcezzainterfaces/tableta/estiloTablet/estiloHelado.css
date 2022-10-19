@@ -121,12 +121,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-<<<<<<< HEAD
     }
-    .btn1 {
+    .botoncito{
       background-color: #83d37d;
       border-color: rgb(0, 0, 0);
       border-radius: 5px;
-=======
->>>>>>> f4d5e99bd9a6f715d2b76a3c46782215d4be9e6c
     }
