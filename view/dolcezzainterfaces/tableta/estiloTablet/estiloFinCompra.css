@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+}
+.container-xs{
+    border: solid 3px black;
+    margin-top: 5%;
+    margin-left: 25%;
+    border-radius: 20px;
+    width: 50%;
+}
+.container-fluid{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin: 2%;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.ss{
+    text-align: center;
+    margin-right: 8%;
+}
+.img-thumbnail{
+    margin-top: 8%;
+    width: 30%;
+    height: 5%;
+    border-radius: 20px;
+}
+.text-center{
+    margin-bottom: 8%;
+}
