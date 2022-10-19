@@ -20,11 +20,10 @@
         'elcomerciantedb',
         '3306'
     );
-$com = new comanda($conn);
-$compenarr = $comanda::cargarComandaPendiente($conn);
-$salida = $compenarr[1];
-//$precio = $salida->getTotal();
-echo get_class($salida);
+$compenarr = comanda::cargarComandaPendiente($conn);
+$salida = $compenarr[2];
+$precio = $salida->getTotal();
+echo $precio;
     ?>
 </body>
 </html>
