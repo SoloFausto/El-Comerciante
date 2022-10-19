@@ -6,6 +6,20 @@ class comanda {
     protected $estado;
     protected $fecha;
     protected $conn;
+
+    static function cargarComandaPendiente($conn){
+        $sql = "SELECT *  FROM `comanda` WHERE `estado` = 1;";
+        $result = mysqli_query($conn,$sql);
+        if (!$result) { die("Query Failed."); }
+        $respuesta = array();
+        while($objetoArray = mysqli_fetch_object($result)){
+            $comandaArray = new Comanda($conn);
+            $comandaArray->initcomanda($objetoArray->id,$objetoArray->mesa,$objetoArray->total,$objetoArray->estado,$objetoArray->fecha);
+            array_push($respuesta,$comandaArray);
+        }
+        return $respuesta;
+
+    }
     function __construct($conn){
         $this->conn = $conn;
     }
@@ -23,12 +37,18 @@ class comanda {
         $sql = "SELECT *  FROM `comanda` WHERE `id` = $id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
-        $this->mesa = $resultadoObj->$mesa;
-        $this->total = $resultadoObj->$total;
-        $this->estado = $resultadoObj->$estado;
-        $this->fecha = $resultadoObj->$fecha;
+        $this->mesa = $resultadoObj->mesa;
+        $this->total = $resultadoObj->total;
+        $this->estado = $resultadoObj->estado;
+        $this->fecha = $resultadoObj->fecha;
     }
-    
+    function initcomanda($id,$mesa,$total,$estado,$fecha){
+        $this->id = $id;
+        $this->mesa = $mesa;
+        $this->total = $total;
+        $this->estado = $estado;
+        $this->fecha = $fecha;
+    }
     function modifyComanda(){
         $sql = "UPDATE `comanda` SET ´mesa' = $this->mesa,`total` = $this->total, `estado` = $this->estado, `fecha` = $this->fecha;"; 
                 $result = mysqli_query($this->conn,$sql);
@@ -40,22 +60,12 @@ class comanda {
         $sql = "SELECT *  FROM `comanda` WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
-        $this->mesa = $resultadoObj->$mesa;
-        $this->total = $resultadoObj->$total;
-        $this->estado = $resultadoObj->$estado;
-        $this->fecha = $resultadoObj->$fecha;
+        $this->mesa = $resultadoObj->mesa;
+        $this->total = $resultadoObj->total;
+        $this->estado = $resultadoObj->estado;
+        $this->fecha = $resultadoObj->fecha;
     }
-    function cargarComandaPendiente(){
-        $sql = "SELECT *  FROM `comanda` WHERE `estado` = 1;";
-        $result = mysqli_query($this->conn,$sql);
-        if (!$result) { die("Query Failed."); }
-        $respuesta = array();
-        while($objetoArray = mysqli_fetch_object($result)){
-            array_push($respuesta,$objetoArray);
-        }
-        return $respuesta;
 
-    }
 
 
     /**
