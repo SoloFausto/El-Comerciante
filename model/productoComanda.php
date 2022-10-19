@@ -3,24 +3,24 @@
     require "comanda.php";
     class productoComanda{
         private $idProducto;
-        private $numComanda;
+        private $id;
         private $conn;
         private $cantidad;
         function __construct($conn){
             $this->conn = $conn;
         }
-        function newidProductoIdComanda($idProducto,$numComanda,$cantidad){
+        function newidProductoIdComanda($idProducto,$id,$cantidad){
             $this->cantidad = $cantidad;
             $this->idProducto = $idProducto;
-            $this->numComanda = $numComanda;
-            $sql = "INSERT INTO `producto_comanda` (`idProducto`, `numComanda`, `cantidad`) VALUES ('$idProducto', '$numComanda', '$cantidad');";
+            $this->id = $id;
+            $sql = "INSERT INTO `producto_comanda` (`idProducto`, `id`, `cantidad`) VALUES ('$idProducto', '$id', '$cantidad');";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_object($result);
         }
-        function initProductoComanda($idProducto,$numComanda,$cantidad){
+        function initProductoComanda($idProducto,$id,$cantidad){
             $this->cantidad = $cantidad;
             $this->idProducto = $idProducto;
-            $this->numComanda = $numComanda;
+            $this->id = $id;
         }
         function load(){
             $sql = "SELECT *  FROM `producto_comanda` WHERE `idProducto` = $this->idProducto;";
@@ -29,13 +29,13 @@
             return $resultadoObj;
         }
         function load2(){
-            $sql = "SELECT *  FROM `producto_comanda` WHERE `numComanda` = $this->numComanda;";
+            $sql = "SELECT *  FROM `producto_comanda` WHERE `id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_array($result);
             return $resultadoObj;
         }
         function deleteProductoComanda(){
-            $sql = "DELETE FROM `producto_comanda` WHERE `idProducto` = $this->idProducto AND `numComanda` = $this->numComanda;";
+            $sql = "DELETE FROM `producto_comanda` WHERE `idProducto` = $this->idProducto AND `id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
         }
         
@@ -57,7 +57,7 @@
         public function setCantidad($cantidad)
         {
                 $this->cantidad = $cantidad;
-                $sql = "UPDATE `producto_comanda` SET `cantidad` = '$cantidad' WHERE `producto_comanda`.`idProducto` = $this->idProducto AND `producto_comanda`.`numComanda` = $this->numComanda";
+                $sql = "UPDATE `producto_comanda` SET `cantidad` = '$cantidad' WHERE `producto_comanda`.`idProducto` = $this->idProducto AND `producto_comanda`.`id` = $this->id";
                 $result = mysqli_query($this->conn,$sql);
                 return $this;
         }

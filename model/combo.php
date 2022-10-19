@@ -41,6 +41,14 @@ class combo{
                 $sql = "UPDATE `combo` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion', `precio` = '$this->precio' WHERE `helado`.`id` = $this->id;";
                 $result = mysqli_query($this->conn,$sql);
         }
+        function deleteCombo(){
+                $sql = "DELETE FROM combo WHERE `combo`.`id` = $this->id";
+                $this->id = "";
+                $this->nombre = "";
+                $this->descripcion = "";
+                $this->precio = "";
+        }
+
         /**
          * Get the value of id
          */ 

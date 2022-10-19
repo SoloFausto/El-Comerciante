@@ -1,6 +1,6 @@
 <?php
 class comanda {
-    protected $numeroComanda;
+    protected $id;
     protected $mesa;
     protected $total;
     protected $estado;
@@ -19,8 +19,8 @@ class comanda {
         $result = mysqli_query($this->conn,$sql);  
     }
     //El siguiente código es para sacar de la BD los datos de una comanda utilizando como input el número de la misma
-    function cargarComandaPorNumero($numeroComanda){
-        $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $numeroComanda;";
+    function cargarComandaPorNumero($id){
+        $sql = "SELECT *  FROM `comanda` WHERE `id` = $id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
         $this->mesa = $resultadoObj->$mesa;
@@ -30,14 +30,14 @@ class comanda {
     }
     
     function modifyComanda(){
-        $sql = "UPDATE `comanda` SET `nombre` = '$this->nombre', `contrasena` = '$this->contrasena', `permComandas` = b'$this->permComandas', `permSLComandas` = b'$this->permSLComandas', `permMenu` = b'$this->permMenu ', `permComandas` = b'$this->permComandas', `permEsTableta` = b'$this->permEsTableta' WHERE `comanda`.`id` = $this->id;";
-        $result = mysqli_query($this->conn,$sql);
+        $sql = "UPDATE `comanda` SET ´mesa' = $this->mesa,`total` = $this->total, `estado` = $this->estado, `fecha` = $this->fecha;"; 
+                $result = mysqli_query($this->conn,$sql);
     }
     function deleteComanda(){
-        $sql = "DELETE FROM comanda WHERE `comanda`.`numeroComanda` = $this->numeroComanda";
+        $sql = "DELETE FROM comanda WHERE `comanda`.`id` = $this->id";
     }
     function refreshComanda(){
-        $sql = "SELECT *  FROM `comanda` WHERE `numeroComanda` = $this->numeroComanda;";
+        $sql = "SELECT *  FROM `comanda` WHERE `id` = $this->id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
         $this->mesa = $resultadoObj->$mesa;
@@ -45,25 +45,35 @@ class comanda {
         $this->estado = $resultadoObj->$estado;
         $this->fecha = $resultadoObj->$fecha;
     }
+    function cargarComandaPendiente(){
+        $sql = "SELECT *  FROM `comanda` WHERE `estado` = 1;";
+        $result = mysqli_query($this->conn,$sql);
+        if (!$result) { die("Query Failed."); }
+        $respuesta = array();
+        while($objetoArray = mysqli_fetch_object($result)){
+            array_push($respuesta,$objetoArray);
+        }
+        return $respuesta;
 
+    }
 
 
     /**
-     * Get the value of numeroComanda
+     * Get the value of id
      */ 
-    public function getNumeroComanda()
+    public function getid()
     {
-        return $this->numeroComanda;
+        return $this->id;
     }
 
     /**
-     * Set the value of numeroComanda
+     * Set the value of id
      *
      * @return  self
      */ 
-    public function setNumeroComanda($numeroComanda)
+    public function setid($id)
     {
-        $this->numeroComanda = $numeroComanda;
+        $this->id = $id;
 
         return $this;
     }
