@@ -26,7 +26,7 @@ $compenarr = comandaStatic::cargarComandaPendiente($conn);
 // $salida = $compenarr[2];
 // $precio = $salida->getTotal();
 $wpwpw = comandaController::hidrateComandaId(0);
-echo $wpwpw;
+$wpwpw->deleteComanda()
     ?>
 </body>
 </html>

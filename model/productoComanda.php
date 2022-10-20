@@ -38,7 +38,10 @@
             $sql = "DELETE FROM `producto_comanda` WHERE `idProducto` = $this->idProducto AND `id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
         }
-        
+        function deleteFromComanda($id){
+            $sql = "DELETE FROM `producto_comanda` WHERE `idProducto` = $this->idProducto";
+            mysqli_query($this->conn,$sql);
+        }
 
         /**
          * Get the value of cantidad

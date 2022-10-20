@@ -1,4 +1,5 @@
 <?php
+require "productoComanda.php";
 class comanda {
     protected $id;
     protected $mesa;
@@ -47,6 +48,8 @@ class comanda {
                 $result = mysqli_query($this->conn,$sql);
     }
     function deleteComanda(){
+        $relacion = new productoComanda($this->conn);
+        $relacion->deleteFromComanda($this->id);
         $sql = "DELETE FROM comanda WHERE `comanda`.`id` = $this->id";
         mysqli_query($this->conn,$sql);
         
