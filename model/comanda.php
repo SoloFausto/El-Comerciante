@@ -8,19 +8,7 @@ class comanda {
     protected $forma_pago;
     protected $conn;
 
-    static function cargarComandaPendiente($conn){
-        $sql = "SELECT *  FROM `comanda` WHERE `estado` = 1;";
-        $result = mysqli_query($conn,$sql);
-        if (!$result) { die("Query Failed."); }
-        $respuesta = array();
-        while($objetoArray = mysqli_fetch_object($result)){
-            $comandaArray = new Comanda($conn);
-            $comandaArray->initcomanda($objetoArray->id,$objetoArray->mesa,$objetoArray->total,$objetoArray->estado,$objetoArray->fecha,$objetoArray->forma_pago);
-            array_push($respuesta,$comandaArray);
-        }
-        return $respuesta;
 
-    }
     function __construct($conn){
         $this->conn = $conn;
     }
@@ -39,6 +27,7 @@ class comanda {
         $sql = "SELECT *  FROM `comanda` WHERE `id` = $id;";
         $result = mysqli_query($this->conn,$sql);
         $resultadoObj = mysqli_fetch_object($result);
+        $this->id = $id;
         $this->mesa = $resultadoObj->mesa;
         $this->total = $resultadoObj->total;
         $this->estado = $resultadoObj->estado;
@@ -59,6 +48,8 @@ class comanda {
     }
     function deleteComanda(){
         $sql = "DELETE FROM comanda WHERE `comanda`.`id` = $this->id";
+        mysqli_query($this->conn,$sql);
+        
     }
     function refreshComanda(){
         $sql = "SELECT *  FROM `comanda` WHERE `id` = $this->id;";
