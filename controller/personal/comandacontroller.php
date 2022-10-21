@@ -1,7 +1,7 @@
 <?php
-include "D:/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
-require "D:/Xampp/htdocs/El-Comerciante/model/comanda.php";
-require "D:/Xampp/htdocs/El-Comerciante/model/comandaStatic.php";
+include "../include/conection.php";
+require "../../model/comanda.php";
+require "../../model/comandaStatic.php";
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
                $compenarr = comandaStatic::cargarComandaPendiente(conectar());

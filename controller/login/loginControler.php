@@ -24,12 +24,12 @@
       session_start();
       $_SESSION['mensaje'] = "Bienvenido $nombre";
       $_SESSION['mensaje-color'] = 'success';
-      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
+      header("Location: /../view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
     }else{
       session_start();
       $_SESSION['mensaje'] = 'El usuario y/o la conrtaseña son incorrectos.';
       $_SESSION['mensaje-color'] = 'danger';
-      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
+      header("Location: /../view/dolcezzainterfaces/login/index.php");
     }
   }  
 }
