@@ -1,6 +1,5 @@
 <?php
-    require "producto.php";
-    require "comanda.php";
+
     class productoComanda{
         private $idProducto;
         private $id;
@@ -35,11 +34,11 @@
             return $resultadoObj;
         }
         function deleteProductoComanda(){
-            $sql = "DELETE FROM `producto_comanda` WHERE `idProducto` = $this->idProducto AND `id` = $this->id;";
+            $sql = "DELETE FROM `producto_comanda` WHERE `producto_comanda`.`idProducto` = $this->idProducto AND `producto_comanda`.`numComanda` = $this->id";            
             $result = mysqli_query($this->conn,$sql);
         }
         function deleteFromComanda($id){
-            $sql = "DELETE FROM `producto_comanda` WHERE `idProducto` = $this->idProducto";
+            $sql = "DELETE FROM `producto_comanda` WHERE `producto_comanda`.`numComanda` = 2";
             mysqli_query($this->conn,$sql);
         }
 

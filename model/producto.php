@@ -5,9 +5,30 @@
         private $descripcion;
         private $precio;
         private $conn;
+        private $cantidad;
         function __construct($conn){
             $this->conn = $conn;
         }
+        static function getRelatedProds($conn,$idComanda){ // conseguimos todos los productos que esten relacionados con una comanda en especifico
+                $sql = "SELECT producto.nombre, producto.descripcion, producto.precio, comanda.id, producto_comanda.cantidad
+                FROM producto,producto_comanda,comanda 
+                WHERE ((producto_comanda.idProducto  = producto.id) AND (producto_comanda.numComanda = comanda.id)) 
+                AND comanda.id = $idComanda ;";
+                $result = mysqli_query($conn,$sql);
+                $respuesta = array();
+                while($objetoArray = mysqli_fetch_object($result)){
+                    $comandaArray = new producto ($conn);
+                    $comandaArray->initProducto($objetoArray->$nombre,$objetoArray->descripcion,$objetoArray->precio,$objetoArray->cantidad);
+                    array_push($respuesta,$comandaArray);
+                }
+                return $respuesta;
+            }
+            function initProducto($nombre,$descripcion,$precio,$cantidad){
+                $this->nombre = $nombre;
+                $this->descripcion = $descripcion;
+                $this->precio = $precio;
+                $this->cantidad = $cantidad;
+            }
         function newProducto($nombre,$descripcion,$precio){
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;

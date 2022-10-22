@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require ("../../../../controller/personal/comanda/comandacontroller.php");?>
+    <?php require ("../../../../controller/personal/comanda/comandacontrollerViejo.php");?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,42 +16,29 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-<!-- Estos 3 traen los desplegables desde esas rutas. -->
-<script src="desplegables/agregarcomanda.php"></script>
-<script src="desplegables/agregarorden.js"></script>
-<script src="desplegables/seleccionarsabores.js"></script>
-<script src="desplegables/comandasViejas.js"></script>
-
-<!--  ----------------------------------------------  -->
 <div>
-  <div class="titlebox">
-    <div id="agregarpop">
-        <button type="button" class="btn btn-success" onclick="agregarComanda()"><i class="bi bi-plus-circle"><br>Agregar </i>
-        </button>
-        <button type="button" class="btn btn-success" onclick="comandasViejas()"><i>Comandas viejas </i>
-        </button>
-      </div>
-    <h1>Comandas</h1>
-    <div class="titleboxspacer"></div>
+    <div class="titlebox">
+        <div class="titleboxspacer"></div>
+        <h1>Comandas Viejas</h1>
+        <div class="titleboxspacer"></div>
     </div>
-</div>
   <div class="page">  
     <div class="content">
       <div class="table-responsive table-wrapper">
-        <table class="table" style="width: 85%;">
-          <?php $numberComandas = comandacontroller::returnComandaIndex();
+        <table class="table ">
+          <?php $numberComandas = comandaControllerViejo::returnComandaIndex();
           $i = 0;
            while ($i < $numberComandas){
             ?>
           <tr class="articuloN">
-              <td><div><p>Numero de comanda:<?php echo comandacontroller::hidrateComandaId($i);?></p></div></td>
-              <td><div><p>Mesa:<?php echo comandacontroller::hidrateComandaMesa($i);?></p></div></td>
-              <td><div><p>Fecha:<?php echo comandacontroller::hidrateComandaFecha($i);?></p></div></td>
-              <td><div><p>Forma de pago:<?php echo comandacontroller::hidrateComandaFormaPago($i);?></p></div></td>
+              <td><div><p>Numero de comanda:<?php echo comandaControllerViejo::hidrateComandaId($i);?></p></div></td>
+              <td><div><p>Mesa:<?php echo comandaControllerViejo::hidrateComandaMesa($i);?></p></div></td>
+              <td><div><p>Fecha:<?php echo comandaControllerViejo::hidrateComandaFecha($i);?></p></div></td>
+              <td><div><p>Forma de pago:<?php echo comandaControllerViejo::hidrateComandaFormaPago($i);?></p></div></td>
               <td>
                 <div>
                   <form action="../../../../controller/personal/comanda/comandaprocessor.php" method="get">
-                    <input type="hidden" name="info" value="<?php echo comandacontroller::hidrateComandaId($i);?>">
+                    <input type="hidden" name="info" value="<?php echo comandaControllerViejo::hidrateComandaId($i);?>">
                     <button type="submit">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -60,7 +47,7 @@
                     </button>
                   </form>
                   <form action="../../../../controller/personal/comanda/comandaprocessor.php" method="get">
-                  <input type="hidden" name="delete" value="<?php echo comandacontroller::hidrateComandaId($i);?>">
+                  <input type="hidden" name="delete" value="<?php echo comandaControllerViejo::hidrateComandaId($i);?>">
                   <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
                       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>

@@ -51,7 +51,7 @@ table, th, td {
   border-collapse: collapse;
 }
 table{
-
+  width: 85%;
   overflow-y: auto;
 }
 .tablaprods{

@@ -34,10 +34,6 @@
             $resultadoObj = mysqli_fetch_array($result);
             return $resultadoObj;
         }
-        function deleteComboComanda(){
-            $sql = "DELETE FROM `combo_comanda` WHERE `idCombo` = $this->idCombo AND `id` = $this->id;";
-            $result = mysqli_query($this->conn,$sql);
-        }
         
 
         /**

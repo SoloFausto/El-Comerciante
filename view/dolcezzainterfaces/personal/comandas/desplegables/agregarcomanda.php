@@ -1,4 +1,6 @@
-
+<?php
+    header('Content-Type: text/javascript; charset=UTF-8');
+?>
   function agregarComanda() {
     var popup =`
     <div class="popup">
@@ -167,7 +169,7 @@
     `;
     $("body").append(popup);
     var popup = document.getElementById("agregarpop");
-  }
+  };
   function disableMesa(){
     var checkbox = document.getElementById("llevar");
     var mesa = document.getElementById("mesa");
