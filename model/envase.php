@@ -9,6 +9,17 @@
         function __construct ($conn){
             $this->conn = $conn;
         }
+        static function loadAllEnvs($conn){
+                $sql = "SELECT *  FROM `envase`"; 
+                $result = mysqli_query($conn,$sql);
+                $respuesta = array();
+                while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
+                    $comandaArray = new envase($conn); // creamos una objeto envase por cada resultado
+                    $comandaArray->initEnvase($objetoArray->id,$objetoArray->nombre,$objetoArray->descripcion,$objetoArray->capacidad,$objetoArray->precio);
+                    array_push($respuesta,$comandaArray); // ponemos los objetos en el array
+                }
+                return $respuesta; // devolvemos el array
+        }
         function newEnvase($nombre,$descripcion,$capacidad,$precio){
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
@@ -22,6 +33,13 @@
             $resultObjId = mysqli_fetch_object($resultQueryId);
             $this->id = $resultObjId->id;
         }
+        function initEnvase($id,$nombre,$descripcion,$capacidad,$precio){
+                $this->nombre = $nombre;
+                $this->descripcion = $descripcion;
+                $this->capacidad = $capacidad;
+                $this->precio = $precio;
+                $this->id = $id;
+            }
         function loadEnvaseById ($id){
             $sql = "SELECT *  FROM `envase` WHERE `id` = $id;";
             $result = mysqli_query($this->conn,$sql);
@@ -133,6 +151,7 @@
          */ 
         public function getPrecio()
         {
+
                 return $this->precio;
         }
 

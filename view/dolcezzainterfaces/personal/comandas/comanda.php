@@ -18,7 +18,7 @@
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <!-- Estos 3 traen los desplegables desde esas rutas. -->
 <script src="desplegables/agregarcomanda.php"></script>
-<script src="desplegables/agregarorden.js"></script>
+<script src="desplegables/agregarorden.php"></script>
 <script src="desplegables/seleccionarsabores.js"></script>
 <script src="desplegables/comandasViejas.js"></script>
 

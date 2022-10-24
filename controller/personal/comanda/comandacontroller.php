@@ -2,6 +2,7 @@
 include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
 require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
 require "/Xampp/htdocs/El-Comerciante/model/producto.php";
+require "/Xampp/htdocs/El-Comerciante/model/envase.php";
 
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
@@ -106,5 +107,34 @@ require "/Xampp/htdocs/El-Comerciante/model/producto.php";
                return $salida;
 
           }
+
+     }
+     class envaseController{
+          public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos para una comanda
+               $envArr = envase::loadAllEnvs(conectar());
+               $salida = count($envArr);
+               return $salida;
+
+          }
+          public static function hidrateEnvaseNombre($idEnvase){ 
+               $envArr = envase::loadAllEnvs(conectar()); 
+               $salida = $envArr[$idEnvase];
+               $id = $salida->getNombre(); 
+               return $id; 
+          }
+          public static function hidrateEnvasePrecio($idEnvase){ 
+               $envArr = envase::loadAllEnvs(conectar());
+               $salida = $envArr[$idEnvase];
+               $id = $salida->getPrecio(); 
+               return $id;
+          }
+          public static function hidrateEnvaseCapacidad($idEnvase){ 
+               $envArr = envase::loadAllEnvs(conectar());
+
+               $salida = $envArr[$idEnvase]; 
+               $id = $salida->getCapacidad(); 
+               return $id;
+          }
+          
 
      }
