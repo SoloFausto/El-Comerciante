@@ -12,25 +12,24 @@ public class MainActivity extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_IMMERSIVE
-                        // Set the content to appear under the system bars so that the
-                        // content doesn't resize when the system bars hide and show.
+                        // Ponemos el contenido abajo de las barras de navegacion para evitar
+                        // que el navegador cambie de tamañp
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        // Hide the nav bar and status bar
+                        // Escondemos la barra de navegacion y la de estado
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
         // Binding MainActivity.java with
         // activity_main.xml file
         setContentView(R.layout.activity_main);
 
-        // Find the WebView by its unique ID
+        // Encontrar el elemeto de webview por su id
         WebView w = (WebView) findViewById(R.id.web);
 
-        // loading http://www.google.com url in the the WebView.
-        w.loadUrl("file:///android_asset/personal/paginaPrincipal/inicio.html");
-        //w.loadUrl("https://www.facebook.com");
-        // this will enable the javascript.
+        // Cargar la url de nuestra pagina
+        w.loadUrl("https://dolcezza-corvus.000webhostapp.com/");
+        // Permite que se ejecute javascript
         w.getSettings().setJavaScriptEnabled(true);
 
         // WebViewClient allows you to handle
