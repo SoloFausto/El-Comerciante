@@ -9,6 +9,17 @@
         function __construct($conn){
             $this->conn = $conn;
         }
+        static function loadAllProds($conn){
+                $sql = "SELECT *  FROM `producto`"; 
+                $result = mysqli_query($conn,$sql);
+                $respuesta = array();
+                while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
+                    $comandaArray = new producto($conn); // creamos una objeto comanda por cada resultado
+                    $comandaArray->initProducto($objetoArray->id,$objetoArray->nombre,$objetoArray->descripcion,$objetoArray->precio,NULL);
+                    array_push($respuesta,$comandaArray); // ponemos los objetos en el array
+                }
+                return $respuesta; // devolvemos el array
+        }
         static function getRelatedProds($conn,$idComanda){ // conseguimos todos los productos que esten relacionados con una comanda en especifico
                 $sql = "SELECT producto.nombre, producto.descripcion, producto.precio, comanda.id, producto_comanda.cantidad
                 FROM producto,producto_comanda,comanda 
@@ -18,12 +29,13 @@
                 $respuesta = array();
                 while($objetoArray = mysqli_fetch_object($result)){
                     $comandaArray = new producto ($conn);
-                    $comandaArray->initProducto($objetoArray->$nombre,$objetoArray->descripcion,$objetoArray->precio,$objetoArray->cantidad);
+                    $comandaArray->initProducto($objetoArray->id,$objetoArray->$nombre,$objetoArray->descripcion,$objetoArray->precio,$objetoArray->cantidad);
                     array_push($respuesta,$comandaArray);
                 }
                 return $respuesta;
             }
-            function initProducto($nombre,$descripcion,$precio,$cantidad){
+            function initProducto($id,$nombre,$descripcion,$precio,$cantidad){
+                $this->id = $id;
                 $this->nombre = $nombre;
                 $this->descripcion = $descripcion;
                 $this->precio = $precio;

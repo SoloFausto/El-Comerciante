@@ -1,6 +1,8 @@
 <?php
 include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
 require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
+require "/Xampp/htdocs/El-Comerciante/model/producto.php";
+
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
                $comandaArr = comanda::cargarComandaEstado(conectar(),1);
@@ -79,6 +81,30 @@ require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
                $salida = $prodArr[$idcomanda]; // elegimos una e el array 
                $id = $salida->getNombre(); // conseguimos el valor de la id con el getter de la ue elegimos 
                return $id; // devolvemos el valor
+          }
+          public static function hidrateAllProductoNombre($index){
+               $productoArr = producto::loadAllProds(conectar());
+               $salida = $productoArr[$index];
+               $fecha = $salida->getNombre();
+               return $fecha;
+          }
+          public static function hidrateAllProductoPrecio($index){
+               $productoArr = producto::loadAllProds(conectar());
+               $salida = $productoArr[$index];
+               $fP = $salida->getPrecio();
+               return $fP;
+          }
+          public static function hidrateAllProductoDescripcion($index){
+               $productoArr = producto::loadAllProds(conectar());
+               $salida = $productoArr[$index];
+               $fP = $salida->getDescripcion();
+               return $fP;
+          }
+          public static function returnProductoIndex(){ //Nos devuelve los productos
+               $prodArr = producto::loadAllProds(conectar());
+               $salida = count($prodArr);
+               return $salida;
+
           }
 
      }

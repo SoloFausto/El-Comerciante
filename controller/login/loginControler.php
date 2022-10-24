@@ -24,10 +24,10 @@
       session_start();
       $_SESSION['mensaje'] = "Bienvenido $nombre";
       $_SESSION['mensaje-color'] = 'success';
-      header("Location: /../view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
+      header("Location: /El-Comerciante/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
     }else{
       session_start();
-      $_SESSION['mensaje'] = 'El usuario y/o la conrtaseña son incorrectos.';
+      $_SESSION['mensaje'] = 'El usuario y/o la contraseña son incorrectos.';
       $_SESSION['mensaje-color'] = 'danger';
       header("Location: /../view/dolcezzainterfaces/login/index.php");
     }
