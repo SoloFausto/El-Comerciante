@@ -1,5 +1,5 @@
 <?php
-    include("conexion.php");
+    include("../include/connection.php");
     require("../../model/Usuario.php");
     
     $nombre = $_POST['user'];
