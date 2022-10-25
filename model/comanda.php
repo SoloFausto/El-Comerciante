@@ -54,7 +54,7 @@ class comanda {
         
         $sql1 = "DELETE FROM producto_comanda WHERE `numComanda` = $this->id;";
         $sql2 = "DELETE FROM comanda_envase_helado WHERE `numComanda` = $this->id; ";
-        $sql3= "DELETE FROM combo_comanda WHERE `numComanda` = $this->id; ";
+        $sql3=  "DELETE FROM combo_comanda WHERE `numComanda` = $this->id; ";
         $sql4 = "DELETE FROM comanda_usuario WHERE `idComanda` = $this->id;";
         $sql5 = "DELETE FROM comanda WHERE `comanda`.`id` = $this->id;";
         mysqli_query($this->conn,$sql1);

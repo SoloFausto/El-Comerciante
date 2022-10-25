@@ -14,8 +14,8 @@ require "/Xampp/htdocs/El-Comerciante/model/envase.php";
           public static function hidrateComandaId($index){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
                $comandaArr = comanda::cargarComandaEstado(conectar(),1); // este metodo nos devuelve un array de comandas pendientes y 
                //lo ponemos en la variable
-               $salida = $comandaArr[$index]; // elegimos una e el array 
-               $id = $salida->getId(); // conseguimos el valor de la id con el getter de la ue elegimos 
+               $salida = $comandaArr[$index]; // elegimos una en el array 
+               $id = $salida->getId(); // conseguimos el valor de la id con el getter de la que elegimos 
                return $id; // devolvemos el valor
           }
           public static function hidrateComandaMesa($index){
