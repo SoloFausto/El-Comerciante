@@ -29,7 +29,7 @@
       session_start();
       $_SESSION['mensaje'] = 'El usuario y/o la contraseña son incorrectos.';
       $_SESSION['mensaje-color'] = 'danger';
-      header("Location: /../view/dolcezzainterfaces/login/index.php");
+      header("Location: ../../view/dolcezzainterfaces/login/index.php");
     }
   }  
 }
