@@ -4,7 +4,7 @@
         private $nombre;
         private $descripcion;
         private $precio;
-        private $conn;
+        public $conn;
         private $cantidad;
         function __construct($conn){
             $this->conn = $conn;
@@ -54,7 +54,7 @@
             $this->id = $resultObjId->id;
         }
         function loadProductoById ($id){
-            $sql = "SELECT *  FROM `producto` WHERE `id` = $id;";
+            $sql = "SELECT * FROM `producto` WHERE `id` = $id;";
             $result = mysqli_query($this->conn,$sql);
             $resultObj = mysqli_fetch_object($result);
             $this->id = $id;
