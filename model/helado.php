@@ -7,6 +7,17 @@ class helado{
     function __construct($conn){
         $this->conn = $conn;
     }
+    static function loadAllHelados($conn){
+        $sql = "SELECT *  FROM `helado`"; 
+        $result = mysqli_query($conn,$sql);
+        $respuesta = array();
+        while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
+            $comandaArray = new helado($conn); // creamos una objeto envase por cada resultado
+            $comandaArray->initHelado($objetoArray->id,$objetoArray->nombre,$objetoArray->descripcion);
+            array_push($respuesta,$comandaArray); // ponemos los objetos en el array
+        }
+        return $respuesta; // devolvemos el array
+}
     /**subir nuevo sabor de helados a la base de datos */
     function newHelado($nombre,$descripcion){
         $this->nombre = $nombre;
@@ -20,6 +31,11 @@ class helado{
         $this->id = $resultObjId->id;
 
 
+    }
+    function initHelado($id,$nombre,$descripcion){
+        $this->id = $id;
+        $this->nombre = $nombre;
+        $this->descripcion = $descripcion;
     }
     /**cargar un nuevo sabor de helado por su id */
     function loadHeladoById ($id){

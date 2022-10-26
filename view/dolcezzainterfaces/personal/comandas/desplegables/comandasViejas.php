@@ -1,3 +1,4 @@
+<?php header("content-type: application/x-javascript");?>
 function comandasViejas(){
     window.location.href = "comandasViejas.php";
 
