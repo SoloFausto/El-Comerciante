@@ -34,6 +34,6 @@ require "/Xampp/htdocs/El-Comerciante/model/helado.php";
         $producto = $_GET['producto'];
         $producto2 = $_GET['producto'];
         echo $producto;
-        echo $producto2;
+
     }
 ?>
