@@ -2,7 +2,7 @@
     include("C:/xampp/htdocs/El-Comerciante/controller/include/connection.php");
     require("C:/xampp/htdocs/El-Comerciante/model/Tableta.php");
     
-    $contrasena = $_POST['botonTablet'];
+    $contrasena = $_POST['bottonTab'];
     
     if(($contrasena == "")){ //  se fija que no haya campos vacios
       session_start();
@@ -11,7 +11,7 @@
       header("location: /El-Comerciante/view/dolcezzainterfaces/tableta/inicio/loginTableta.php");
     }else{
 
-    if( !isset($_POST['botonTablet'])){ /*Verifica que los datos vengan del inicio de sesión*/
+    if(!isset($_POST['botonTablet'])){ /*Verifica que los datos vengan del inicio de sesión*/
       header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/tableta/inicio/logintableta.php");
 
     }else{
