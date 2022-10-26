@@ -30,7 +30,7 @@
         </form>
         <div class="container text-center">
             <!-- Esto trae las tablas -->
-            <?php include("../includes/productss.php"); ?>
+            <?php include("../includes/productos.php"); ?>
             <div class="container-fluid">
                 <!-- Boton de Agregar orden -->
                 <button type="button" class="btn btn-light">Agregar a la orden
