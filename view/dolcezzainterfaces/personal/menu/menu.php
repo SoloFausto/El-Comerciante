@@ -17,10 +17,10 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
 
 
 <body>
-<script src="../menu/desplegables/agregarenvase.js"></script>
-<script src="../menu/desplegables/agregarhelado.js"></script>
-<script src="../menu/desplegables/agregarproducto.js"></script>
-<script src="../menu/desplegables/agregarcombo.js"></script>
+<script src="../menu/desplegables/agregarenvase.php"></script>
+<script src="../menu/desplegables/agregarhelado.php"></script>
+<script src="../menu/desplegables/agregarproducto.php"></script>
+<script src="../menu/desplegables/agregarcombo.php"></script>
 <div class="titlebox">
 <div class="buttons">
   <div id="agregarpop">

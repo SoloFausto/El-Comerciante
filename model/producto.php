@@ -45,7 +45,7 @@
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
             $this->precio = $precio;
-            $sql = "INSERT INTO `producto` (`nombre`, `descripcion`, `precio`) VALUES (NULL, '$nombre', '$descripcion', '$precio');";
+            $sql = "INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`) VALUES (NULL, '$nombre', '$descripcion', '$precio');";
             $result = mysqli_query($this->conn,$sql);
     /* El codigo de abajo recupera la id de el helado que recien creamos*/
             $getIdSql = "SELECT `id` FROM `producto` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion';";

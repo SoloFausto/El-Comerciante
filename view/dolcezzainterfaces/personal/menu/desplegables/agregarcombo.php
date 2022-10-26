@@ -1,3 +1,4 @@
+<?php header("content-type: application/x-javascript");?>
 
   function agregarCombo() {
     var agregarCombo =`
