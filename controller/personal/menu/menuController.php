@@ -56,7 +56,12 @@ include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
          return $salida;
 
     }
-
+    public static function hidrateAllProductoId($index){
+          $prodArr = producto::loadAllProds(conectar());
+          $salida = $prodArr[$index];
+          $id = $salida->getid();
+          return $id;
+    }
 }
 class envaseController{
     public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos para una comanda
@@ -84,6 +89,12 @@ class envaseController{
          $id = $salida->getCapacidad(); 
          return $id;
     }
+    public static function hidrateEnvaseId($index){
+     $envArr = envase::loadAllEnvs(conectar());
+     $salida = $envArr[$index];
+     $id = $salida->getid();
+     return $id;
+}
     
 
 }
@@ -106,6 +117,7 @@ class saborHelado{
          $id = $salida->getPrecio(); 
          return $id;
     }
+    
 }
 class combocontroller{
     public static function returnCombo(){ //Nos devuelve cuantos productos tenemos para una comanda
