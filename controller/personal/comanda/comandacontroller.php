@@ -54,7 +54,11 @@ require "/Xampp/htdocs/El-Comerciante/model/envase.php";
                $id = $salida->getId();
 
           }
+          public static function createComanda(){
+               
+          }
      }
+
      class productoController{
           public static function returnProductos($idcomanda){ //Nos devuelve cuantos productos tenemos para una comanda
                $prodArr = producto::getRelatedProds(conectar(),$idcomanda);

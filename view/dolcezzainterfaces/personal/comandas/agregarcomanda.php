@@ -1,8 +1,33 @@
-<?php header("content-type: application/x-javascript");?>
-  function agregarComanda() {
-    var popup =`
-    <div class="popup">
-      <div class="background" style="z-index: 0;"></div>
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require ("../../../../controller/personal/comanda/comandacontroller.php");?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estiloPersonal/estiloComanda.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <title>Comandas</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- Estos 3 traen los desplegables desde esas rutas. -->
+<script src="desplegables/comandasViejas.js"></script>
+
+<!--  ----------------------------------------------  -->
+<div>
+  <div class="titlebox">
+    <h1>Agregar o modificar comandas</h1>
+    </div>
+</div>
+  <div class="page">  
+    <div class="content">
+    
       <div class="menuPop">
         <form action="">
           <div class="popTitle">
@@ -12,7 +37,7 @@
               <label for="llevar">Llevar:</label>
               <input type="checkbox" id="llevar" onclick="disableMesa()">
             </div>
-            <h2>Agregar</h2>
+            <h2></h2>
             <button type="button" onclick="agregarPlato()" style="border:0px;" id="agregar">
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -31,7 +56,7 @@
         </form>
         <hr>
         <h3 style="text-align: center;">Productos a pedir</h3>
-          <div class="">
+          <div style="display:flex;flex-direction: column; align-items: center;">
               <table class="table tablaprods">
                   
                       <tr class="envase">
@@ -62,56 +87,8 @@
                           </td>
                       </tr>
                           <tr>
-                              <td></td>
-                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
-                              <td>
-                                  <button type="button" onclick="" style="border:0px;">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                      </svg>
-                                  </button>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
-                              <td>
-                                  <button type="button" onclick="" style="border:0px;">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                      </svg>
-                                  </button>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
-                              <td>
-                                  <button type="button" onclick="" style="border:0px;">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                      </svg>
-                                  </button>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
-                              <td>
-                                  <button type="button" onclick="" style="border:0px;">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                      </svg>
-                                  </button>
-                              </td>
-                          </tr>
-                          <tr>
                           <?php 
-                             require "/Xampp/htdocs/El-Comerciante/controller/personal/comanda/comandacontroller.php";
+
                             $numberProducts = productoController::returnProductoIndex();
                             $i = 0;
                             while ($i < $numberProducts){
@@ -132,25 +109,19 @@
                             $i++;
                             } ?>
               </table>
+              <button type="button" onclick="removeAgregarComanda()" style="border:0px; border-radius:50px; width:50px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+              </svg>
+            </button>
           </div>
+
+
     </div>
-    `;
-    $("body").append(popup);
-    var popup = document.getElementById("agregarpop");
-  };
-  
-  function disableMesa(){
-    var checkbox = document.getElementById("llevar");
-    var mesa = document.getElementById("mesa");
-    
-    if (mesa.disabled == true){
-      mesa.value = '';
-      mesa.disabled = false;
-    } 
-    else if(mesa.disabled == false){
-      mesa.value = '';
-      mesa.disabled = true;
-    }
-  }function removeAgregarComanda(){
-    $(".popup").remove();
-  }
+
+    <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+
+</body>
+</html>
+

@@ -23,6 +23,16 @@ class comanda {
         $sql = "INSERT INTO `comanda` (`mesa`, `total`, `estado`, `idUsuario`, `fecha`, `forma_pago`)
         VALUES ('$mesa', '$total', '$estado', '$idUsuario', '$fecha','$forma_pago');";
         $result = mysqli_query($this->conn,$sql);  
+
+        $getIdSql = "SELECT id  FROM `comanda` WHERE `mesa` = '$this->mesa' 
+         AND `total` = '$this->total'
+         AND `estado` = '$this->estado' 
+         AND `fecha` = '$this->fecha' 
+         AND `idUsuario` = '$this->idUsuario';";
+        $getIdquery = mysqli_query($this->conn,$getIdSql);
+        $resultObjId = mysqli_fetch_object($getIdquery);
+        $this->id = $resultObjId->id;
+        
     }
     //El siguiente código es para sacar de la BD los datos de una comanda utilizando como input el número de la misma
     function cargarComandaPorNumero($id){
