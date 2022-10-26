@@ -14,8 +14,6 @@
 </head>
 
 <body>
-  <!-- <?php ?> -->
-  <?php if(isset($_SESSION['mensaje-nombre'])){ ?>
     
 <!-- Este codigo es de boostrap, genera la alerta -->
     <div class="container">
@@ -47,10 +45,6 @@
 </div>
 <!-- Script -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-      <?php }elseif(!isset($_SESSION['mensaje-nombre'])){
-        header("Location: ../../login/");
-        }   ?>
 
   </body>
 </html>
