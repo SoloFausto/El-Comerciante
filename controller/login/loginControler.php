@@ -24,6 +24,7 @@
       session_start();
       $_SESSION['mensaje'] = "Bienvenido $nombre";
       $_SESSION['mensaje-color'] = 'success';
+      $_SESSION['mensaje-nombre'] = "$nombre";
       header("Location: /El-Comerciante/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
     }else{
       session_start();
