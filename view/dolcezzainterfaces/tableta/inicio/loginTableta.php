@@ -29,7 +29,7 @@
         <label for="username">Ingrese el codigo: </label>
 
         <!-- Boton de Nueva tableta -->
-        <input type="text" name="bottonTab" maxlength="4">
+        <input type="text" name="bottonTab" style="text-transform: uppercase" minlength="4" maxlength="4">
         <input type="submit" name="botonTablet">
 
       </form>
