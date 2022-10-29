@@ -43,14 +43,11 @@ body{
 .col-sm-4{
     width: 20%;
 }
-.btn-secondary{
-    background-color: rgb(225, 225, 225)  ;
-    color: black;
-    border-radius: 100%;
+.form-check-input{
+    height: 80%;
+    width: 60%;
     margin-top: 4%;
     margin-bottom: 2%;
-    --bs-btn-padding-x: 0;
-    --bs-btn-padding-y: 0;
 }
 .btn-light{
     background-color: rgb(236, 236, 236);

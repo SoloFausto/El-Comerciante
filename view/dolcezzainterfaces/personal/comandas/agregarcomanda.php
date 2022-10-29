@@ -35,7 +35,7 @@
               <label for="mesa">Mesa:</label>
               <input type="number" id="mesa" name="mesa" min="1" >
               <label for="llevar">Llevar:</label>
-              <input type="checkbox" id="llevar" onclick="disableMesa()">
+              <input type="checkbox" id="llevar" onclick="disableMesa()" class="form-check-input">
             </div>
             <h2></h2>
             <button type="button" onclick="agregarPlato()" style="border:0px;" id="agregar">

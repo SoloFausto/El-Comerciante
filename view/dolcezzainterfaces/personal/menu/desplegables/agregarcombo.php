@@ -44,7 +44,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                       ?>
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div></td>
-                      <td><input type="checkbox" name="envase<?php echo envaseController::hidrateEnvaseId($i)?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>"></td>
+                      <td><input type="checkbox" name="envase<?php echo envaseController::hidrateEnvaseId($i)?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>" class="form-check-input"></td>
                     </tr>
                     <?php 
                         $i++;
@@ -65,7 +65,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                       ?>
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></p></div></td>
-                      <td><input type="checkbox" name="producto<?php echo productoController::hidrateAllProductoId($i)?>" value="<?php echo productoController::hidrateAllProductoId($i)?>"></td>
+                      <td><input type="checkbox" name="producto<?php echo productoController::hidrateAllProductoId($i)?>" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
                     </tr> 
                     <?php 
                         $i++;
