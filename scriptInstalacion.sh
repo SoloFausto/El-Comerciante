@@ -27,6 +27,5 @@ sudo systemctl restart httpd
 
 echo "############################ Paso 5: Configuracion de usuarios. #####################"
 useradd -d usuario1
-password usuario1 corvuspassword
-
+passwd usuario1
 echo "############################ ¡Instalacion completa! Se recomienda reiniciar e iniciar sesion con el usuario creado #####################"
