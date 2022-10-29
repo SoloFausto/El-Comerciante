@@ -7,33 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="c">
     <?php
-    // require "../El-Comerciante/model/comanda.php";
-    //require "../El-Comerciante/model/usuario.php";
-    //require "../El-Comerciante/model/producto.php";
-    //require_once "../El-Comerciante/model/helado.php";
-    require_once "../El-Comerciante/model/envase.php";
-include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
-   //require_once "/Xampp/htdocs/El-Comerciante/controller/personal/comandacontroller.php";
+        while($row = mysqli_fetch_array($query)){ ?>
+            <tr>
+                <td><?php echo $row['nombre'] ?></td>
+                <td><?php echo $row['apellido'] ?></td>
+                <td><?php echo $row['cedula'] ?></td>
+                <td><?php echo $row['email'] ?></td>
+                <td><button type='sumbit' class='mod'>Modificar</button> <button type='' class='elim'>Eliminar</button></td>
+            </tr>
+        <?php } ?>
+        </div> 
 
-    $conn =mysqli_connect(
-        'localhost',
-        'root',
-        '',
-        'elcomerciantedb',
-        '3306'
-    );
-    $envArr = envase::loadAllEnvs(mysqli_connect(
-        'localhost',
-        'root',
-        '',
-        'elcomerciantedb',
-        '3306'
-    ));
-    $salida = $envArr[1];
-    $id = $salida->loadAllEnvs(); 
-    echo $id;
-    ?>
 </body>
 </html>

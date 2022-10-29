@@ -23,16 +23,19 @@
     <div class="login-box">
         <img src="../../resources/dolcezza.png" alt="Logo de Dolcezza" class="imgDolcezza">
 
-        <form method="POST" action="">
+        <form method="POST" action="../../../../controller/tableta/inicio/loginTableta.php">
 
         <!-- texto -->
         <label for="username">Ingrese el codigo: </label>
 
         <!-- Boton de Nueva tableta -->
-        <input type="text" name="bottonTab" maxlength="4">
-        <input type="submit" name="botonTablet" value="Enviar">
+        <input type="text" name="bottonTab" style="text-transform: uppercase" minlength="4" maxlength="4" autofocus>
+        <input type="submit" name="botonTablet">
 
       </form>
     </div>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>

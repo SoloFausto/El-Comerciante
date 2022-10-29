@@ -10,6 +10,8 @@ require "/Xampp/htdocs/El-Comerciante/model/helado.php";
     $precio = $_GET['precio'];  
     $capacidad = $_GET['capacidad'];
     $descripcion = $_GET['descripcion'];
+    $precioCombo = $_GET['precioCombo'];
+    $precioComboNeto = $_GET['precioComboNeto'];
 
     $valor = $_GET['valor'];
     if($valor == "agregarEnvase"){
@@ -28,6 +30,10 @@ require "/Xampp/htdocs/El-Comerciante/model/helado.php";
         $helado->newHelado($nombre,$descripcion);
     }
     else if ($valor = "agregarCombo"){
+        //$envase = new combo(conectar());
+        $producto = $_GET['producto'];
+        $producto2 = $_GET['producto'];
+        echo $producto;
 
     }
 ?>

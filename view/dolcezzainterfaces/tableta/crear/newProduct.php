@@ -26,7 +26,7 @@
         </div>
         </form>
         <div class="container text-center">
-            <?php include("../includes/productss.php"); ?>
+            <?php include("../includes/productos.php"); ?>
             <div class="container-fluid">
                 <button type="button" class="btn btn-light">Agregar a la orden
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
