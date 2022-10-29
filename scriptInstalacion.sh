@@ -21,13 +21,11 @@ sudo dnf install php-cli php-fpm php-curl php-mysqlnd php-gd php-opcache php-zip
 systemctl restart httpd
 echo "############################ Paso 4: Instalacion de phpMyAdmin ##################################"
 dnf install phpMyAdmin -y
-
-echo "############################ Paso 5: Instalacion phpMyAdmin. ¡Lea el manual! #####################"
 dnf install nano -y
 nano /etc/httpd/conf.d/phpMyAdmin.conf
 sudo systemctl restart httpd
 
-echo "############################ Paso 6: Configuracion de usuarios. #####################"
+echo "############################ Paso 5: Configuracion de usuarios. #####################"
 useradd -d usuario1
 password usuario1 corvuspassword
 
