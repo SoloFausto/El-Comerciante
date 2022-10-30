@@ -26,6 +26,6 @@ nano /etc/httpd/conf.d/phpMyAdmin.conf
 sudo systemctl restart httpd
 
 echo "############################ Paso 5: Configuracion de usuarios. #####################"
-useradd usuario1
-passwd usuario1
+useradd usuariodolcezza
+passwd usuariodolcezza
 echo "############################ ¡Instalacion completa! Se recomienda reiniciar e iniciar sesion con el usuario creado #####################"
