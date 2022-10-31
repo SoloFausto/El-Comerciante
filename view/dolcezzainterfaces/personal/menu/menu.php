@@ -40,7 +40,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
         </button>
       </div>
 </div>
-  <h1>Menú de el restaurante</h1>
+  <h1>Menú del restaurante</h1>
   <div class="titleboxspacer"></div>
 </div>
 
