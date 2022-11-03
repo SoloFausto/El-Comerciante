@@ -1,7 +1,7 @@
 <?php
 include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
 require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
-
+ob_start();
         $delete = $_GET['delete'];
         $info = $_GET['info'];
         $valor = $_GET['valor'];
