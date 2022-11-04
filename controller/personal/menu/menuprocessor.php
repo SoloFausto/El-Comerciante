@@ -12,6 +12,10 @@ require "/Xampp/htdocs/El-Comerciante/model/helado.php";
     $descripcion = $_GET['descripcion'];
     $precioCombo = $_GET['precioCombo'];
     $precioComboNeto = $_GET['precioComboNeto'];
+    $deleteEnvase = $_GET['deleteEnvase'];
+    $deleteProducto = $_GET['deleteProducto'];
+    $deleteHelado = $_GET['deleteHelado'];
+    $deleteCombo = $_GET['deleteCombo'];
 
     $valor = $_GET['valor'];
     if($valor == "agregarEnvase"){
@@ -35,5 +39,19 @@ require "/Xampp/htdocs/El-Comerciante/model/helado.php";
         $producto2 = $_GET['producto'];
         echo $producto;
 
+    }
+    else if(isset($deleteEnvase)){
+        $envaseDelete = new envase(conectar());
+        $envaseDelete->loadEnvaseById($deleteEnvase);
+        $envaseDelete->eliminarEnvase();
+    }
+    else if(isset($deleteProducto)){
+
+    }
+    else if(isset($deleteHelado)){
+        
+    }
+    else if(isset($deleteCombo)){
+        
     }
 ?>

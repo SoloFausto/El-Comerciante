@@ -10,7 +10,7 @@
             $this->conn = $conn;
         }
         static function loadAllEnvs($conn){
-                $sql = "SELECT *  FROM `envase`"; 
+                $sql = "SELECT *  FROM `envase` WHERE `activo` = 1"; 
                 $result = mysqli_query($conn,$sql);
                 $respuesta = array();
                 while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
@@ -25,10 +25,10 @@
             $this->descripcion = $descripcion;
             $this->capacidad = $capacidad;
             $this->precio = $precio;
-            $sql = "INSERT INTO `envase` (`id`, `nombre`, `descripcion`,`capacidad`,`precio`) VALUES (NULL, '$nombre', '$descripcion','$capacidad','$precio');";
+            $sql = "INSERT INTO `envase` (`id`, `nombre`, `descripcion`,`capacidad`,`precio`) VALUES (NULL, '$nombre', '$descripcion','$capacidad','$precio', 1);";
             $reusltsql = mysqli_query($this->conn,$sql);
         /* El codigo de abajo recupera la id de el helado que recien creamos*/
-            $getIdSql = "SELECT id  FROM `envase` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion' AND `capacidad` = $capacidad AND `precio` = $precio;";
+            $getIdSql = "SELECT id  FROM `envase` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion' AND `capacidad` = $capacidad AND `precio` = $precio AND `activo` = 1;";
             $resultQueryId = mysqli_query($this->conn,$getIdSql);
             $resultObjId = mysqli_fetch_object($resultQueryId);
             $this->id = $resultObjId->id;
@@ -63,7 +63,10 @@
             $sql = "UPDATE `envase` SET `nombre` = '$this->envase', `descripcion` = '$this->descripcion', `capacidad` = '$this->capacidad', `precio` = '$this->precio' WHERE `envase`.`id` = $this->id;";
             $result = mysqli_query($this->conn,$sql);
         }
-
+        function eliminarEnvase(){
+                $sql = "UPDATE `envase` SET `activo` = 0;";
+                $result = mysqli_query($this->conn,$sql);
+        }
 
         /**
          * Get the value of id
