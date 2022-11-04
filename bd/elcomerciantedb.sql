@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2022 at 10:01 PM
+-- Generation Time: Nov 04, 2022 at 04:11 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `el_comerciante_db`
+-- Database: `elcomerciantedb`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `comanda` (
   `total` int(5) DEFAULT NULL,
   `estado` int(1) DEFAULT NULL,
   `idUsuario` int(255) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
+  `fecha` timestamp NULL DEFAULT current_timestamp(),
   `forma_pago` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -98,16 +98,17 @@ CREATE TABLE `combo` (
   `id` int(255) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `precio` int(5) DEFAULT NULL
+  `precio` int(5) DEFAULT NULL,
+  `activo` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `combo`
 --
 
-INSERT INTO `combo` (`id`, `nombre`, `descripcion`, `precio`) VALUES
-(1, 'Combo capuccino y envase grande', 'un café capuccino y un envase grande de helado :D', 185),
-(2, 'Combo de verano', 'Unas paletas de helado y un buen postre fresco para este verano:D', 125);
+INSERT INTO `combo` (`id`, `nombre`, `descripcion`, `precio`, `activo`) VALUES
+(1, 'Combo capuccino y envase grande', 'un café capuccino y un envase grande de helado :D', 185, b'1'),
+(2, 'Combo de verano', 'Unas paletas de helado y un buen postre fresco para este verano:D', 125, b'1');
 
 -- --------------------------------------------------------
 
@@ -179,16 +180,18 @@ CREATE TABLE `envase` (
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `capacidad` int(255) DEFAULT NULL,
-  `precio` int(5) DEFAULT NULL
+  `precio` int(5) DEFAULT NULL,
+  `activo` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `envase`
 --
 
-INSERT INTO `envase` (`id`, `nombre`, `descripcion`, `capacidad`, `precio`) VALUES
-(1, 'Envase grande', 'El más grande envase para el más grande disfrute', 6, 200),
-(2, 'Envase mediano', 'Envase con una cantidad moderada de helado para disfrutar con un amigo', 4, 160);
+INSERT INTO `envase` (`id`, `nombre`, `descripcion`, `capacidad`, `precio`, `activo`) VALUES
+(1, 'Envase grande', 'El más grande envase para el más grande disfrute', 6, 200, b'1'),
+(2, 'Envase mediano', 'Envase con una cantidad moderada de helado para disfrutar con un amigo', 4, 160, b'1'),
+(3, 'Envase hiper grande', 'un envase re grande', 7, 200, b'1');
 
 -- --------------------------------------------------------
 
@@ -199,16 +202,17 @@ INSERT INTO `envase` (`id`, `nombre`, `descripcion`, `capacidad`, `precio`) VALU
 CREATE TABLE `helado` (
   `id` int(255) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL
+  `descripcion` text DEFAULT NULL,
+  `activo` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `helado`
 --
 
-INSERT INTO `helado` (`id`, `nombre`, `descripcion`) VALUES
-(1, 'Dulce de leche granizado', 'Crema de dulce de leche con chispas de chocolate'),
-(2, 'Menta granizada', 'El segundo mejor sabor de helado después de el de café');
+INSERT INTO `helado` (`id`, `nombre`, `descripcion`, `activo`) VALUES
+(1, 'Dulce de leche granizado', 'Crema de dulce de leche con chispas de chocolate', b'1'),
+(2, 'Menta granizada', 'El segundo mejor sabor de helado después de el de café', b'1');
 
 -- --------------------------------------------------------
 
@@ -220,18 +224,19 @@ CREATE TABLE `producto` (
   `id` int(255) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `precio` int(5) DEFAULT NULL
+  `precio` int(5) DEFAULT NULL,
+  `activo` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `producto`
 --
 
-INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`) VALUES
-(1, 'Capuccino', 'El mejor espumoso capuccino del país', 80),
-(2, 'Cheesecake', 'Un postre fresco y delicioso, perfecto para una tarde de verano', 100),
-(3, 'Escón de queso', 'Escones de queso caseros', 25),
-(4, 'Paleta helada', 'Una refrescante paleta para matar el calor', 80);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `activo`) VALUES
+(1, 'Capuccino', 'El mejor espumoso capuccino del país', 80, b'1'),
+(2, 'Cheesecake', 'Un postre fresco y delicioso, perfecto para una tarde de verano', 100, b'1'),
+(3, 'Escón de queso', 'Escones de queso caseros', 25, b'1'),
+(4, 'Paleta helada', 'Una refrescante paleta para matar el calor', 80, b'1');
 
 -- --------------------------------------------------------
 
@@ -264,11 +269,11 @@ CREATE TABLE `usuario` (
   `id` int(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `contrasena` varchar(512) NOT NULL,
-  `permComandas` bit(1) NOT NULL,
-  `permSLComandas` bit(1) NOT NULL,
-  `permMenu` bit(1) NOT NULL,
-  `permUsuarios` bit(1) NOT NULL,
-  `permEsTableta` bit(1) NOT NULL
+  `permComandas` bit(1) NOT NULL DEFAULT b'0',
+  `permSLComandas` bit(1) NOT NULL DEFAULT b'0',
+  `permMenu` bit(1) NOT NULL DEFAULT b'0',
+  `permUsuarios` bit(1) NOT NULL DEFAULT b'0',
+  `permEsTableta` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -385,7 +390,7 @@ ALTER TABLE `combo`
 -- AUTO_INCREMENT for table `envase`
 --
 ALTER TABLE `envase`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `helado`
