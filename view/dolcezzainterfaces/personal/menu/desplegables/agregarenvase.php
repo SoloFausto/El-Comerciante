@@ -1,7 +1,9 @@
-<?php header("content-type: application/x-javascript");?>
+<?php header("content-type: application/x-javascript");
+require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+?>
 
 function agregarEnvase(){
-    var agregarenvase = `  
+    var agregarEnvase = `  
     <div class="popupEnvase">
     <div class="background" style="z-index:7;"></div>
     <div class="menuAdd"style="z-index:8;">
@@ -37,9 +39,11 @@ function agregarEnvase(){
     </div>
 </div>
     `;
-    $("body").append(agregarenvase);
+    $("body").append(agregarEnvase);
 
   }
+
+
   function removeAgregarEnvase(){
     $(".popupEnvase").remove();
   }

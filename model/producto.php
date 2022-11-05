@@ -10,7 +10,7 @@
             $this->conn = $conn;
         }
         static function loadAllProds($conn){
-                $sql = "SELECT *  FROM `producto`"; 
+                $sql = "SELECT *  FROM `producto` WHERE `activo` = 1"; 
                 $result = mysqli_query($conn,$sql);
                 $respuesta = array();
                 while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
@@ -71,7 +71,11 @@
             $this->precio = $resultObj->precio;
         }
         function modifyProducto(){
-                $sql = "UPDATE `producto` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion', `precio` = '$this->precio' WHERE `helado`.`id` = $this->id;";
+                $sql = "UPDATE `producto` SET `nombre` = '$this->nombre', `descripcion` = '$this->descripcion', `precio` = '$this->precio' WHERE `id` = $this->id;";
+                $result = mysqli_query($this->conn,$sql);
+        }
+        function eliminarProducto(){
+                $sql = "UPDATE `producto` SET `activo` = 0 WHERE `id` = $this->id;";
                 $result = mysqli_query($this->conn,$sql);
         }
         /**
@@ -112,7 +116,7 @@
         public function setNombre($nombre)
         {
                 $this->nombre = $nombre;
-                $this->refreshProducto();
+                $this->modifyProducto();
                 return $this;
         }
 
@@ -133,7 +137,7 @@
         public function setDescripcion($descripcion)
         {
                 $this->descripcion = $descripcion;
-                $this->refreshProducto();
+                $this->modifyProducto();
                 return $this;
         }
 
@@ -154,7 +158,7 @@
         public function setPrecio($precio)
         {
                 $this->precio = $precio;
-                $this->refreshProducto();
+                $this->modifyProducto();
                 return $this;
         }
     }

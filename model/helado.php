@@ -8,7 +8,7 @@ class helado{
         $this->conn = $conn;
     }
     static function loadAllHelados($conn){
-        $sql = "SELECT *  FROM `helado`"; 
+        $sql = "SELECT *  FROM `helado` WHERE activo = 1;"; 
         $result = mysqli_query($conn,$sql);
         $respuesta = array();
         while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
@@ -61,10 +61,8 @@ class helado{
     }
     /**borrar sabor de helado*/
     function deleteHelado(){
-        $sql = "DELETE FROM helado WHERE `helado`.`id` = $this->id";
-        $this->nombre = "";
-        $this->descripcion = "";
-        $this->id = "";
+        $sql = "UPDATE `helado` SET `activo` = 0 WHERE `id` = $this->id;";
+        mysqli_query($this->conn,$sql);
     }
     /**
      * Get the value of id

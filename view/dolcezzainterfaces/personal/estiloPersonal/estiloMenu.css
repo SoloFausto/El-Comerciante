@@ -58,7 +58,7 @@ h1{
     flex-direction: row;
     position: absolute;
     left: 90px;
-    width: auto;
+    width: 100vw;
     top:50px;
     z-index: -2;
     }

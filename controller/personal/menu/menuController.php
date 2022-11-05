@@ -70,6 +70,12 @@ class envaseController{
          return $salida;
 
     }
+    public static function hidrateEnvaseDescripcion($idEnvase){ 
+     $envArr = envase::loadAllEnvs(conectar()); 
+     $salida = $envArr[$idEnvase];
+     $id = $salida->getDescripcion(); 
+     return $id; 
+}
     public static function hidrateEnvaseNombre($idEnvase){ 
          $envArr = envase::loadAllEnvs(conectar()); 
          $salida = $envArr[$idEnvase];
@@ -98,7 +104,8 @@ class envaseController{
     
 
 }
-class saborHelado{
+class heladoController{
+
     public static function returnHelados(){ //Nos devuelve cuantos productos tenemos para una comanda
          $envArr = helado::loadAllHelados(conectar());
          $salida = count($envArr);
@@ -114,10 +121,15 @@ class saborHelado{
     public static function hidrateHeladoDescripcion($idEnvase){ 
          $envArr = helado::loadAllHelados(conectar());
          $salida = $envArr[$idEnvase];
-         $id = $salida->getPrecio(); 
+         $id = $salida->getDescripcion(); 
          return $id;
     }
-    
+    public static function hidrateHeladoId($idEnvase){ 
+     $envArr = helado::loadAllHelados(conectar());
+     $salida = $envArr[$idEnvase];
+     $id = $salida->getId(); 
+     return $id;
+}
 }
 class combocontroller{
     public static function returnCombo(){ //Nos devuelve cuantos productos tenemos para una comanda
@@ -143,5 +155,11 @@ class combocontroller{
     $salida = $envArr[$idEnvase];
     $id = $salida->getPrecio(); 
     return $id;
+}
+public static function hidrateComboId($index){
+     $comboArr = combo::loadAllCombos(conectar());
+     $salida = $comboArr[$index];
+     $id = $salida->getid();
+     return $id;
 }
 }

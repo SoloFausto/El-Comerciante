@@ -25,7 +25,7 @@
             $this->descripcion = $descripcion;
             $this->capacidad = $capacidad;
             $this->precio = $precio;
-            $sql = "INSERT INTO `envase` (`id`, `nombre`, `descripcion`,`capacidad`,`precio`) VALUES (NULL, '$nombre', '$descripcion','$capacidad','$precio', 1);";
+            $sql = "INSERT INTO `envase` (`id`, `nombre`, `descripcion`,`capacidad`,`precio`, `activo`) VALUES (NULL, '$nombre', '$descripcion','$capacidad','$precio', 1);";
             $reusltsql = mysqli_query($this->conn,$sql);
         /* El codigo de abajo recupera la id de el helado que recien creamos*/
             $getIdSql = "SELECT id  FROM `envase` WHERE `nombre` LIKE '$nombre' AND `descripcion` LIKE '$descripcion' AND `capacidad` = $capacidad AND `precio` = $precio AND `activo` = 1;";
@@ -64,7 +64,7 @@
             $result = mysqli_query($this->conn,$sql);
         }
         function eliminarEnvase(){
-                $sql = "UPDATE `envase` SET `activo` = 0;";
+                $sql = "UPDATE `envase` SET `activo` = 0 WHERE `id` = $this->id;";
                 $result = mysqli_query($this->conn,$sql);
         }
 
@@ -105,7 +105,7 @@
         public function setNombre($nombre)
         {
                 $this->nombre = $nombre;
-
+                $this->modifyEnvase();
                 return $this;
         }
 
@@ -125,7 +125,7 @@
         public function setDescripcion($descripcion)
         {
                 $this->descripcion = $descripcion;
-
+                $this->modifyEnvase();
                 return $this;
         }
 
@@ -145,7 +145,7 @@
         public function setCapacidad($capacidad)
         {
                 $this->capacidad = $capacidad;
-
+                $this->modifyEnvase();
                 return $this;
         }
 
@@ -166,7 +166,7 @@
         public function setPrecio($precio)
         {
                 $this->precio = $precio;
-
+                $this->modifyEnvase();
                 return $this;
         }
     }
