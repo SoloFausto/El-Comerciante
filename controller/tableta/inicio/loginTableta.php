@@ -23,7 +23,7 @@
         session_start();
         $_SESSION['mensaje'] = "Bienvenido $nombre";
         $_SESSION['mensaje-color'] = 'success';
-        header("Location: ../../../view/dolcezzainterfaces/tableta/Producto/producto.php");
+        header("Location: ../../../view/dolcezzainterfaces/tableta/inicio/pedido.php");
       }else{
         session_start();
         $_SESSION['mensaje'] = 'Esa tableta no existe';
