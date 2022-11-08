@@ -1,6 +1,7 @@
 <?php header("content-type: application/x-javascript");
 require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
-
+$numberEnvase = envaseController::returnEnvases();
+$numberProducto = productoController::returnProductoIndex();
 ?>
 
   function agregarCombo() {
@@ -37,14 +38,22 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                     <td colspan="3"><div><h4>Envases</h4></div></td>
                   </tr>
                   <tr>
+                    <input type="hidden" name="numberEnvase" value="<?php
+                    $numberEnvaseProcessor = envaseController::returnEnvases();
+                    echo $numberEnvaseProcessor?>">
+                    <input type="hidden" name="numberProducto" value="<?php 
+                    $numberProductoProcessor = productoController::returnProductoIndex();
+                    echo $numberProductoProcessor?>">
                   <?php 
-                      $numberEnvase = envaseController::returnEnvases();
+                  $numberEnvase = envaseController::returnEnvases();
                       $i = 0;
                       while ($i < $numberEnvase){
                       ?>
+
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div></td>
-                      <td><input type="checkbox" name="envase" value="<?php echo envaseController::hidrateEnvaseId($i)?>" class="form-check-input"></td>
+                      <td colspan="2"><div> Precio:<?php echo envaseController::hidrateEnvasePrecio($i); ?></div></td>
+                      <td><input type="checkbox" name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>" class="form-check-input"></td>
                     </tr>
                     <?php 
                         $i++;
@@ -56,13 +65,14 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                   </tr>
                   <tr>
                   <?php 
-                      $numberproducto = productoController::returnProductoIndex();
+                  $numberProducto = productoController::returnProductoIndex();
                       $i = 0;
-                      while ($i < $numberproducto){
+                      while ($i < $numberProducto){
                       ?>
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></p></div></td>
-                      <td><input type="checkbox" name="producto" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
+                      <td colspan="2"><div>Precio:<div><?php echo productoController::hidrateAllProductoPrecio($i); ?></div></div></td>
+                      <td><input type="checkbox" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
                     </tr> 
                     <?php 
                         $i++;

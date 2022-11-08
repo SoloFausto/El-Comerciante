@@ -5,7 +5,8 @@ require "/Xampp/htdocs/El-Comerciante/model/envase.php";
 require "/Xampp/htdocs/El-Comerciante/model/producto.php";
 require "/Xampp/htdocs/El-Comerciante/model/helado.php";
 require "/Xampp/htdocs/El-Comerciante/model/combo.php";
-
+require "/Xampp/htdocs/El-Comerciante/model/comboEnvase.php";
+require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
     $idmodificar = $_GET['id'];
     $nombre = $_GET['nombre'];
     $precio = $_GET['precio'];  
@@ -17,6 +18,8 @@ require "/Xampp/htdocs/El-Comerciante/model/combo.php";
     $deleteProducto = $_GET['deleteProducto'];
     $deleteHelado = $_GET['deleteHelado'];
     $deleteCombo = $_GET['deleteCombo'];
+    $numberEnvase = $_GET['numberEnvase'];
+    $numberProducto = $_GET['numberProducto'];
     echo "<h1>$deleteEnvase</h1>";
 
     $valor = $_GET['valor'];
@@ -37,10 +40,33 @@ require "/Xampp/htdocs/El-Comerciante/model/combo.php";
         header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
     }
     else if ($valor == "agregarCombo"){
-        //$envase = new combo(conectar());
-        $producto = $_GET['producto'];
-        $producto2 = $_GET['producto'];
-        echo $producto;
+        $nuevoCombo = new combo(conectar());
+        $nuevoCombo->newCombo($nombre,$descripcion,$precioCombo);
+        $vincularComboEnvase = new comboEnvase(conectar());
+        $vincularComboProducto = new comboProducto(conectar());
+        $a = 0;
+        $envasesPedidos = array();
+        while ($a<=$numberEnvase){
+            $envaseActual = $_GET["envase$a"];
+
+            if(isset($envaseActual)){
+                array_push($envasesPedidos,$envaseActual);
+                $vincularComboEnvase->newidComboIdEnvase($envaseActual,$nuevoCombo->getId(),1);
+            }
+            $a++;
+        }
+        $b = 0;
+        $productosPedidos = array();
+        while ($b<=$numberProducto){
+            $productoActual = $_GET["producto$b"];
+
+            if(isset($productoActual)){
+                array_push($productosPedidos,$productoActual);
+                $vincularComboProducto->newidComboIdProducto($productoActual,$nuevoCombo->getId(),1);
+            }
+            $b++;
+        }
+
 
     }
     else if($deleteEnvase != ""){

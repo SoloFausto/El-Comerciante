@@ -147,7 +147,7 @@ class combocontroller{
    public static function hidrateComboDescripcion($idEnvase){ 
         $envArr = combo::loadAllCombos(conectar());
         $salida = $envArr[$idEnvase];
-        $id = $salida->getPrecio(); 
+        $id = $salida->getDescripcion(); 
         return $id;
    }
    public static function hidrateComboPrecio($idEnvase){ 

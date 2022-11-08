@@ -1,6 +1,5 @@
 <?php
-    require "envase.php";
-    require "combo.php";
+
     class comboEnvase{
         private $idEnvase;
         private $idCombo;
@@ -15,7 +14,6 @@
             $this->idCombo = $idCombo;
             $sql = "INSERT INTO `combo_envase` (`idEnvase`, `idCombo`, `cantidad`) VALUES ('$idEnvase', '$idCombo', '$cantidad');";
             $result = mysqli_query($this->conn,$sql);
-            $resultadoObj = mysqli_fetch_object($result);
         }
         function initComboEnvase($idEnvase,$idCombo,$cantidad){
             $this->cantidad = $cantidad;

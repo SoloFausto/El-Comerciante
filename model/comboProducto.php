@@ -1,6 +1,4 @@
 <?php
-    require "producto.php";
-    require "combo.php";
     class comboProducto{
         private $idProducto;
         private $idCombo;
@@ -15,7 +13,6 @@
             $this->idCombo = $idCombo;
             $sql = "INSERT INTO `combo_producto` (`idProducto`, `idCombo`, `cantidad`) VALUES ('$idProducto', '$idCombo', '$cantidad');";
             $result = mysqli_query($this->conn,$sql);
-            $resultadoObj = mysqli_fetch_object($result);
         }
         function initComboProducto($idProducto,$idCombo,$cantidad){
             $this->cantidad = $cantidad;
