@@ -17,12 +17,6 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
 
 
 <body>
-<script>
-  $('input[type=checkbox]').each(function () {
-    var sThisVal = (this.checked ? $(this).val() : "");
-});
-echo
-</script>
 <script src="../menu/desplegables/agregarenvase.php"></script>
 <script src="../menu/desplegables/agregarhelado.php"></script>
 <script src="../menu/desplegables/agregarproducto.php"></script>
@@ -312,7 +306,7 @@ echo
               <input type="text" name="nombre" id="nombreCombo" placeholder="Nombre de el combo" style="width: 50vh; height: 5vh;" value="<?php echo combocontroller::hidrateComboNombre($i)?>">
               <input type="text" name="descripcion" id="descripcionCombo" placeholder="Descripcion de el combo" style="height:30vh" value="<?php echo combocontroller::hidrateComboDescripcion($i)?>">
               <div>
-                <input type="number" name="precioComboNeto" id="precioComboNeto" placeholder="Precio neto">
+                <input type="number" name="precioComboNeto" id="precioComboNeto" placeholder="Precio neto" readonly>
                 <input type="number" name="precioCombo" id="precioCombo" placeholder="Precio de el combo" value="<?php echo combocontroller::hidrateComboPrecio($i)?>">
               </div>
             </div>
@@ -327,6 +321,9 @@ echo
                     <input type="hidden" name="numberEnvase" value="<?php
                     $numberEnvaseProcessor = envaseController::returnEnvases();
                     echo $numberEnvaseProcessor?>">
+                    <input type="hidden" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>">
+                    <input type="hidden" name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>">
+
                     <input type="hidden" name="numberProducto" value="<?php 
                     $numberProductoProcessor = productoController::returnProductoIndex();
                     echo $numberProductoProcessor?>">
@@ -338,7 +335,8 @@ echo
 
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($a); ?></p></div></td>
-                      <td><input type="checkbox" name="envase<?php echo $a?>" value="<?php echo envaseController::hidrateEnvaseId($a)?>" class="form-check-input"></td>
+                      <td colspan="2"><div><p> Precio:<div><?php echo envaseController::hidrateEnvasePrecio($a); ?></div></div></td>
+                      <td><input type="checkbox" name="envase<?php echo $a?>" value="<?php echo envaseController::hidrateEnvasePrecio($a)?>" class="form-check-input"></td>
                     </tr>
                     <?php 
                         $a++;
@@ -357,7 +355,7 @@ echo
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($b); ?></p></p></div></td>
                       <td colspan="2"><div><p> Precio:<div><?php echo productoController::hidrateAllProductoPrecio($b); ?></div></div></td>
-                      <td><input type="checkbox" name="producto<?php echo $b?>" value="<?php echo productoController::hidrateAllProductoId($b)?>" class="form-check-input"></td>
+                      <td><input type="checkbox" value="<?php echo productoController::hidrateAllProductoPrecio($b)?>" class="form-check-input"></td>
                     </tr> 
                     <?php 
                         $b++;
@@ -381,7 +379,16 @@ echo
   </div>
     `;
     $("body").append(modificarCombo);
+    var checkboxes = document.querySelectorAll("input[type=checkbox]");
+    $(checkboxes).change(function() {
+    var precioNeto = 0;
+    $(':checkbox:checked').each(function() {
+        precioNeto = precioNeto + parseInt( $(this).val() );
+    });
+    document.getElementById("precioComboNeto").value = precioNeto;
+});
   }
+
       </script>
        <tr>
            <td ><div><p><?php echo combocontroller::hidrateComboNombre($i);?></p></div></td>
