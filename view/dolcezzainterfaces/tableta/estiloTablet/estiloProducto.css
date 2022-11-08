@@ -1,3 +1,6 @@
+body{
+  background-color: antiquewhite;
+}
 .empty{
   height:50vh;
   width:50px;
@@ -42,7 +45,7 @@
   .statH{
       display: flex;
       flex:auto;
-      border:2px solid black;
+      border:1px solid black;
       justify-content: center;
       height: 5vh;
       font-size: 3vh;
@@ -74,10 +77,6 @@
       margin-top: 2px;
       margin-bottom: 2px;
   }
-  .bi-bi-cup-hot{
-      margin-right: 10px;
-      
-  }
   .bigtable{
       display: flex;
       flex: auto;
@@ -99,10 +98,12 @@
       margin-top: 10px;
       margin-left: 10px;
       margin-right: 10px;
+      border: inherit;
   }
   p{
       margin: 0;
-      font-size: 2vh;
+      margin-left: 2vh;
+      font-size: 4vh;
   }
   .floor{
       width: 100%;
@@ -122,13 +123,19 @@
       height: 40%;
   }
   .carrito{
-    margin: 1%;
+      margin: 1%;
       display: flex;
       justify-content: space-between;
       align-items: center;
   }
-  .botoncito{
-    background-color: #83d37d;
-    border-color: rgb(0, 0, 0);
-    border-radius: 5px;
+  table{
+    background-color: #e6c18d;
+  }
+  .btn-outline-success{
+    --bs-btn-color: white;
+    background-color: #62bd5b;
+    --bs-btn-hover-bg: #038046
+  }
+  .SVGw3org{
+    margin: 0.7vh;
   }
