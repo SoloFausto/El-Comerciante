@@ -102,7 +102,8 @@
   }
   p{
       margin: 0;
-      font-size: 2vh;
+      margin-left: 2vh;
+      font-size: 4vh;
   }
   .floor{
       width: 100%;
@@ -132,3 +133,9 @@
     border-color: rgb(0, 0, 0);
     border-radius: 5px;
   }
+  table{
+    background-color: #e6c18d;
+  }
+.btn-outline-success{
+  border-radius: 100%;
+}
