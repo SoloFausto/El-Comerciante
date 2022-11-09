@@ -19,13 +19,13 @@
             $this->idProducto = $idProducto;
             $this->idCombo = $idCombo;
         }
-        function load(){
+        function loadDeIdProducto(){
             $sql = "SELECT *  FROM `combo_producto` WHERE `idProducto` = $this->idProducto;";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_array($result);
             return $resultadoObj;
         }
-        function load2(){
+        function loadDeIdCombo(){
             $sql = "SELECT *  FROM `combo_producto` WHERE `idCombo` = $this->idCombo;";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_array($result);

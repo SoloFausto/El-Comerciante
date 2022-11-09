@@ -20,13 +20,13 @@
             $this->idEnvase = $idEnvase;
             $this->idCombo = $idCombo;
         }
-        function load(){
+        function loadDeIdEnvase(){
             $sql = "SELECT *  FROM `combo_envase` WHERE `idEnvase` = $this->idEnvase;";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_array($result);
             return $resultadoObj;
         }
-        function load2(){
+        function loadDeIdCombo(){
             $sql = "SELECT *  FROM `combo_envase` WHERE `idCombo` = $this->idCombo;";
             $result = mysqli_query($this->conn,$sql);
             $resultadoObj = mysqli_fetch_array($result);

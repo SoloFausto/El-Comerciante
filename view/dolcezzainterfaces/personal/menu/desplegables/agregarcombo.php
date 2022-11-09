@@ -42,7 +42,7 @@ $numberProducto = productoController::returnProductoIndex();
               </div>
             </div>
             <div style="width: 50%">
-              <h3 style="text-align: center;">Productos a pedir</h3>
+              <h3 style="text-align: center;">Elementos del combo</h3>
               <table class="table">
                 <tbody>
                   <tr>
@@ -64,8 +64,7 @@ $numberProducto = productoController::returnProductoIndex();
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div></td>
                       <td colspan="2"><div> Precio:<?php echo envaseController::hidrateEnvasePrecio($i); ?></div></td>
-                      <input type="hidden" name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>">
-                      <td><input type="checkbox" name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvasePrecio($i)?>" class="form-check-input"></td>
+                      <td><input type="checkbox"  name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>" class="form-check-input"></td>
                     </tr>
                     <?php 
                         $i++;
@@ -84,12 +83,10 @@ $numberProducto = productoController::returnProductoIndex();
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></p></div></td>
                       <td colspan="2"><div>Precio:<div><?php echo productoController::hidrateAllProductoPrecio($i); ?></div></div></td>
-                      <input type="hidden" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>">
-
-                      <td><input type="checkbox"  name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
+                      <td><input name="producto<?php echo $i?>" type="checkbox" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
                     </tr> 
                     <?php 
-                        $i++;
+                      $i++;
                       } 
                       ?>
                     <td>
@@ -109,6 +106,8 @@ $numberProducto = productoController::returnProductoIndex();
     </div>
   </div>
     `;
+    
+
     $("body").append(agregarCombo);
     var checkboxes = document.querySelectorAll("input[type=checkbox]");
     $(checkboxes).change(function() {

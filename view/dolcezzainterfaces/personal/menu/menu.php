@@ -321,8 +321,8 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                     <input type="hidden" name="numberEnvase" value="<?php
                     $numberEnvaseProcessor = envaseController::returnEnvases();
                     echo $numberEnvaseProcessor?>">
-                    <input type="hidden" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>">
-                    <input type="hidden" name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>">
+                    <input type="hidden"  value="">
+                    <input type="hidden"  value="">
 
                     <input type="hidden" name="numberProducto" value="<?php 
                     $numberProductoProcessor = productoController::returnProductoIndex();
@@ -336,7 +336,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($a); ?></p></div></td>
                       <td colspan="2"><div><p> Precio:<div><?php echo envaseController::hidrateEnvasePrecio($a); ?></div></div></td>
-                      <td><input type="checkbox" name="envase<?php echo $a?>" value="<?php echo envaseController::hidrateEnvasePrecio($a)?>" class="form-check-input"></td>
+                      <td><input type="checkbox" name="envase<?php echo $a?>" value="<?php echo envaseController::hidrateEnvaseId($a)?>" class="form-check-input"></td>
                     </tr>
                     <?php 
                         $a++;
@@ -355,7 +355,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($b); ?></p></p></div></td>
                       <td colspan="2"><div><p> Precio:<div><?php echo productoController::hidrateAllProductoPrecio($b); ?></div></div></td>
-                      <td><input type="checkbox" value="<?php echo productoController::hidrateAllProductoPrecio($b)?>" class="form-check-input"></td>
+                      <td><input type="checkbox" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
                     </tr> 
                     <?php 
                         $b++;
