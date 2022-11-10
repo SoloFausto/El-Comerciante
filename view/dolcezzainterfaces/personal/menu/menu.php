@@ -276,7 +276,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
  </table>
  <table class="table">
        <tr>
-           <td ><div><h4><?php echo  combocontroller::returnCombo()?></h4></div></td>
+           <td ><div><h4>Combos</h4></div></td>
        </tr>
        <?php 
           $numbercombo = combocontroller::returnCombo();
