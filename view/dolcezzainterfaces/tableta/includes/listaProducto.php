@@ -52,6 +52,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
         <tr>
             <td ><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></div>
             <div><p><?php echo productoController::hidrateAllProductoDescripcion($i);?></p></div>
+            
             <form action="../../../../controller/tableta/comandaTab.php" method="get">
               <input type="hidden" name="deleteProducto" value="<?php echo productoController::hidrateAllProductoId($i);?>"> 
                 <button type="submit" onclick="" style="border:0px;" class="btn btn-outline-success">
