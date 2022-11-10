@@ -3,6 +3,17 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
 $numberEnvase = envaseController::returnEnvases();
 $numberProducto = productoController::returnProductoIndex();
 ?>
+  let checkboxes = $("input[type=checkbox]")
+  checkboxes.change(function() {
+  enabledSettings = checkboxes
+    .filter(":checked") // Filter out unchecked boxes.
+    .map(function() { // Extract values using jQuery map.
+      return this.value;
+    }) 
+    .get() // Get array.
+    
+  console.log(enabledSettings);
+});
 
   function agregarCombo() {
     var agregarCombo =`
@@ -26,19 +37,19 @@ $numberProducto = productoController::returnProductoIndex();
               <input type="text" name="nombre" id="nombreCombo" placeholder="Nombre de el combo" style="width: 50vh; height: 5vh;">
               <input type="text" name="descripcion" id="descripcionCombo" placeholder="Descripcion de el combo" style="height:30vh;">
               <div>
-                <input type="number" name="precioComboNeto" id="precioComboNeto" placeholder="Precio neto">
+                <input type="number" name="precioComboNeto" id="precioComboNeto" placeholder="Precio neto" readonly>
                 <input type="number" name="precioCombo" id="precioCombo" placeholder="Precio de el combo">
               </div>
             </div>
             <div style="width: 50%">
-              <h3 style="text-align: center;">Productos a pedir</h3>
+              <h3 style="text-align: center;">Elementos del combo</h3>
               <table class="table">
                 <tbody>
                   <tr>
                     <td colspan="3"><div><h4>Envases</h4></div></td>
                   </tr>
                   <tr>
-                    <input type="hidden" name="numberEnvase" value="<?php
+                  <input type="hidden" name="numberEnvase" value="<?php
                     $numberEnvaseProcessor = envaseController::returnEnvases();
                     echo $numberEnvaseProcessor?>">
                     <input type="hidden" name="numberProducto" value="<?php 
@@ -53,7 +64,7 @@ $numberProducto = productoController::returnProductoIndex();
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div></td>
                       <td colspan="2"><div> Precio:<?php echo envaseController::hidrateEnvasePrecio($i); ?></div></td>
-                      <td><input type="checkbox" name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>" class="form-check-input"></td>
+                      <td><input type="checkbox"  name="envase<?php echo $i?>" value="<?php echo envaseController::hidrateEnvaseId($i)?>" class="form-check-input"></td>
                     </tr>
                     <?php 
                         $i++;
@@ -72,10 +83,10 @@ $numberProducto = productoController::returnProductoIndex();
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></p></div></td>
                       <td colspan="2"><div>Precio:<div><?php echo productoController::hidrateAllProductoPrecio($i); ?></div></div></td>
-                      <td><input type="checkbox" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
+                      <td><input name="producto<?php echo $i?>" type="checkbox" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
                     </tr> 
                     <?php 
-                        $i++;
+                      $i++;
                       } 
                       ?>
                     <td>
@@ -95,7 +106,17 @@ $numberProducto = productoController::returnProductoIndex();
     </div>
   </div>
     `;
+    
+
     $("body").append(agregarCombo);
+    var checkboxes = document.querySelectorAll("input[type=checkbox]");
+    $(checkboxes).change(function() {
+    var precioNeto = 0;
+    $(':checkbox:checked').each(function() {
+        precioNeto = precioNeto + parseInt( $(this).val() );
+    });
+    document.getElementById("precioComboNeto").value = precioNeto;
+});
   }
   function removeAgregarCombo(){
     $(".popup").remove();

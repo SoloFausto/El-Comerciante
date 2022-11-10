@@ -4,7 +4,20 @@ require "/Xampp/htdocs/El-Comerciante/model/envase.php";
 require "/Xampp/htdocs/El-Comerciante/model/helado.php";
 require "/Xampp/htdocs/El-Comerciante/model/combo.php";
 include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
+include "/Xampp/htdocs/El-Comerciante/model/comboEnvase.php";
+include "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
    class productoController{
+     public static function hidrateCheckedProducto($indexProducto,$idCombo){
+          $prodArr = producto::loadAllProds(conectar());
+          $salida = $prodArr[$indexProducto];
+          $idProducto = $salida->getid();
+          if(comboProducto::verificarIdProductoIdCombo($idCombo,$idProducto,conectar()) == true){
+          return "checked";
+          }
+          else if (comboProducto::verificarIdProductoIdCombo($idCombo,$idProducto,conectar()) == false){
+          return "";
+          }
+     }
     public static function returnProductos($idcomanda){ //Nos devuelve cuantos productos tenemos para una comanda
          $prodArr = producto::getRelatedProds(conectar(),$idcomanda);
          $salida = count($prodArr);
@@ -62,9 +75,10 @@ include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
           $id = $salida->getid();
           return $id;
     }
+
 }
 class envaseController{
-    public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos para una comanda
+    public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos
          $envArr = envase::loadAllEnvs(conectar());
          $salida = count($envArr);
          return $salida;
@@ -101,8 +115,19 @@ class envaseController{
      $id = $salida->getid();
      return $id;
 }
-    
-
+     public static function hidrateCheckedEnvases($indexenvase,$idCombo){
+         $envArr = envase::loadAllEnvs(conectar());
+         $salida = $envArr[$indexenvase];
+         $idEnvase = $salida->getid();
+         if(comboEnvase::verificarIdEnvaseIdCombo($idCombo,$idEnvase,conectar()) == true){
+          return "checked";
+         }
+         else if (comboEnvase::verificarIdEnvaseIdCombo($idCombo,$idEnvase,conectar()) == false){
+          return "";
+         }
+         
+          
+     }
 }
 class heladoController{
 

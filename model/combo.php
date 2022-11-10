@@ -101,7 +101,7 @@ class combo{
         public function setNombre($nombre)
         {
                 $this->nombre = $nombre;
-                $this->refreshCombo();
+                $this->modifyCombo();
                 return $this;
         }
 
@@ -122,7 +122,7 @@ class combo{
         public function setDescripcion($descripcion)
         {
                 $this->descripcion = $descripcion;
-                $this->refreshCombo();
+                $this->modifyCombo();
                 return $this;
         }
 
@@ -143,7 +143,7 @@ class combo{
         public function setPrecio($precio)
         {
                 $this->precio = $precio;
-                $this->refreshCombo();
+                $this->modifyCombo();
                 return $this;
         }
     }
