@@ -7,6 +7,16 @@
         function __construct($conn){
             $this->conn = $conn;
         }
+        static function verificarIdProductoIdCombo($idCombover,$idProductoVer,$conn){
+            $sql = "SELECT *  FROM `combo_producto` WHERE `idCombo` = $idCombover AND `idProducto` = $idProductoVer;";
+            $result = mysqli_query($conn,$sql);
+            if (mysqli_num_rows($result) > 0){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
         function newidComboIdProducto($idProducto,$idCombo,$cantidad){
             $this->cantidad = $cantidad;
             $this->idProducto = $idProducto;
@@ -35,7 +45,10 @@
             $sql = "DELETE FROM `combo_producto` WHERE `idProducto` = $this->idProducto AND `idCombo` = $this->idCombo;";
             $result = mysqli_query($this->conn,$sql);
         }
-        
+        static function deleteComboProductoIdCombo($conn,$idCombo){
+            $sql = "DELETE FROM `combo_producto` WHERE `idCombo` = $idCombo;";
+            $result = mysqli_query($conn,$sql);
+        }
 
         /**
          * Get the value of cantidad

@@ -131,11 +131,11 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
         </tr>
         <?php 
           $numberproducto = productoController::returnProductoIndex();
-          $i = 0;
-          while ($i < $numberproducto){
+          $x = 0;
+          while ($x < $numberproducto){
         ?>
          <script>
-         function modificarProducto<?php echo $i; ?>(){
+         function modificarProducto<?php echo $x; ?>(){
         var modificarProducto = `  
     <div class="popupEnvase">
     <div class="background" style="z-index:7;"></div>
@@ -154,10 +154,10 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
     <div style="text-align: center;">
     <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
       <input type="hidden" value="modifyProducto" name="valor">
-      <input type="hidden" value="<?php echo productoController::hidrateAllProductoId($i);?>" name="id">
-        <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo productoController::hidrateAllProductoNombre($i);?>"><br>
-        <input type="text" placeholder="Descripcion:" name="descripcion" value="<?php echo productoController::hidrateAllProductoDescripcion($i);?>">    <br>
-        <input type="number" min="1" placeholder="Precio:" name="precio" value="<?php echo productoController::hidrateAllProductoPrecio($i);?>">    <br>
+      <input type="hidden" value="<?php echo productoController::hidrateAllProductoId($x);?>" name="id">
+        <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo productoController::hidrateAllProductoNombre($x);?>"><br>
+        <input type="text" placeholder="Descripcion:" name="descripcion" value="<?php echo productoController::hidrateAllProductoDescripcion($x);?>">    <br>
+        <input type="number" min="1" placeholder="Precio:" name="precio" value="<?php echo productoController::hidrateAllProductoPrecio($x);?>">    <br>
         <br>
             <button type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
@@ -175,16 +175,16 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
   }
       </script>
         <tr>
-            <td ><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></div></td>
+            <td ><div><p><?php echo productoController::hidrateAllProductoNombre($x); ?></p></div></td>
             <td>
-            <button type="button" onclick="modificarProducto<?php echo $i; ?>()" style="border:0px;">
+            <button type="button" onclick="modificarProducto<?php echo $x; ?>()" style="border:0px;">
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
               </svg>
             </button>
             <form action="../../../../controller/personal/menu/menuprocessor.php" method="get">
-              <input type="hidden" name="deleteProducto" value="<?php echo productoController::hidrateAllProductoId($i);?>"> 
+              <input type="hidden" name="deleteProducto" value="<?php echo productoController::hidrateAllProductoId($x);?>"> 
                 <button type="submit" onclick="" style="border:0px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
@@ -195,7 +195,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
             </td>
         </tr>
         <?php 
-        $i++;
+        $x++;
         } 
         ?>
     </tbody>
@@ -276,22 +276,22 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
  </table>
  <table class="table">
        <tr>
-           <td ><div><h4>Combo</h4></div></td>
+           <td ><div><h4><?php echo  combocontroller::returnCombo()?></h4></div></td>
        </tr>
        <?php 
           $numbercombo = combocontroller::returnCombo();
-          $i = 0;
-          while ($i < $numbercombo){
+          $y = 0;
+          while ($y < $numbercombo){
         ?>
         <script>
-         function modificarCombo<?php echo $i; ?>(){
+         function modificarCombo<?php echo $y; ?>(){
         var modificarCombo = `  
         <div class="popup">
     <div class="background" style="z-index: 0;"></div>
     <form action="/El-Comerciante/controller/personal/menu/menuprocessor.php" method="get">
     <div class="menuPop">
         <div class="popTitle">
-          <h2>Agregar Combo</h2>
+          <h2>Modificar Combo</h2>
           <button type="button" onclick="removeAgregarCombo()" style="border:0px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -302,12 +302,12 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
       <hr>
         <div class="agregarComboDiv">
           <div style=" margin-left: 50px; display: flex; flex-direction: column; gap: 10px; ">
-          <input type="hidden" value="agregarCombo" name="valor">
-              <input type="text" name="nombre" id="nombreCombo" placeholder="Nombre de el combo" style="width: 50vh; height: 5vh;" value="<?php echo combocontroller::hidrateComboNombre($i)?>">
-              <input type="text" name="descripcion" id="descripcionCombo" placeholder="Descripcion de el combo" style="height:30vh" value="<?php echo combocontroller::hidrateComboDescripcion($i)?>">
+          <input type="hidden" value="modificarCombo" name="valor">
+              <input type="text" name="nombre" id="nombreCombo" placeholder="Nombre de el combo" style="width: 50vh; height: 5vh;" value="<?php echo combocontroller::hidrateComboNombre($y)?>">
+              <input type="text" name="descripcion" id="descripcionCombo" placeholder="Descripcion de el combo" style="height:30vh" value="<?php echo combocontroller::hidrateComboDescripcion($y)?>">
               <div>
                 <input type="number" name="precioComboNeto" id="precioComboNeto" placeholder="Precio neto" readonly>
-                <input type="number" name="precioCombo" id="precioCombo" placeholder="Precio de el combo" value="<?php echo combocontroller::hidrateComboPrecio($i)?>">
+                <input type="number" name="precioCombo" id="precioCombo" placeholder="Precio de el combo" value="<?php echo combocontroller::hidrateComboPrecio($y)?>">
               </div>
             </div>
             <div style="width: 50%">
@@ -318,12 +318,11 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                     <td colspan="3"><div><h4>Envases</h4></div></td>
                   </tr>
                   <tr>
+                  <input type="hidden" name="id" value="<?php
+                    echo combocontroller::hidrateComboId($y);?>">
                     <input type="hidden" name="numberEnvase" value="<?php
                     $numberEnvaseProcessor = envaseController::returnEnvases();
                     echo $numberEnvaseProcessor?>">
-                    <input type="hidden"  value="">
-                    <input type="hidden"  value="">
-
                     <input type="hidden" name="numberProducto" value="<?php 
                     $numberProductoProcessor = productoController::returnProductoIndex();
                     echo $numberProductoProcessor?>">
@@ -335,8 +334,8 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
 
                     <tr>
                       <td colspan="2"><div><p><?php echo envaseController::hidrateEnvaseNombre($a); ?></p></div></td>
-                      <td colspan="2"><div><p> Precio:<div><?php echo envaseController::hidrateEnvasePrecio($a); ?></div></div></td>
-                      <td><input type="checkbox" name="envase<?php echo $a?>" value="<?php echo envaseController::hidrateEnvaseId($a)?>" class="form-check-input"></td>
+                      <td colspan="2"><div><p> Precio:<div id="precioArticulo"><?php echo envaseController::hidrateEnvasePrecio($a); ?></div></div></td>
+                      <td><input type="checkbox" name="envase<?php echo $a?>" value="<?php echo envaseController::hidrateEnvaseId($a)?>" class="form-check-input"  <?php echo envaseController::hidrateCheckedEnvases($a,combocontroller::hidrateComboId($y))?>></td>
                     </tr>
                     <?php 
                         $a++;
@@ -354,8 +353,8 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
                       ?>
                     <tr>
                       <td colspan="2"><div><p><?php echo productoController::hidrateAllProductoNombre($b); ?></p></p></div></td>
-                      <td colspan="2"><div><p> Precio:<div><?php echo productoController::hidrateAllProductoPrecio($b); ?></div></div></td>
-                      <td><input type="checkbox" name="producto<?php echo $i?>" value="<?php echo productoController::hidrateAllProductoId($i)?>" class="form-check-input"></td>
+                      <td colspan="2"><div><p> Precio:<div id="precioArticulo"><?php echo productoController::hidrateAllProductoPrecio($b); ?></div></div></td>
+                      <td><input type="checkbox" name="producto<?php echo $b?>" value="<?php echo productoController::hidrateAllProductoId($b)?>" class="form-check-input" <?php echo productoController::hidrateCheckedProducto($b,combocontroller::hidrateComboId($y))?>></td>
                     </tr> 
                     <?php 
                         $b++;
@@ -380,27 +379,30 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
     `;
     $("body").append(modificarCombo);
     var checkboxes = document.querySelectorAll("input[type=checkbox]");
-    $(checkboxes).change(function() {
+    var preciosArticulos = document.querySelectorAll('#precioArticulo');
     var precioNeto = 0;
-    $(':checkbox:checked').each(function() {
-        precioNeto = precioNeto + parseInt( $(this).val() );
-    });
-    document.getElementById("precioComboNeto").value = precioNeto;
+    console.log(checkboxes);
+    $(checkboxes).change(function() {
+      for (let i = 0; i < preciosArticulos.length; i++) {
+        precioNeto = precioNeto + preciosArticulos[i];
+      }
+      document.getElementById("precioComboNeto").value = precioNeto; 
 });
+
   }
 
       </script>
        <tr>
-           <td ><div><p><?php echo combocontroller::hidrateComboNombre($i);?></p></div></td>
+           <td ><div><p><?php echo combocontroller::hidrateComboNombre($y);?></p></div></td>
            <td>
-           <button type="button" onclick="modificarCombo<?php echo $i; ?>()" style="border:0px;">
+           <button type="button" onclick="modificarCombo<?php echo $y; ?>()" style="border:0px;">
              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
              </svg>
            </button>
            <form action="../../../../controller/personal/menu/menuprocessor.php" method="get">
-           <input type="hidden" name="deleteCombo" value="<?php echo combocontroller::hidrateComboId($i);?>"> 
+           <input type="hidden" name="deleteCombo" value="<?php echo combocontroller::hidrateComboId($y);?>"> 
           <button type="submit" onclick="" style="border:0px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
@@ -411,7 +413,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
            </td>
        </tr>
        <?php 
-        $i++;
+        $y++;
         } 
         ?>
    </tbody>

@@ -32,11 +32,22 @@
             $resultadoObj = mysqli_fetch_array($result);
             return $resultadoObj;
         }
-        function deleteComboenvase(){
-            $sql = "DELETE FROM `combo_envase` WHERE `idEnvase` = $this->idEnvase AND `idCombo` = $this->idCombo;";
-            $result = mysqli_query($this->conn,$sql);
+        static function verificarIdEnvaseIdCombo($idComboVer,$idEnvaseVer,$conn){
+            $sql = "SELECT *  FROM `combo_envase` WHERE `idCombo` = $idComboVer AND `idEnvase` = $idEnvaseVer;";
+            $result = mysqli_query($conn,$sql);
+            if (mysqli_num_rows($result) > 0){
+                return true;
+            }
+            else {
+                return false;
+            }
+
+
         }
-        
+        static function deleteComboEnvaseIdCombo($conn,$idCombo){
+            $sql = "DELETE FROM `combo_envase` WHERE `idCombo` = $idCombo;";
+            $result = mysqli_query($conn,$sql);
+        }
 
         /**
          * Get the value of cantidad
