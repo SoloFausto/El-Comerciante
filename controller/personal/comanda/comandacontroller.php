@@ -3,6 +3,7 @@ include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
 require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
 require "/Xampp/htdocs/El-Comerciante/model/producto.php";
 require "/Xampp/htdocs/El-Comerciante/model/envase.php";
+require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
 
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
@@ -66,25 +67,33 @@ require "/Xampp/htdocs/El-Comerciante/model/envase.php";
                return $salida;
 
           }
-          public static function hidrateProductoNombre($idcomanda){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
+          public static function hidrateProductoNombre($idcomanda,$index){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
                $prodArr = producto::getRelatedProds(conectar(),$idcomanda); // este metodo nos devuelve un array de comandas pendientes y 
                //lo ponemos en la variable
-               $salida = $prodArr[$idcomanda]; // elegimos una e el array 
+               $salida = $prodArr[$index]; // elegimos una e el array 
+               $id = $salida->getNombre();
+                // conseguimos el valor de la id con el getter de la ue elegimos 
+               return $id; // devolvemos el valor
+          }
+          public static function hidrateProductoPrecio($idcomanda,$index){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
+               $prodArr = producto::getRelatedProds(conectar(),$idcomanda); // este metodo nos devuelve un array de comandas pendientes y 
+               //lo ponemos en la variable
+               $salida = $prodArr[$index]; // elegimos una e el array 
+               $id = $salida->getPrecio(); // conseguimos el valor de la id con el getter de la ue elegimos 
+               return $id; // devolvemos el valor
+          }
+          public static function hidrateProductoCantidad($idcomanda,$index){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
+               $prodArr = producto::getRelatedProds(conectar(),$idcomanda); // este metodo nos devuelve un array de comandas pendientes y 
+               //lo ponemos en la variable
+               $salida = $prodArr[$index]; // elegimos una e el array 
                $id = $salida->getNombre(); // conseguimos el valor de la id con el getter de la ue elegimos 
                return $id; // devolvemos el valor
           }
-          public static function hidrateProductoPrecio($idcomanda){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
+          public static function hidrateProductoDescripcion($idcomanda,$index){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
                $prodArr = producto::getRelatedProds(conectar(),$idcomanda); // este metodo nos devuelve un array de comandas pendientes y 
                //lo ponemos en la variable
-               $salida = $prodArr[$idcomanda]; // elegimos una e el array 
-               $id = $salida->getNombre(); // conseguimos el valor de la id con el getter de la ue elegimos 
-               return $id; // devolvemos el valor
-          }
-          public static function hidrateProductoCantidad($idcomanda){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
-               $prodArr = producto::getRelatedProds(conectar(),$idcomanda); // este metodo nos devuelve un array de comandas pendientes y 
-               //lo ponemos en la variable
-               $salida = $prodArr[$idcomanda]; // elegimos una e el array 
-               $id = $salida->getNombre(); // conseguimos el valor de la id con el getter de la ue elegimos 
+               $salida = $prodArr[$index]; // elegimos una e el array 
+               $id = $salida->getDescripcion(); // conseguimos el valor de la id con el getter de la ue elegimos 
                return $id; // devolvemos el valor
           }
           public static function hidrateAllProductoNombre($index){
@@ -114,12 +123,31 @@ require "/Xampp/htdocs/El-Comerciante/model/envase.php";
 
      }
      class envaseController{
-          public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos para una comanda
-               $envArr = envase::loadAllEnvs(conectar());
+          public static function countRelatedEnvases($idComanda){ //Nos devuelve cuantos productos tenemos para una comanda
+               $envArr = comandaEnvaseHelado::getRealtedEnvs($idComanda,conectar());
                $salida = count($envArr);
                return $salida;
 
           }
+          public static function hidrateEnvaseNombreWithComanda($idComanda,$index){
+               $envArr = comandaEnvaseHelado::getRealtedEnvs($idComanda,conectar());
+               $salida = $envArr[$index];
+               $nombre = $salida->getNombre(); 
+               return $nombre; 
+          }
+          public static function hidrateEnvaseCapacidadWithComanda($idComanda,$index){
+               $envArr = comandaEnvaseHelado::getRealtedEnvs($idComanda,conectar());
+               $salida = $envArr[$index];
+               $nombre = $salida->getCapacidad(); 
+               return $nombre; 
+          }
+          public static function hidrateEnvasePrecioWithComanda($idComanda,$index){
+               $envArr = comandaEnvaseHelado::getRealtedEnvs($idComanda,conectar());
+               $salida = $envArr[$index];
+               $precio = $salida->getPrecio(); 
+               return $precio; 
+          }
+          
           public static function hidrateEnvaseNombre($idEnvase){ 
                $envArr = envase::loadAllEnvs(conectar()); 
                $salida = $envArr[$idEnvase];
