@@ -170,3 +170,11 @@ require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
           
 
      }
+     class heladoController{
+          public static function countRelatedHelados($idEnvase,){
+               $heladoArr = comandaEnvaseHelado::getRelatedHelados($idEnvase,conectar());
+               $salida = count($heladoArr);
+               return $salida;
+          }
+          public static function hidrateHeladoNombreWithEnvaseComanda
+     }
