@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php require "/Xampp/htdocs/El-Comerciante/controller/personal/comanda/comandacontroller.php";
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,18 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="c">
-    <?php
-        while($row = mysqli_fetch_array($query)){ ?>
-            <tr>
-                <td><?php echo $row['nombre'] ?></td>
-                <td><?php echo $row['apellido'] ?></td>
-                <td><?php echo $row['cedula'] ?></td>
-                <td><?php echo $row['email'] ?></td>
-                <td><button type='sumbit' class='mod'>Modificar</button> <button type='' class='elim'>Eliminar</button></td>
-            </tr>
-        <?php } ?>
-        </div> 
+   <?php echo productoController::hidrateProductoNombre(2,2) ?>
 
 </body>
 </html>

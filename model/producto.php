@@ -21,17 +21,20 @@
                 return $respuesta; // devolvemos el array
         }
         static function getRelatedProds($conn,$idComanda){ // conseguimos todos los productos que esten relacionados con una comanda en especifico
-                $sql = "SELECT producto.nombre, producto.descripcion, producto.precio, comanda.id, producto_comanda.cantidad
+                $sql = "SELECT producto.nombre, producto.descripcion, producto.precio, producto.id, producto_comanda.cantidad
                 FROM producto,producto_comanda,comanda 
                 WHERE ((producto_comanda.idProducto  = producto.id) AND (producto_comanda.numComanda = comanda.id)) 
                 AND comanda.id = $idComanda ;";
-                $result = mysqli_query($conn,$sql);
                 $respuesta = array();
-                while($objetoArray = mysqli_fetch_object($result)){
-                    $comandaArray = new producto ($conn);
-                    $comandaArray->initProducto($objetoArray->id,$objetoArray->$nombre,$objetoArray->descripcion,$objetoArray->precio,$objetoArray->cantidad);
-                    array_push($respuesta,$comandaArray);
-                }
+                if ($result = mysqli_query($conn, $sql)) {
+                        while ($objetoArray = mysqli_fetch_object($result)) {
+                                $comandaArray = new producto ($conn);
+                                $comandaArray->initProducto($objetoArray->id,$objetoArray->nombre,$objetoArray->descripcion,$objetoArray->precio,$objetoArray->cantidad);
+
+                                array_push($respuesta,$comandaArray);
+                        }
+                        mysqli_free_result($result);
+                      }
                 return $respuesta;
             }
             function initProducto($id,$nombre,$descripcion,$precio,$cantidad){

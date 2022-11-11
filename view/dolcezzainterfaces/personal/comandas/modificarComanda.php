@@ -1,13 +1,8 @@
-<?php session_start(); 
-@$agregarComandaId = $_GET['id'];
-require ("../../../../controller/personal/comanda/comandacontroller.php");
-
-
-
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require ("../../../../controller/personal/comanda/comandacontroller.php");?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +22,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
 <!--  ----------------------------------------------  -->
 <div>
   <div class="titlebox">
-    <h1>Agregar Comanda</h1>
+    <h1>Agregar o modificar comandas</h1>
     </div>
 </div>
   <div class="page">  
@@ -60,20 +55,14 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
           
         </form>
         <hr>
-        <h3 style="text-align: center;">Productos Agregados</h3>
+        <h3 style="text-align: center;">Productos a pedir</h3>
           <div style="display:flex;flex-direction: column; align-items: center;">
               <table class="table tablaprods">
-                  <?php if ($agregarComandaId != ""){ 
-                    $numberEnvase = envaseController::countRelatedEnvases($agregarComandaId);
-                    $a = 0;
-                    while ($a < $numberEnvase){
-                    
-                    ?>
-
+                  
                       <tr class="envase">
-                          <td><div><p><?php echo envaseController::hidrateEnvaseNombreWithComanda($agregarComandaId,$a);?></p></div></td>
-                          <td><div><p><?php echo envaseController::hidrateEnvaseCapacidadWithComanda($agregarComandaId,$a);?></p></div></td>
-                          <td><div><p><?php echo envaseController::hidrateEnvasePrecioWithComanda($agregarComandaId,$a);?></p></div></td>
+                          <td><div><p>*Nombre de el envase*</p></div></td>
+                          <td><div><p>*Cantidad de sabores*</p></div></td>
+                          <td><div><p>*Precio*</p></div></td>
                           <td>
                               <div> 
                                   <button style="border:0px;">
@@ -85,11 +74,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </div>
                           </td> 
                       </tr>
-                      <?php 
-                            $a++;
-                            } ?>
-
-                      <tr class="sabor">
+                      <tr>
                           <td></td>
                           <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
                           <td>
@@ -101,19 +86,16 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </button>
                           </td>
                       </tr>
-
-
-                      
+                          <tr>
                           <?php 
 
-                            $numberProducts = productoController::returnProductos($agregarComandaId);
-                            $c = 0;
-                            while ($c < $numberProducts){
+                            $numberProducts = productoController::returnProductoIndex();
+                            $i = 0;
+                            while ($i < $numberProducts){
                             ?>
-                          <tr class="producto">
-                              <td><div><p><?php echo productoController::hidrateProductoNombre($agregarComandaId,$c);?></p></div></td>
-                              <td><?php echo productoController::hidrateProductoDescripcion($agregarComandaId,$c);?></td>
-                              <td><?php echo productoController::hidrateProductoPrecio($agregarComandaId,$c);?></td>
+                              <td><div><p><?php echo productoController::hidrateAllProductoNombre($i);?></p></div></td>
+                              <td><?php echo productoController::hidrateAllProductoDescripcion($i);?></td>
+                              <td><?php echo productoController::hidrateAllProductoPrecio($i);?></td>
                               <td>
                                   <button type="button" onclick="" style="border:0px;">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -122,24 +104,17 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                                       </svg>
                                   </button>
                               </td>
-                            <?php 
-                            $c++;
-                            } ?>
                           </tr>
-                          
+                          <?php 
+                            $i++;
+                            } ?>
               </table>
-              
               <button type="button" onclick="removeAgregarComanda()" style="border:0px; border-radius:50px; width:50px;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
               <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
               </svg>
             </button>
-            <?php }
-              else {
-                
-              }
-              ?>
           </div>
 
 

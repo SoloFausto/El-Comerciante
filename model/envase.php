@@ -20,6 +20,7 @@
                 }
                 return $respuesta; // devolvemos el array
         }
+
         function newEnvase($nombre,$descripcion,$capacidad,$precio){
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
@@ -85,7 +86,7 @@
         public function setId($id)
         {
                 $this->id = $id;
-
+                $this->refreshEnvase();
                 return $this;
         }
 
