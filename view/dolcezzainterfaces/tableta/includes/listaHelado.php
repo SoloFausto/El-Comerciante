@@ -55,7 +55,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
      <tr>
        <td ><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div>
        <div><p><?php echo envaseController::hidrateEnvaseDescripcion($i);?></p></div>
-         <form action="../../../../controller/tableta/comandaTab.php" method="get">
+         <form action="../crear/newHelado.php" method="get">
           <input type="hidden" name="deleteEnvase" value="<?php echo envaseController::hidrateEnvaseId($i);?>"> 
             <button type="submit" onclick="" style="border:0px;" class="btn btn-outline-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="SVGw3org" fill="currentColor" viewBox="0 0 16 16">
