@@ -87,7 +87,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                           </td> 
                       </tr>
                       <?php
-                      $numberHelado = heladoController::countRelatedHelados($agregarComandaId);
+                      $numberHelado = heladoController::hidrateHeladoNombreWithNumEnvaseComanda($agregarComandaId,$a);
                       $b = 0;
                       while($b < $numberHelado){
                       ?>

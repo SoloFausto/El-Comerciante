@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php require "/Xampp/htdocs/El-Comerciante/controller/personal/comanda/comandacontroller.php";
 
 ?>
 <html lang="en">
@@ -11,16 +10,12 @@
 </head>
 <body>
    <?php
-   $variable1 = "dada";
-   if($variable1 == "hola"){
-    echo "es verdadero";
-
-   } else if($variable1 == "adios"){
-    echo "adios";
-   }
-   else{
-    echo "es falso";
-   }
+   require "/wamp/www/El-Comerciante/controller/include/connection.php";
+    $sql = "SELECT `idHelado` FROM `comanda_envase_helado` WHERE `numEnvase` = $numEnvase AND `numComanda` = $idComanda ;";
+    $result = mysqli_query(conectar(),$sql);
+    $resultObj = mysqli_fetch_object($result);
+    $rr = $resultObj->idHelado;
+    echo gettype($resultObj);
    ?>
 
 </body>

@@ -3,6 +3,7 @@ include "../../../../controller/include/connection.php";
 require "../../../../model/comanda.php";
 require "../../../../model/producto.php";
 require "../../../../model/envase.php";
+require "../../../../model/helado.php";
 require "../../../../model/comandaEnvaseHelado.php";
 
      class comandaController{
@@ -123,7 +124,7 @@ require "../../../../model/comandaEnvaseHelado.php";
 
      }
      class envaseController{
-          public static function countRelatedEnvases($idComanda){ //Nos devuelve cuantos productos tenemos para una comanda
+          public static function countRelatedEnvases($idComanda){ 
                $envase = comandaEnvaseHelado::getRelatedEnvsComanda($idComanda,conectar());
                $salida = count($envase);
                return $salida;
