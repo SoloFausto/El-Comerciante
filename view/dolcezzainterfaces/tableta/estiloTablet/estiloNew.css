@@ -41,7 +41,9 @@ body{
     margin-left: 8%;
 }
 .col-sm-4{
-    width: 20%;
+    width: 18vh;
+    height: 6vw;
+    margin-right: 2vw;
 }
 .form-check-input{
     height: 80%;

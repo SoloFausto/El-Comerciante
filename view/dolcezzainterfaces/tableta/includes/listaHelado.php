@@ -4,6 +4,11 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
 
 <table class="table">
    <tbody>
+  
+    <th><p>Nombre</p></th>
+    <th><p>Descripción</p></th>
+    <th><p>Precio</p></th>
+    <th></th>
 
      <?php 
       $numberEnvase = envaseController::returnEnvases();
@@ -52,11 +57,12 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
     $("body").append(modificarEnvase);
   }
       </script>
-     <tr>
-       <td ><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div>
-       <div><p><?php echo envaseController::hidrateEnvaseDescripcion($i);?></p></div>
-         <form action="../crear/newHelado.php" method="get">
-          <input type="hidden" name="deleteEnvase" value="<?php echo envaseController::hidrateEnvaseId($i);?>"> 
+    <tr>
+      <td ><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div></td>
+      <td><div><p><?php echo envaseController::hidrateEnvaseDescripcion($i);?></p></div></td>
+      <td><div><p><?php $precio = envaseController::hidrateEnvasePrecio($i); echo "$ $precio"?></p></div></td>
+      <td><form action="../crear/newHelado.php" method="get">
+          <input type="hidden" name="agregarEnvase" value="<?php echo envaseController::hidrateEnvaseId($i);?>"> 
             <button type="submit" onclick="" style="border:0px;" class="btn btn-outline-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="SVGw3org" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>

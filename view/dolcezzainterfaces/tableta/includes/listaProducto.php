@@ -3,6 +3,12 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
 ?>
 
 <table class="table">
+  <tbody>
+
+    <th><p>Nombre</p></th>
+    <th><p>Descripción</p></th>
+    <th><p>Precio</p></th>
+    <th></th>
         
         <?php 
           $numberproducto = productoController::returnProductoIndex();
@@ -50,10 +56,11 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
   }
       </script>
         <tr>
-            <td ><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></div>
-            <div><p><?php echo productoController::hidrateAllProductoDescripcion($i);?></p></div>
+            <td><div><p><?php echo productoController::hidrateAllProductoNombre($i); ?></p></div></td>
+            <td><div><p><?php echo productoController::hidrateAllProductoDescripcion($i);?></p></div></td>
+            <td><div><p><?php $precio = productoController::hidrateAllProductoPrecio($i); echo "$ $precio"?></p></div></td>
             
-            <form action="../../../../controller/tableta/comandaTab.php" method="get">
+            <td><form action="../../../../controller/tableta/comandaTab.php" method="get">
               <input type="hidden" name="deleteProducto" value="<?php echo productoController::hidrateAllProductoId($i);?>"> 
                 <button type="submit" onclick="" style="border:0px;" class="btn btn-outline-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="SVGw3org" fill="currentColor" viewBox="0 0 16 16">
