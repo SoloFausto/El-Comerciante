@@ -1,9 +1,8 @@
 <?php
     require "combo.php";
-    require "comanda.php";
     class comboComanda{
         private $idCombo;
-        private $id;
+        private $numCombo;
         private $conn;
         private $cantidad;
         function __construct($conn){
@@ -22,18 +21,17 @@
             $this->idCombo = $idCombo;
             $this->id = $id;
         }
-        function load(){
-            $sql = "SELECT *  FROM `combo_comanda` WHERE `idCombo` = $this->idCombo;";
-            $result = mysqli_query($this->conn,$sql);
-            $resultadoObj = mysqli_fetch_array($result);
-            return $resultadoObj;
-        }
-        function load2(){
-            $sql = "SELECT *  FROM `combo_comanda` WHERE `id` = $this->id;";
-            $result = mysqli_query($this->conn,$sql);
-            $resultadoObj = mysqli_fetch_array($result);
-            return $resultadoObj;
-        }
+        static function loadRealtedCombo($idComanda,$conn){
+            $sql = "SELECT `idCombo`  FROM `combo_comanda` WHERE `numComanda` = $idComanda"; 
+            $result = mysqli_query($conn,$sql);
+            $respuesta = array();
+            while($objetoArray = mysqli_fetch_object($result)){ // creamos un loop que vaya por los resultados
+                $comboArray = new combo($conn); 
+                $comboArray->setId($objetoArray->idCombo);
+                array_push($respuesta,$comboArray); // ponemos los objetos en el array
+            }
+            return $respuesta; // devolvemos el array
+    }
         
 
         /**

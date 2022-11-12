@@ -1,5 +1,4 @@
 <?php
-require "productoComanda.php";
 class comanda {
     protected $id;
     protected $mesa;

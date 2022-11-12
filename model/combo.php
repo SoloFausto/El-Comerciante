@@ -8,6 +8,7 @@ class combo{
         function __construct($conn){
             $this->conn = $conn;
         }
+
         static function loadAllCombos($conn){
                 $sql = "SELECT *  FROM `combo` WHERE `activo` = 1"; 
                 $result = mysqli_query($conn,$sql);

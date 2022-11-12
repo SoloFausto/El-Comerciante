@@ -1,10 +1,11 @@
 <?php
-include "../../../../controller/include/connection.php";
-require "../../../../model/comanda.php";
-require "../../../../model/producto.php";
-require "../../../../model/envase.php";
-require "../../../../model/helado.php";
-require "../../../../model/comandaEnvaseHelado.php";
+include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
+require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
+require "/Xampp/htdocs/El-Comerciante/model/producto.php";
+require "/Xampp/htdocs/El-Comerciante/model/envase.php";
+require "/Xampp/htdocs/El-Comerciante/model/helado.php";
+require "/Xampp/htdocs/El-Comerciante/model/comboComanda.php";
+require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
 
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
@@ -168,7 +169,11 @@ require "../../../../model/comandaEnvaseHelado.php";
                $id = $salida->getCapacidad(); 
                return $id;
           }
-          
+          public static function countEnvases(){ 
+               $envArr = envase::loadAllEnvs(conectar());
+               $$salida = count($envArr);
+               return $salida;
+          }
 
      }
      class heladoController{
@@ -201,4 +206,30 @@ require "../../../../model/comandaEnvaseHelado.php";
                $precio = $envArr->getPrecio(); 
                return $precio; 
           }
+     }
+     class comboController{
+          public static function countRelatedCombos($idComanda){
+               $comboArr = comboComanda::loadRealtedCombo($idComanda,conectar());
+               $cantidadCombos = count($comboArr);
+               return $cantidadCombos;
+          }
+          public static function hidrateRelatedComboNombre($idComanda,$index){
+               $comboArr = comboComanda::loadRealtedCombo($idComanda,conectar());
+               $Combo = $comboArr[$index];
+               $comboPropiedad = $Combo->getNombre();
+               return $comboPropiedad;
+          }
+          public static function hidrateRelatedComboDescripcion($idComanda,$index){
+               $comboArr = comboComanda::loadRealtedCombo($idComanda,conectar());
+               $Combo = $comboArr[$index];
+               $comboPropiedad = $Combo->getDescripcion();
+               return $comboPropiedad;
+          }
+          public static function hidrateRelatedComboPrecio($idComanda,$index){
+               $comboArr = comboComanda::loadRealtedCombo($idComanda,conectar());
+               $Combo = $comboArr[$index];
+               $comboPropiedad = $Combo->getPrecio();
+               return $comboPropiedad;
+          }
+          
      }
