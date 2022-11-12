@@ -109,17 +109,23 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                             $a++;
                             } ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <tr>
                             <td><h3>Nombre Producto</h3></td>
                             <td><h3>Descripcion</h3></td>
                             <td><h3>Precio</h3></td>
                             </tr>
 =======
+=======
+>>>>>>> parent of 3e32acd (:D)
                     
                      
 
 
                       
+<<<<<<< HEAD
+>>>>>>> parent of 3e32acd (:D)
+=======
 >>>>>>> parent of 3e32acd (:D)
                           <?php 
 
