@@ -20,8 +20,11 @@
     $Usuario = new usuario(conectar());
     $veri = $Usuario->loadUserByPassw($nombre, $contrasena);
     
+    $id = $usuario->getId();
+
     if($veri == true){
       session_start();
+      $_SESSION['id'] = "$id";
       $_SESSION['mensaje'] = "Bienvenido $nombre";
       $_SESSION['mensaje-color'] = 'success';
       $_SESSION['mensaje-nombre'] = "$nombre";
