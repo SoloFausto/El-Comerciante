@@ -71,6 +71,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                     ?>
 
                       <tr class="envase">
+                        
                           <td><div><p><?php echo envaseController::hidrateEnvaseNombreWithComanda($agregarComandaId,$a);?></p></div></td>
                           <td><div><p><?php echo envaseController::hidrateEnvaseCapacidadWithComanda($agregarComandaId,$a);?></p></div></td>
                           <td><div><p><?php echo envaseController::hidrateEnvasePrecioWithComanda($agregarComandaId,$a);?></p></div></td>
@@ -85,6 +86,11 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </div>
                           </td> 
                       </tr>
+                      <?php
+                      $numberHelado = heladoController::countRelatedHelados($agregarComandaId);
+                      $b = 0;
+                      while($b < $numberHelado){
+                      ?>
                       <tr class="sabor">
                           <td></td>
                           <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
@@ -97,7 +103,9 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </button>
                           </td>
                       </tr>
-                      <?php 
+                      <?php
+                        $b++; 
+                        }
                             $a++;
                             } ?>
                     
