@@ -1,5 +1,5 @@
 <?php session_start(); 
-require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+require "../../../../controller/personal/menu/menuController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

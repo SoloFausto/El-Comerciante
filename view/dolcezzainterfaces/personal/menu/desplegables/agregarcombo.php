@@ -1,5 +1,5 @@
 <?php header("content-type: application/x-javascript");
-require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+require "../../../../../controller/personal/menu/menuController.php";
 $numberEnvase = envaseController::returnEnvases();
 $numberProducto = productoController::returnProductoIndex();
 ?>
@@ -19,7 +19,7 @@ $numberProducto = productoController::returnProductoIndex();
     var agregarCombo =`
     <div class="popup">
     <div class="background" style="z-index: 0;"></div>
-    <form action="/El-Comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../../../../menu/menuprocessor.php" method="get">
     <div class="menuPop">
         <div class="popTitle">
           <h2>Agregar Combo</h2>

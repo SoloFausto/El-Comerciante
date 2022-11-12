@@ -19,7 +19,7 @@ class comandaEnvaseHelado {
                 return $envase;
     }
     static function getRelatedEnvsComanda($idComanda,$conn){
-        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda AND `numEnvase` = $numEnvase;";
+        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
         $respuesta = array();
         if ($reusltsql = mysqli_query($conn,$sql)) {
             while ($objetoArray = mysqli_fetch_object($reusltsql)) {
@@ -38,7 +38,7 @@ class comandaEnvaseHelado {
         $helado->setId($objetoArray->idHelado);
                 return $helado;
     }
-    static function getIdHeladoFromCEH($idComanda,$conn){
+    static function getRelatedHeladosComanda($idComanda,$conn){
         $sql = "SELECT `idHelado`,`cantidad`,`idEnvase` FROM `comanda_envase_helado` WHERE `idComanda` = $idComanda ;";
         $respuesta = array();
         if ($reusltsql = mysqli_query($conn,$sql)) {

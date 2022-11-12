@@ -1,5 +1,5 @@
 <?php header("content-type: application/x-javascript");
-require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+require "../../../../../controller/personal/menu/menuController.php";
 ?>
 
 function agregarEnvase(){

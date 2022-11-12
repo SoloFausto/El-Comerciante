@@ -1,9 +1,9 @@
 <?php
-include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
-require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
-require "/Xampp/htdocs/El-Comerciante/model/producto.php";
-require "/Xampp/htdocs/El-Comerciante/model/envase.php";
-require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
+include "../../../../controller/include/connection.php";
+require "../../../../model/comanda.php";
+require "../../../../model/producto.php";
+require "../../../../model/envase.php";
+require "../../../../model/comandaEnvaseHelado.php";
 
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
@@ -129,20 +129,20 @@ require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
                return $salida;
 
           }
-          public static function hidrateEnvaseNombreWithComanda($numEnvase,$idComanda,$index){
-               $envArr = comandaEnvaseHelado::getRealtedEnvs($numEnvase,$idComanda,conectar());
+          public static function hidrateEnvaseNombreWithComanda($idComanda,$index){
+               $envArr = comandaEnvaseHelado::getRelatedEnvsComanda($idComanda,conectar());
                $salida = $envArr[$index];
                $nombre = $salida->getNombre(); 
                return $nombre; 
           }
-          public static function hidrateEnvaseCapacidadWithComanda($numEnvase,$idComanda,$index){
-               $envArr = comandaEnvaseHelado::getRealtedEnvs($numEnvase,$idComanda,conectar());
+          public static function hidrateEnvaseCapacidadWithComanda($idComanda,$index){
+               $envArr = comandaEnvaseHelado::getRelatedEnvsComanda($idComanda,conectar());
                $salida = $envArr[$index];
                $nombre = $salida->getCapacidad(); 
                return $nombre; 
           }
-          public static function hidrateEnvasePrecioWithComanda($numEnvase,$idComanda,$index){
-               $envArr = comandaEnvaseHelado::getRealtedEnvs($numEnvase,$idComanda,conectar());
+          public static function hidrateEnvasePrecioWithComanda($idComanda,$index){
+               $envArr = comandaEnvaseHelado::getRelatedEnvsComanda($idComanda,conectar());
                $salida = $envArr[$index];
                $precio = $salida->getPrecio(); 
                return $precio; 
@@ -172,7 +172,7 @@ require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
      }
      class heladoController{
           public static function countRelatedHelados($idComanda){
-               $heladoArr = comandaEnvaseHelado::getIdHeladoFromCEH($idComanda,conectar());
+               $heladoArr = comandaEnvaseHelado::getRelatedHeladosComanda($idComanda,conectar());
                $salida = count($heladoArr);
                return $salida;
           }
