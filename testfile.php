@@ -12,6 +12,7 @@
 <body>
    <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
    require_once __DIR__. '/vendor/autoload.php';
    $fixer = new Fixer("/Xampp/El-Comerciante"); 
    $fixer->report($inspectDirPath, "APP_ROOT");    // Only reporting.
@@ -28,6 +29,14 @@
     echo "es falso";
    }
 >>>>>>> parent of 64e2b0c (8)
+=======
+   require "/wamp/www/El-Comerciante/controller/include/connection.php";
+    $sql = "SELECT `idHelado` FROM `comanda_envase_helado` WHERE `numEnvase` = $numEnvase AND `numComanda` = $idComanda ;";
+    $result = mysqli_query(conectar(),$sql);
+    $resultObj = mysqli_fetch_object($result);
+    $rr = $resultObj->idHelado;
+    echo gettype($resultObj);
+>>>>>>> parent of 54dbb49 (dsaldjskal)
    ?>
 
 </body>
