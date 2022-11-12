@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
 require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
 require "/Xampp/htdocs/El-Comerciante/model/producto.php";
@@ -9,6 +10,13 @@ require "/Xampp/htdocs/El-Comerciante/model/comboComanda.php";
 =======
 >>>>>>> parent of 020e949 (pq)
 require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
+=======
+include "../../../../controller/include/connection.php";
+require "../../../../model/comanda.php";
+require "../../../../model/producto.php";
+require "../../../../model/envase.php";
+require "../../../../model/comandaEnvaseHelado.php";
+>>>>>>> parent of 64e2b0c (8)
 
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
@@ -128,7 +136,7 @@ require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
 
      }
      class envaseController{
-          public static function countRelatedEnvases($idComanda){ 
+          public static function countRelatedEnvases($idComanda){ //Nos devuelve cuantos productos tenemos para una comanda
                $envase = comandaEnvaseHelado::getRelatedEnvsComanda($idComanda,conectar());
                $salida = count($envase);
                return $salida;
