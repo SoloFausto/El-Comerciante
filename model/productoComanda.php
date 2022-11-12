@@ -1,4 +1,5 @@
 <?php
+
     class productoComanda{
         private $idProducto;
         private $id;

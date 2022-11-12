@@ -1,12 +1,12 @@
 <?php
 
-include "../../../../controller/include/connection.php";
-require "../../../../model/envase.php";
-require "../../../../model/producto.php";
-require "../../../../model/helado.php";
-require "../../../../model/combo.php";
-require "../../../../model/comboEnvase.php";
-require "../../../../model/comboProducto.php";
+include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
+require "/Xampp/htdocs/El-Comerciante/model/envase.php";
+require "/Xampp/htdocs/El-Comerciante/model/producto.php";
+require "/Xampp/htdocs/El-Comerciante/model/helado.php";
+require "/Xampp/htdocs/El-Comerciante/model/combo.php";
+require "/Xampp/htdocs/El-Comerciante/model/comboEnvase.php";
+require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
     $idModificar = $_GET['id'];
     $nombre = $_GET['nombre'];
     $precio = $_GET['precio'];  

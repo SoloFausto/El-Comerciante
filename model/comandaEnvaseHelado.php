@@ -12,17 +12,25 @@ class comandaEnvaseHelado {
     }
     static function getRealtedEnvs($numEnvase,$idComanda,$conn){
         $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda AND `numEnvase` = $numEnvase;";
-        $resultsql = mysqli_query($conn,$sql);
-        $objetoArray = mysqli_fetch_object($resultsql);
+        $reusltsql = mysqli_query($conn,$sql);
+        $objetoArray = mysqli_fetch_object($reusltsql);
         $envase = new envase ($conn);
         $envase->setId($objetoArray->idEnvase);
                 return $envase;
     }
     static function getRelatedEnvsComanda($idComanda,$conn){
-        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda GROUP BY numEnvase;";
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $sql = "SELECT DISTINCT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
+=======
+        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda AND `numEnvase` = $numEnvase;";
+>>>>>>> parent of 020e949 (pq)
+=======
+        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
+>>>>>>> parent of 64e2b0c (8)
         $respuesta = array();
-        if ($resultsql = mysqli_query($conn,$sql)) {
-            while ($objetoArray = mysqli_fetch_object($resultsql)) {
+        if ($reusltsql = mysqli_query($conn,$sql)) {
+            while ($objetoArray = mysqli_fetch_object($reusltsql)) {
                     $comandaArray = new envase ($conn);
                     $comandaArray->setId($objetoArray->idEnvase);
                     array_push($respuesta,$comandaArray);
@@ -32,35 +40,17 @@ class comandaEnvaseHelado {
     }
     static function getRelatedHelados($numEnvase,$idComanda,$conn){
         $sql = "SELECT `idHelado` FROM `comanda_envase_helado` WHERE `numEnvase` = $numEnvase AND `numcomanda` = $idComanda ;";
-         $respuesta = array();
-         if ($resultsql = mysqli_query($conn,$sql)) {
-             while ($objetoArray = mysqli_fetch_object($resultsql)) {
-                     $helado = new helado ($conn);
-                     $helado->setId($objetoArray->idHelado);
-                     array_push($respuesta,$helado);
-             }
-           }
-        return $respuesta;
-            
-
+        $reusltsql = mysqli_query($conn,$sql);
+        $objetoArray = mysqli_fetch_object($reusltsql);
+        $helado = new helado ($conn);
+        $helado->setId($objetoArray->idHelado);
+                return $helado;
     }
-    static function getRelatedHeladosCantidad($numEnvase,$idComanda,$conn){
-        $sql = "SELECT `cantidad` FROM `comanda_envase_helado` WHERE `numEnvase` = $numEnvase AND `numcomanda` = $idComanda ;";
-         $respuesta = array();
-         if ($resultsql = mysqli_query($conn,$sql)) {
-             while ($objetoArray = mysqli_fetch_object($resultsql)) {
-                     array_push($respuesta,$objetoArray->cantidad);
-             }
-           }
-        return $respuesta;
-            
-
-    }
-    static function getRelatedHeladosComanda($idComanda,$conn){
+    static function getIdHeladoFromCEH($idComanda,$conn){
         $sql = "SELECT `idHelado`,`cantidad`,`idEnvase` FROM `comanda_envase_helado` WHERE `idComanda` = $idComanda ;";
         $respuesta = array();
-        if ($resultsql = mysqli_query($conn,$sql)) {
-            while ($objetoArray = mysqli_fetch_object($resultsql)) {
+        if ($reusltsql = mysqli_query($conn,$sql)) {
+            while ($objetoArray = mysqli_fetch_object($reusltsql)) {
                     $comandaArray = new envase ($conn);
                     $comandaArray->setId($objetoArray->idEnvase);
                     array_push($respuesta,$comandaArray);
