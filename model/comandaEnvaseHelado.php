@@ -19,7 +19,7 @@ class comandaEnvaseHelado {
                 return $envase;
     }
     static function getRelatedEnvsComanda($idComanda,$conn){
-        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda GROUP BY numEnvase;";
+        $sql = "SELECT DISTINCT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
         $respuesta = array();
         if ($resultsql = mysqli_query($conn,$sql)) {
             while ($objetoArray = mysqli_fetch_object($resultsql)) {
@@ -32,29 +32,13 @@ class comandaEnvaseHelado {
     }
     static function getRelatedHelados($numEnvase,$idComanda,$conn){
         $sql = "SELECT `idHelado` FROM `comanda_envase_helado` WHERE `numEnvase` = $numEnvase AND `numcomanda` = $idComanda ;";
-         $respuesta = array();
-         if ($resultsql = mysqli_query($conn,$sql)) {
-             while ($objetoArray = mysqli_fetch_object($resultsql)) {
-                     $helado = new helado ($conn);
-                     $helado->setId($objetoArray->idHelado);
-                     array_push($respuesta,$helado);
-             }
-           }
-        return $respuesta;
-            
-
-    }
-    static function getRelatedHeladosCantidad($numEnvase,$idComanda,$conn){
-        $sql = "SELECT `cantidad` FROM `comanda_envase_helado` WHERE `numEnvase` = $numEnvase AND `numcomanda` = $idComanda ;";
-         $respuesta = array();
-         if ($resultsql = mysqli_query($conn,$sql)) {
-             while ($objetoArray = mysqli_fetch_object($resultsql)) {
-                     array_push($respuesta,$objetoArray->cantidad);
-             }
-           }
-        return $respuesta;
-            
-
+        $result = mysqli_query($conn,$sql);
+        $resultObj = mysqli_fetch_object($result);
+        $rr = $resultObj->idHelado;
+        echo gettype($resultObj);
+        $helado = new helado ($conn);
+        $helado->setId(0);
+                return $helado;
     }
     static function getRelatedHeladosComanda($idComanda,$conn){
         $sql = "SELECT `idHelado`,`cantidad`,`idEnvase` FROM `comanda_envase_helado` WHERE `idComanda` = $idComanda ;";

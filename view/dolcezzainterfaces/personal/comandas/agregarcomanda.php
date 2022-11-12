@@ -63,11 +63,6 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
         <h3 style="text-align: center;">Productos Agregados</h3>
           <div style="display:flex;flex-direction: column; align-items: center;">
               <table class="table tablaprods">
-                <thead>
-                  <td><h3>Nombre Envase</h3></td>
-                  <td><h3>Capacidad</h3></td>
-                  <td><h3>Precio</h3></td>
-                </thead>
                   <?php if ($agregarComandaId != ""){ 
                     $numberEnvase = envaseController::countRelatedEnvases($agregarComandaId);
                     $a = 0;
@@ -91,21 +86,14 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </div>
                           </td> 
                       </tr>
-                      <tr>
-                        <td></td>
-                        <td><h4>Sabor</h4></td>
-                        <td><h4>Cantidad</h4></td>
-                      </tr>
                       <?php
-                      $numberHelado = heladoController::countRelatedHeladosComandaNumEnvase($agregarComandaId,$a);
+                      $numberHelado = heladoController::hidrateHeladoNombreWithNumEnvaseComanda($agregarComandaId,$a);
                       $b = 0;
                       while($b < $numberHelado){
                       ?>
-                      
                       <tr class="sabor">
                           <td></td>
-                          <td><div><p><?php echo heladoController::hidrateHeladoNombreWithNumEnvaseComanda($agregarComandaId,$a,$b)?></p></div></td>
-                          <td><div><p><?php echo heladoController::hidrateHeladoCantidadWithNumEnvaseComanda($agregarComandaId,$a,$b)?></p></div></td>
+                          <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
                           <td>
                               <button type="submit" value="<?php ?>" style="border:0px;">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -120,11 +108,19 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                         }
                             $a++;
                             } ?>
+<<<<<<< HEAD
                             <tr>
                             <td><h3>Nombre Producto</h3></td>
                             <td><h3>Descripcion</h3></td>
                             <td><h3>Precio</h3></td>
                             </tr>
+=======
+                    
+                     
+
+
+                      
+>>>>>>> parent of 3e32acd (:D)
                           <?php 
 
                             $numberProducts = productoController::returnProductos($agregarComandaId);
