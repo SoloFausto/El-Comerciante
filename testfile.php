@@ -10,7 +10,18 @@
     <title>Document</title>
 </head>
 <body>
-   <?php echo productoController::hidrateProductoNombre(2,2) ?>
+   <?php
+   $variable1 = "dada";
+   if($variable1 == "hola"){
+    echo "es verdadero";
+
+   } else if($variable1 == "adios"){
+    echo "adios";
+   }
+   else{
+    echo "es falso";
+   }
+   ?>
 
 </body>
 </html>

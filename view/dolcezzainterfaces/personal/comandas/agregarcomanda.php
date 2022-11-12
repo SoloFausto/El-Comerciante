@@ -85,10 +85,6 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </div>
                           </td> 
                       </tr>
-                      <?php 
-                            $a++;
-                            } ?>
-
                       <tr class="sabor">
                           <td></td>
                           <td colspan="2"><div><p>*Nombre de el sabor*</p></div></td>
@@ -101,6 +97,11 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                               </button>
                           </td>
                       </tr>
+                      <?php 
+                            $a++;
+                            } ?>
+                    
+                     
 
 
                       
