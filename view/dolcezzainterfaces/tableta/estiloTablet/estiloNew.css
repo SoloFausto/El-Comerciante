@@ -1,10 +1,12 @@
 body{
+    background-color: blanchedalmond;
     margin: 0;
     padding: 0;
     background-size: cover;
     font-family: sans-serif;
 }
 .container-xs{
+        background-color: #e6c18d;
     border: solid 3px black;
     margin-top: 5%;
     margin-left: 25%;
@@ -33,6 +35,7 @@ body{
     margin-right: 8%;
 }
 .col-sm-8{
+
     border: solid 2px black;
     width: 70%;
     font-size: x-large;
@@ -41,11 +44,13 @@ body{
     margin-left: 8%;
 }
 .col-sm-4{
+    
     width: 18vh;
     height: 6vw;
     margin-right: 2vw;
 }
 .form-check-input{
+    
     height: 80%;
     width: 60%;
     margin-top: 4%;
