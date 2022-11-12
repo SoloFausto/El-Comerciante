@@ -19,7 +19,7 @@ function agregarPlato(){
             <tr>
                         <td colspan="2"><div><h4>Envases</h4></div></td>
                     </tr>
-            <?php require "../../../../controller/personal/comanda/comandacontroller.php";
+            <?php require "/Xampp/htdocs/El-Comerciante/controller/personal/comanda/comandacontroller.php";
                             $numberEnvases = envaseController::returnEnvases();
                             $i = 0;
                             while ($i < $numberEnvases){?>

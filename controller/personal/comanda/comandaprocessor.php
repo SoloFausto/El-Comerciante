@@ -1,6 +1,6 @@
 <?php
-include "../../../../controller/include/connection.php";
-require "../../../../model/comanda.php";
+include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
+require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
 ob_start();
 $deleteCombo = $_GET["deleteCombo"];
 $deleteProducto = $_GET['deleteProducto'];
