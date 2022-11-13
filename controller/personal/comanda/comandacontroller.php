@@ -1,30 +1,9 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
 include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
 require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
 require "/Xampp/htdocs/El-Comerciante/model/producto.php";
 require "/Xampp/htdocs/El-Comerciante/model/envase.php";
-<<<<<<< HEAD
-require "/Xampp/htdocs/El-Comerciante/model/helado.php";
-require "/Xampp/htdocs/El-Comerciante/model/comboComanda.php";
-=======
->>>>>>> parent of 020e949 (pq)
-require "/Xampp/htdocs/El-Comerciante/model/comandaEnvaseHelado.php";
-=======
-=======
->>>>>>> parent of 54dbb49 (dsaldjskal)
-include "../../../../controller/include/connection.php";
-require "../../../../model/comanda.php";
-require "../../../../model/producto.php";
-require "../../../../model/envase.php";
-<<<<<<< HEAD
-require "../../../../model/comandaEnvaseHelado.php";
->>>>>>> parent of 64e2b0c (8)
-=======
-require "../../../../model/helado.php";
-require "../../../../model/comandaEnvaseHelado.php";
->>>>>>> parent of 54dbb49 (dsaldjskal)
+
 
      class comandaController{
           public static function returnComandaIndex(){ //Nos devuelve cuantas comandas pendientes tenemos
