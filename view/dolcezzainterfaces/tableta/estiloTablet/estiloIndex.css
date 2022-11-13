@@ -16,7 +16,15 @@
     color: black;
     margin-top: 2%;
   }
-
+  .back{
+    display: flex;
+    margin: 4vh;
+    align-items: center;
+  }
+  .btn-outline-dark{
+    width: 10vh;
+    height: 9vh;
+  }
   .login-box {
     width: 320px;
     height: 420px;

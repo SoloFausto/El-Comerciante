@@ -87,3 +87,13 @@ body {
 .login-box a:hover {
   color: #c57d00;
 }
+
+.back{
+  display: flex;
+  margin: 4vh;
+  align-items: center;
+}
+.btn-outline-dark{
+  width: 10vh;
+  height: 9vh;
+}
