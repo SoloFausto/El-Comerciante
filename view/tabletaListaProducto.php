@@ -1,5 +1,5 @@
 <?php
-require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+require "../controller/menuController.php";
 ?>
 
 <table class="table">
@@ -33,7 +33,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuProcessor.php" method="get">
       <input type="hidden" value="modifyProducto" name="valor">
       <input type="hidden" value="<?php echo productoController::hidrateAllProductoId($i);?>" name="id">
         <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo productoController::hidrateAllProductoNombre($i);?>"><br>
@@ -60,7 +60,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
             <td><div><p><?php echo productoController::hidrateAllProductoDescripcion($i);?></p></div></td>
             <td><div><p><?php $precio = productoController::hidrateAllProductoPrecio($i); echo "$ $precio"?></p></div></td>
             
-            <td><form action="../../../../controller/tableta/comandaTab.php" method="get">
+            <td><form action="../controller/tabletaComanda.php" method="get">
               <input type="hidden" name="deleteProducto" value="<?php echo productoController::hidrateAllProductoId($i);?>"> 
                 <button type="submit" onclick="" style="border:0px;" class="btn btn-outline-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="SVGw3org" fill="currentColor" viewBox="0 0 16 16">

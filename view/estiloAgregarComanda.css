@@ -13,7 +13,7 @@
     z-index: -1;
     justify-content: flex-start;
     gap: 20px;
-    background-image: url("../personal/paginaPrincipal/img/btnfn.jpg");
+    background-image: url("resources/btnfn.jpg");
     background-repeat:no-repeat;
     height:100px;
     width:100px;

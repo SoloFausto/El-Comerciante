@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require ("../../../../controller/personal/comanda/comandacontrollerViejo.php");?>
+    <?php require ("../controller/comandaControllerViejo.php");?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estiloPersonal/estiloComanda.css">
+    <link rel="stylesheet" href="estiloComanda.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
@@ -37,7 +37,7 @@
               <td><div><p>Forma de pago:<?php echo comandaControllerViejo::hidrateComandaFormaPago($i);?></p></div></td>
               <td>
                 <div>
-                  <form action="../../../../controller/personal/comanda/comandaprocessor.php" method="get">
+                  <form action="../controller/comandaProcessor.php" method="get">
                     <input type="hidden" name="info" value="<?php echo comandaControllerViejo::hidrateComandaId($i);?>">
                     <button type="submit">
                       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
@@ -46,7 +46,7 @@
                       </svg>
                     </button>
                   </form>
-                  <form action="../../../../controller/personal/comanda/comandaprocessor.php" method="get">
+                  <form action="../controller/comandaProcessor.php" method="get">
                   <input type="hidden" name="delete" value="<?php echo comandaControllerViejo::hidrateComandaId($i);?>">
                   <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -66,7 +66,7 @@
       </div>  
     </div>
 
-    <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+    <?php include("barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
 
 </body>
 </html>

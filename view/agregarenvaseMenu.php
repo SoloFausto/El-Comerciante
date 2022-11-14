@@ -1,5 +1,5 @@
 <?php header("content-type: application/x-javascript");
-require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+require "../controller/menuController.php";
 ?>
 
 function agregarEnvase(){
@@ -19,7 +19,7 @@ function agregarEnvase(){
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuprocessor.php" method="get">
       <input type="hidden" value="agregarEnvase" name="valor">
         <input type="text" placeholder="Nombre:" name="nombre"><br>
         <input type="text" placeholder="Descripcion:" name="descripcion">    <br>

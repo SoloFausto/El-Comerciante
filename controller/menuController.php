@@ -1,11 +1,11 @@
 <?php
-require "/Xampp/htdocs/El-Comerciante/model/producto.php";
-require "/Xampp/htdocs/El-Comerciante/model/envase.php";
-require "/Xampp/htdocs/El-Comerciante/model/helado.php";
-require "/Xampp/htdocs/El-Comerciante/model/combo.php";
-include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
-include "/Xampp/htdocs/El-Comerciante/model/comboEnvase.php";
-include "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
+require "../model/producto.php";
+require "../model/envase.php";
+require "../model/helado.php";
+require "../model/combo.php";
+include "../controller/connection.php";
+include "../model/comboEnvase.php";
+include "../model/comboProducto.php";
    class productoController{
      public static function hidrateCheckedProducto($indexProducto,$idCombo){
           $prodArr = producto::loadAllProds(conectar());

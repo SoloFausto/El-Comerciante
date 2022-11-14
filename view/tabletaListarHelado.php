@@ -1,5 +1,5 @@
 <?php 
-require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.php";
+require "../controller/menuController.php";
 ?>
 
 <table class="table">
@@ -33,11 +33,11 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuProcessor.php" method="get">
       <input type="hidden" value="modifyEnvase" name="valor">
       <input type="hidden" value="<?php echo envaseController::hidrateEnvaseId($i);?>" name="id">
         <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo envaseController::hidrateEnvaseNombre($i);?>"><br>
-        <input type="text" placeholder="Descripcion:" name="descripcion" value="<?php echo envaseController::hidrateEnvaseDescripcion($i);?>">    <br>
+  );?>">    <br>
         <input type="number" min="1" placeholder="Precio:" name="precio" value="<?php echo envaseController::hidrateEnvasePrecio($i);?>">    <br>
         <input type="number" min="1" placeholder="Cantidad de sabores:" name="capacidad" value="<?php echo envaseController::hidrateEnvaseCapacidad($i);?>">	    <br>
 
@@ -61,7 +61,7 @@ require "/Xampp/htdocs/El-Comerciante/controller/personal/menu/menuController.ph
       <td ><div><p><?php echo envaseController::hidrateEnvaseNombre($i); ?></p></div></td>
       <td><div><p><?php echo envaseController::hidrateEnvaseDescripcion($i);?></p></div></td>
       <td><div><p><?php $precio = envaseController::hidrateEnvasePrecio($i); echo "$ $precio"?></p></div></td>
-      <td><form action="../crear/newHelado.php" method="get">
+      <td><form action="tabletaCrearNewHelado.php" method="get">
           <input type="hidden" name="agregarEnvase" value="<?php echo envaseController::hidrateEnvaseId($i);?>"> 
             <button type="submit" onclick="" style="border:0px;" class="btn btn-outline-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="SVGw3org" fill="currentColor" viewBox="0 0 16 16">

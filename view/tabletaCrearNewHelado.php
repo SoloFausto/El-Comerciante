@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="../estiloTablet/estiloNew.css">    
+    <link rel="stylesheet" href="estiloNew.css">    
     <title>Tablet</title>
 </head>
 <body>
     <div class="container-xs">
 
         <!-- Este boton te hace volver-->
-        <form action="../helados/helados.php">
+        <form action="tabletaHelados.php">
         <div class="container-fluid">
             <button type="submit" class="btn btn-outline-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
@@ -30,10 +30,10 @@
         </form>
         <div class="container text-center">
             <!-- Esto trae las tablas -->
-            <?php include("../includes/productos.php"); ?>
+            <?php include("tabletaSeleccionarSabores.php"); ?>
             <div class="container-fluid">
                 <!-- Boton de Agregar orden -->
-                <form action="../../../../controller/tableta/comandaTab.php" method="GET" class="btn btn-light">
+                <form action="../controller/tabletaComanda.php" method="GET" class="btn btn-light">
                     
                     <button type="submit" class="btn btn-light">Agregar a la orden
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">

@@ -17,7 +17,7 @@ function agregarProducto(){
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuprocessor.php" method="get">
     <input type="hidden" value="agregarProducto" name="valor">
         <input type="text" placeholder="Nombre:" name="nombre" >    <br>
         <input type="text" name="descripcion" size="40" placeholder="Descripcion">   <br>

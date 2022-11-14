@@ -18,7 +18,7 @@ function disableMesa(){
       mesa.disabled = false;
     } 
     else if(mesa.disabled == false){
-      mesa.value = '';
+      mesa.value = '0';
       mesa.disabled = true;
     }
   }function removeAgregarComanda(){

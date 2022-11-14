@@ -1,12 +1,12 @@
 <?php
 
-include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
-require "/Xampp/htdocs/El-Comerciante/model/envase.php";
-require "/Xampp/htdocs/El-Comerciante/model/producto.php";
-require "/Xampp/htdocs/El-Comerciante/model/helado.php";
-require "/Xampp/htdocs/El-Comerciante/model/combo.php";
-require "/Xampp/htdocs/El-Comerciante/model/comboEnvase.php";
-require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
+include "../controller/connection.php";
+require "../model/envase.php";
+require "../model/producto.php";
+require "../model/helado.php";
+require "../model/combo.php";
+require "../model/comboEnvase.php";
+require "../model/comboProducto.php";
     $idModificar = $_GET['id'];
     $nombre = $_GET['nombre'];
     $precio = $_GET['precio'];  
@@ -26,18 +26,18 @@ require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
     if($valor == "agregarEnvase"){
         $envase = new envase(conectar());
         $envase->newEnvase($nombre,$descripcion,$capacidad,$precio,NULL);
-         header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+         header("Location:../view/menu.php");
     }
     else if ($valor == "agregarProducto"){
         $producto = new producto(conectar());
         $producto->newProducto($nombre,$descripcion,$precio);
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
 
     }
     else if ($valor == "agregarSaborHelado"){
         $helado = new helado(conectar());
         $helado->newHelado($nombre,$descripcion);
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
     }
     else if ($valor == "agregarCombo"){
         $nuevoCombo = new combo(conectar());
@@ -66,32 +66,32 @@ require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
             }
             $b++;
         }
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
 
     }
     else if($deleteEnvase != ""){
         $envaseDelete = new envase(conectar());
         $envaseDelete->loadEnvaseById($deleteEnvase);
         $envaseDelete->eliminarEnvase();
-       header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+       header("Location:../view/menu.php");
     }
     else if($deleteProducto != ""){
         $productoDelete = new producto(conectar());
         $productoDelete->loadProductoById($deleteProducto);
         $productoDelete->eliminarProducto();
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
     }
     else if($deleteHelado != ""){
         $heladoDelete = new helado(conectar());
         $heladoDelete->loadHeladoById($deleteHelado);
         $heladoDelete->deleteHelado();
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
     }
     else if($deleteCombo != ""){
         $comboDelete = new combo(conectar());
         $comboDelete->loadComboById($deleteCombo);
         $comboDelete->eliminarCombo();
-       header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+       header("Location:../view/menu.php");
     }
     else if($valor == "modifyEnvase"){
         $envaseModificar = new envase(conectar());
@@ -100,7 +100,7 @@ require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
         $envaseModificar->setPrecio($precio);
         $envaseModificar->setDescripcion($descripcion);
         $envaseModificar->setNombre($nombre);
-         header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+         header("Location:../view/menu.php");
     }
     else if ($valor == "modifyProducto"){
         $productoModificar = new producto(conectar());
@@ -108,7 +108,7 @@ require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
         $productoModificar->setNombre($nombre);
         $productoModificar->setDescripcion($descripcion);
         $productoModificar->setPrecio($precio);
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
 
     }
     else if ($valor == "modifyHelado"){
@@ -116,7 +116,7 @@ require "/Xampp/htdocs/El-Comerciante/model/comboProducto.php";
         $heladoModificar->loadHeladoById($idModificar);
         $heladoModificar->setNombre($nombre);
         $heladoModificar->setDescripcion($descripcion);
-        header("Location:/El-comerciante/view/dolcezzainterfaces/personal/menu/menu.php");
+        header("Location:../view/menu.php");
     }
     else if ($valor == "modificarCombo"){
 

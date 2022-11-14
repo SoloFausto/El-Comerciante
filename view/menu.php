@@ -1,5 +1,5 @@
 <?php session_start(); 
-require "../../../../controller/personal/menu/menuController.php";
+require "../controller/menuController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ require "../../../../controller/personal/menu/menuController.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estiloPersonal/estiloMenu.css">
+    <link rel="stylesheet" href="estiloMenu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -17,10 +17,10 @@ require "../../../../controller/personal/menu/menuController.php";
 
 
 <body>
-<script src="../menu/desplegables/agregarenvase.php"></script>
-<script src="../menu/desplegables/agregarhelado.php"></script>
-<script src="../menu/desplegables/agregarproducto.php"></script>
-<script src="../menu/desplegables/agregarcombo.php"></script>
+<script src="agregarenvaseMenu.php"></script>
+<script src="agregarHeladoMenu.php"></script>
+<script src="agregarProductoMenu.php"></script>
+<script src="agregarComboMenu.php"></script>
 <div class="titlebox">
 <div class="buttons">
   <div id="agregarpop">
@@ -44,7 +44,7 @@ require "../../../../controller/personal/menu/menuController.php";
   <div class="titleboxspacer"></div>
 </div>
 
-  <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+  <?php include("barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
   
 <div class="content">
   <table class="table">
@@ -54,11 +54,11 @@ require "../../../../controller/personal/menu/menuController.php";
      </tr>
      <?php 
       $numberEnvase = envaseController::returnEnvases();
-      $i = 0;
+      $i = 0; //Hace tantos scripts y filas de envases segun cuantos envases haya en la base de datos
       while ($i < $numberEnvase){
       ?>
       <script>
-         function modificarEnvase<?php echo $i; ?>(){
+         function modificarEnvase<?php echo $i; ?>(){ // Script encargado de crear un popup ya populado con la informacion del respectivo envase
         var modificarEnvase = `  
     <div class="popupEnvase">
     <div class="background" style="z-index:7;"></div>
@@ -75,7 +75,7 @@ require "../../../../controller/personal/menu/menuController.php";
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuProcessor.php" method="get">
       <input type="hidden" value="modifyEnvase" name="valor">
       <input type="hidden" value="<?php echo envaseController::hidrateEnvaseId($i);?>" name="id">
         <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo envaseController::hidrateEnvaseNombre($i);?>"><br>
@@ -108,7 +108,7 @@ require "../../../../controller/personal/menu/menuController.php";
              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
            </svg>
          </button>
-         <form action="../../../../controller/personal/menu/menuprocessor.php" method="get">
+         <form action="../controller/menuprocessor.php" method="get">
           <input type="hidden" name="deleteEnvase" value="<?php echo envaseController::hidrateEnvaseId($i);?>"> 
           <button type="submit" onclick="" style="border:0px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -152,7 +152,7 @@ require "../../../../controller/personal/menu/menuController.php";
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuprocessor.php" method="get">
       <input type="hidden" value="modifyProducto" name="valor">
       <input type="hidden" value="<?php echo productoController::hidrateAllProductoId($x);?>" name="id">
         <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo productoController::hidrateAllProductoNombre($x);?>"><br>
@@ -183,7 +183,7 @@ require "../../../../controller/personal/menu/menuController.php";
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
               </svg>
             </button>
-            <form action="../../../../controller/personal/menu/menuprocessor.php" method="get">
+            <form action="../controller/menuprocessor.php" method="get">
               <input type="hidden" name="deleteProducto" value="<?php echo productoController::hidrateAllProductoId($x);?>"> 
                 <button type="submit" onclick="" style="border:0px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -227,7 +227,7 @@ require "../../../../controller/personal/menu/menuController.php";
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuprocessor.php" method="get">
       <input type="hidden" value="modifyHelado" name="valor">
       <input type="hidden" value="<?php echo heladoController::hidrateHeladoId($i);?>" name="id">
         <input type="text" placeholder="Nombre:" name="nombre" value="<?php echo heladoController::hidrateHeladoNombre($i);?>"><br>
@@ -257,7 +257,7 @@ require "../../../../controller/personal/menu/menuController.php";
                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
              </svg>
            </button>
-           <form action="../../../../controller/personal/menu/menuprocessor.php" method="get">
+           <form action="../controller/menuprocessor.php" method="get">
            <input type="hidden" name="deleteHelado" value="<?php echo heladocontroller::hidrateHeladoId($i);?>"> 
                <button type="submit" style="border:0px;">
                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -288,7 +288,7 @@ require "../../../../controller/personal/menu/menuController.php";
         var modificarCombo = `  
         <div class="popup">
     <div class="background" style="z-index: 0;"></div>
-    <form action="/El-Comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuprocessor.php" method="get">
     <div class="menuPop">
         <div class="popTitle">
           <h2>Modificar Combo</h2>
@@ -401,7 +401,7 @@ require "../../../../controller/personal/menu/menuController.php";
                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
              </svg>
            </button>
-           <form action="../../../../controller/personal/menu/menuprocessor.php" method="get">
+           <form action="../controller/menuprocessor.php" method="get">
            <input type="hidden" name="deleteCombo" value="<?php echo combocontroller::hidrateComboId($y);?>"> 
           <button type="submit" onclick="" style="border:0px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">

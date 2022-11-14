@@ -1,6 +1,6 @@
 <?php
-    include("../include/connection.php");
-    require("../../model/Usuario.php");
+    include("connection.php");
+    require("../model/Usuario.php");
     
     $nombre = $_POST['user'];
     $contrasena = $_POST['pass'];
@@ -9,11 +9,11 @@
       session_start();
       $_SESSION['mensaje'] = 'No se permiten los campos vacios';
       $_SESSION['mensaje-color'] = 'danger';
-      header("location: ../../view/dolcezzainterfaces/login");
+      header("location: ../view/login.php");
     }else{
 
     if( !isset($_POST['boton'])){ /*Verifica que los datos vengan del inicio de sesión*/
-      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
+      header("Location: ../view/login.php");
 
     }else{
   
@@ -28,12 +28,12 @@
       $_SESSION['mensaje'] = "Bienvenido $nombre";
       $_SESSION['mensaje-color'] = 'success';
       $_SESSION['mensaje-nombre'] = "$nombre";
-      header("Location: /El-Comerciante/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
+      header("Location: ../view/paginaPrincipal.php");
     }else{
       session_start();
       $_SESSION['mensaje'] = 'El usuario y/o la contraseña son incorrectos.';
       $_SESSION['mensaje-color'] = 'danger';
-      header("Location: ../../view/dolcezzainterfaces/login/index.php");
+      header("Location: ../view/login.php");
     }
   }  
 }

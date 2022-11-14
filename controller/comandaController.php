@@ -1,8 +1,8 @@
 <?php
-include "/Xampp/htdocs/El-Comerciante/controller/include/connection.php";
-require "/Xampp/htdocs/El-Comerciante/model/comanda.php";
-require "/Xampp/htdocs/El-Comerciante/model/producto.php";
-require "/Xampp/htdocs/El-Comerciante/model/envase.php";
+include "../controller/connection.php";
+require "../model/comanda.php";
+require "../model/producto.php";
+require "../model/envase.php";
 
 
      class comandaController{

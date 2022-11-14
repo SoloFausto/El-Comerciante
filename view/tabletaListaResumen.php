@@ -1,5 +1,5 @@
 <div class="row Distancia">
-   <!-- Poner la imagen del producto --> <img src="../imagenes/descarga.jpg" class="img-thumbnail" alt="Imagen del producto">
+   <!-- Poner la imagen del producto --> <img src="resources/descarga.jpg" class="img-thumbnail" alt="Imagen del producto">
     <div class="col-sm-8">
         Helado Triple <!-- Colocal el nombre del producto -->
     </div>

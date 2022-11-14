@@ -5,7 +5,7 @@
     $PostPass = $_POST['pass'];
 
     if( !isset($_POST['boton'])){ /*Verifica que los datos vengan del inicio de sesión*/
-      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
+      header("Location: ../view/login.php");
 
     }else{
   
@@ -28,10 +28,10 @@
 
       if(($PostPass == $pass)||($PostUser == $nam)){ /*Si tiene Rol Este verifica que la cuenta sea correcta o exista*/
         session_start(); /*Si Todo esta bien, Crea una sesión*/  
-        header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/personal/paginaPrincipal/inicio.php");
+        header("Location: ../view/paginaPrincipal.php");
       }
     }else{ /*Si NO tiene Rol o La cuenta esta mal ingresada, lo devuelve al inicio*/
-        header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/login");
+        header("Location: ../view/login.php");
       }
 
     }

@@ -17,10 +17,10 @@ function agregarHelado(){
     </div>
 
     <div style="text-align: center;">
-    <form action="/El-comerciante/controller/personal/menu/menuprocessor.php" method="get">
+    <form action="../controller/menuprocessor.php" method="get">
     <input type="hidden" value="agregarSaborHelado" name="valor">
     <input type="text" placeholder="Nombre:" name="nombre" >    <br>
-    <input type="text" name="descripcion" size="40" placeholder="Descripcion">
+    <input type="text" name="descripcion" size="40" placeholder="Descripcion"> <br>
             <button type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>

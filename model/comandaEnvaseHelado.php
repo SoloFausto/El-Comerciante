@@ -19,15 +19,7 @@ class comandaEnvaseHelado {
                 return $envase;
     }
     static function getRelatedEnvsComanda($idComanda,$conn){
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $sql = "SELECT DISTINCT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
-=======
-        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda AND `numEnvase` = $numEnvase;";
->>>>>>> parent of 020e949 (pq)
-=======
         $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
->>>>>>> parent of 64e2b0c (8)
         $respuesta = array();
         if ($reusltsql = mysqli_query($conn,$sql)) {
             while ($objetoArray = mysqli_fetch_object($reusltsql)) {

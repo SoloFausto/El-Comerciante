@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="../estiloTablet/estiloResumen.css">    
+    <link rel="stylesheet" href="estiloResumen.css">    
     <title>Tablet</title>
 </head>
 <body>
     <div class="container-xs">
         <!-- Este boton te hace volver-->
-        <form action="../helados/helados.php">
+        <form action="tabletaHelados.php">
         <div class="container-fluid">
             <button type="submit" class="btn btn-outline-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
@@ -30,7 +30,7 @@
         
         <div class="container text-center">
                 <!-- Esto trae las tablas -->
-            <?php include("../includes/listaResumen.php"); ?>
+            <?php include("tabletaListaResumen.php"); ?>
                 <!-- Botones de total y pagar -->
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 

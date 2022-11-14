@@ -1,6 +1,6 @@
 <?php
-    include("C:/xampp/htdocs/El-Comerciante/controller/include/connection.php");
-    require("C:/xampp/htdocs/El-Comerciante/model/Tableta.php");
+    include("../controller/connection.php");
+    require("../model/Tableta.php");
     
     $contrasena = $_POST['bottonTab'];
     
@@ -8,11 +8,11 @@
       session_start();
       $_SESSION['mensaje'] = 'No se permiten los campos vacios';
       $_SESSION['mensaje-color'] = 'danger';
-      header("location: /El-Comerciante/view/dolcezzainterfaces/tableta/inicio/loginTableta.php");
+      header("location: ../view/tabletaLogin.php");
     }else{
 
     if(!isset($_POST['botonTablet'])){ /*Verifica que los datos vengan del inicio de sesión*/
-      header("Location: /../EL-COMERCIANTE/view/dolcezzainterfaces/tableta/inicio/logintableta.php");
+      header("Location: ../view/tabletaLogin.php");
 
     }else{
   
@@ -23,12 +23,12 @@
         session_start();
         $_SESSION['mensaje'] = "Bienvenido $nombre";
         $_SESSION['mensaje-color'] = 'success';
-        header("Location: ../../../view/dolcezzainterfaces/tableta/inicio/pedido.php");
+        header("Location: ../view/tabletaPedido.php");
       }else{
         session_start();
         $_SESSION['mensaje'] = 'Esa tableta no existe';
         $_SESSION['mensaje-color'] = 'danger';
-        header("Location: /El-Comerciante/view/dolcezzainterfaces/tableta/inicio/loginTableta.php");
+        header("Location: ../view/tabletaLogin.php");
       }
     }   
   }

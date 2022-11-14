@@ -1,6 +1,6 @@
 <?php session_start(); 
 @$agregarComandaId = $_GET['id'];
-require ("../../../../controller/personal/comanda/comandacontroller.php");
+require ("../controller/comandaController.php");
 
 
 
@@ -11,7 +11,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estiloPersonal/estiloComanda.css">
+    <link rel="stylesheet" href="estiloComanda.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
@@ -22,7 +22,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <!-- Estos 3 traen los desplegables desde esas rutas. -->
-<script src="/El-Comerciante/view/dolcezzainterfaces/personal/comandas/desplegables/scripts.php"></script>
+<script src="scriptsComanda.php"></script>
 
 <!--  ----------------------------------------------  -->
 <div>
@@ -108,25 +108,12 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
                         }
                             $a++;
                             } ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
                             <tr>
                             <td><h3>Nombre</h3></td>
                             <td><h3>Descripcion</h3></td>
                             <td><h3>Precio</h3></td>
                             </tr>
-=======
-=======
->>>>>>> parent of 3e32acd (:D)
-                    
-                     
 
-
-                      
-<<<<<<< HEAD
->>>>>>> parent of 3e32acd (:D)
-=======
->>>>>>> parent of 3e32acd (:D)
                           <?php 
 
                             $numberProducts = productoController::returnProductos($agregarComandaId);
@@ -168,7 +155,7 @@ require ("../../../../controller/personal/comanda/comandacontroller.php");
 
     </div>
 
-    <?php include("../../../dolcezzainterfaces/includes/barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
+    <?php include("barraLat.html"); //Trae toda la barra lateral de "Barnew/barraLat.html"?> 
 
 </body>
 </html>
