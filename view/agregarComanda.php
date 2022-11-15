@@ -23,6 +23,7 @@ require ("../controller/comandaController.php");
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <!-- Estos 3 traen los desplegables desde esas rutas. -->
 <script src="scriptsComanda.php"></script>
+<script src="agregarPlatoComanda.php"></script>
 
 <!--  ----------------------------------------------  -->
 <div>

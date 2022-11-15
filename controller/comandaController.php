@@ -126,6 +126,12 @@ class productoController{
 
 }
 class envaseController{
+     public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos
+          $envArr = envase::loadAllEnvs(conectar());
+          $salida = count($envArr);
+          return $salida;
+ 
+     }
      public static function countRelatedEnvases($idComanda){ 
           $envase = comandaEnvaseHelado::getRelatedEnvsComanda($idComanda,conectar());
           $salida = count($envase);

@@ -1,6 +1,8 @@
-<?php header("content-type: application/x-javascript");?>
+<?php header("content-type: application/x-javascript");
+require "../controller/comandaController.php";
+?>
 function agregarPlato(){
-    var agregar = `
+    var agregarPlato= `
     <div class="agregarPlatoPopUp">
         <div class="background" style="z-index: 2;"></div>
         <div class="menuAdd">
@@ -19,7 +21,7 @@ function agregarPlato(){
             <tr>
                         <td colspan="2"><div><h4>Envases</h4></div></td>
                     </tr>
-            <?php require "../controller/comandaController.php";
+            <?php 
                             $numberEnvases = envaseController::returnEnvases();
                             $i = 0;
                             while ($i < $numberEnvases){?>
@@ -70,8 +72,10 @@ function agregarPlato(){
         </div>
     </div>
     `;
-    $(".popup").before(agregar);
+    $("body").append(agregarPlato);
   }
   function removeAgregarPlato(){
     $(".agregarPlatoPopUp").remove();
   }
+
+  

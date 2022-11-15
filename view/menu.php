@@ -17,10 +17,7 @@ require "../controller/menuController.php";
 
 
 <body>
-<script src="agregarenvaseMenu.php"></script>
-<script src="agregarHeladoMenu.php"></script>
-<script src="agregarProductoMenu.php"></script>
-<script src="agregarComboMenu.php"></script>
+<script src="agregarElementoMenu.php"></script>
 <div class="titlebox">
 <div class="buttons">
   <div id="agregarpop">
@@ -388,9 +385,7 @@ require "../controller/menuController.php";
       }
       document.getElementById("precioComboNeto").value = precioNeto; 
 });
-
   }
-
       </script>
        <tr>
            <td ><div><p><?php echo combocontroller::hidrateComboNombre($y);?></p></div></td>
