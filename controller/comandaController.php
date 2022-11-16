@@ -58,8 +58,10 @@ class comandaController{
           $id = $salida->getId();
 
      }
-     public static function createComanda(){
-          
+     public static function createComandaEnCurso($idUsuario){
+          $newComanda = new comanda(conectar());
+           $idNuevaComanda = $newComanda->createComandaEnCurso($idUsuario);
+          return $idNuevaComanda;
      }
 }
 

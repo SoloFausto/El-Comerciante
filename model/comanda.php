@@ -21,7 +21,7 @@ class comanda {
         $this->forma_pago = $forma_pago;
         $this->$idUsuario = $idUsuario;
         $sql = "INSERT INTO `comanda` (`mesa`, `total`, `estado`, `idUsuario`, `fecha`, `forma_pago`)
-        VALUES ('$mesa', '$total', '$estado', '$idUsuario', '$fecha','$forma_pago');";
+        VALUES ('$mesa', '$total', '1', '$idUsuario', '','$forma_pago');";
         $result = mysqli_query($this->conn,$sql);  
 
         $getIdSql = "SELECT id  FROM `comanda` WHERE `mesa` = '$this->mesa' 
@@ -32,6 +32,16 @@ class comanda {
         $getIdquery = mysqli_query($this->conn,$getIdSql);
         $resultObjId = mysqli_fetch_object($getIdquery);
         $this->id = $resultObjId->id;
+        
+    }
+    function createComandaEnCurso($idUsuario){
+        $sql = "INSERT INTO `comanda` (`estado`, `idUsuario`)
+        VALUES ('2', '$idUsuario');";
+        mysqli_query($this->conn,$sql);
+        $sql2 = "SELECT `id` FROM comanda WHERE `estado` = 2 ORDER BY ID DESC LIMIT 1;";
+        $query = mysqli_query($this->conn,$sql2);
+        $result = mysqli_fetch_object($query);
+        return $result->id;
         
     }
     //El siguiente código es para sacar de la BD los datos de una comanda utilizando como input el número de la misma

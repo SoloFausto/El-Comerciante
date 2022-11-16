@@ -1,10 +1,12 @@
-<?php header("content-type: application/x-javascript");?>
+<?php header("content-type: application/x-javascript");
+include "../controller/comandaController.php";
+?>
 function comandasViejas(){
     window.location.href = "comandasViejas.php";
 
 }
 function agregarComanda(){
-    window.location.href = "agregarcomanda.php";
+    window.location.href = "agregarComanda.php";
 }
 function ventanaComanda(){
     window.location.href = "comanda.php";
