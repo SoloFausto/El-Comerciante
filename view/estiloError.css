@@ -1,0 +1,79 @@
+    /*barra de navegacion left*/
+    .barnav{
+        position:fixed;
+        border:1px solid black;
+        width: fit-content;
+        flex: 0 1 0;
+        flex-direction: column;
+        display: flex;
+        bottom: -2px;
+        left: 0px;
+        height: 100vh;
+        top:0px;
+        z-index: -1;
+        justify-content: flex-start;
+        gap: 20px;
+        background-color:#f8d393;
+      }
+      h1{
+        font-style: italic;
+      }
+      .icon{
+        flex-direction: column;
+        flex: 0 1 1;
+        display: flex;
+        width:auto;
+        filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+      }
+      .a_icon{
+        height: 54px;
+      }
+      /* Fin de la barra lateral */
+        .stat{
+          flex:auto;
+          border:1px solid black;
+        }
+        .titleboxspacer{
+          width: 250;
+        }
+        .titlebox{
+          display: flex;
+          align-items: center;
+          border:1px solid black;
+          width: 97.4vw;
+          position: fixed;
+          height: 50px;
+          left: 77px;
+          top: 0px;
+          justify-content: space-between;
+          z-index: -1;
+          background-color:#f8d393;
+        }
+        h1{
+          font-style: italic;
+        }
+        .content{
+          display: flex;
+          flex: auto;
+          flex-direction: row;
+          position: fixed;
+          left: 150px;
+          width: 97.4vw;
+          top:50px;
+          z-index: -2;
+          }
+          table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+        .imagen{
+            border-collapse: collapse;
+            position: fixed;
+            left: 78px;
+            top: 50px; 
+            width: 97.4vw;
+            display: flex;
+            z-index: -100;
+            align-self: center;
+            
+        }
