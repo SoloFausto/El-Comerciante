@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <?php require ("../controller/comandaController.php");?>
+    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +39,11 @@
     <div class="content">
       <div class="table-responsive table-wrapper">
         <table class="table" style="width: 85%;">
+
           <?php $numberComandas = comandacontroller::returnComandaIndex();
           $i = 0;
-           while ($i < $numberComandas){
-            ?>
+          while ($i < $numberComandas){
+          ?>
           <tr class="articuloN">
               <td><div><p>Numero de comanda:<?php echo comandacontroller::hidrateComandaId($i);?></p></div></td>
               <td><div><p>Mesa:<?php echo comandacontroller::hidrateComandaMesa($i);?></p></div></td>

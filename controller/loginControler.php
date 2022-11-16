@@ -20,7 +20,7 @@
     $Usuario = new usuario(conectar());
     $veri = $Usuario->loadUserByPassw($nombre, $contrasena);
     
-    //$id = $usuario->getId();
+    $id = $Usuario->getId();
 
     if($veri == true){
       session_start();
