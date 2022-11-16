@@ -8,12 +8,11 @@ class tableta {
     function __construct($conn){
         $this->conn = $conn;
     }
-    function newTableta($nombre,$contrasena,$permEsTableta){
+    function newTableta($nombre,$contrasena){
         $this->nombre = $nombre;
         $this->contrasena = $contrasena;
-        $this->permEsTableta = $permEsTableta;
         $sql = "INSERT INTO `usuario` (`nombre`, `contrasena`, `permEsTableta`)
-        VALUES (NULL, '$nombre', '$contrasena', b'$permEsTableta');";
+        VALUES (NULL, '$nombre', '$contrasena', b'1');";
         $result = mysqli_query($this->conn,$sql);
     /* El codigo de abajo recupera la id de el helado que recien creamos*/
 
@@ -32,7 +31,7 @@ class tableta {
         $this->contrasena = $resultObj->contrasena;
     }
     function cargarTabletaLogin($contrasena){
-        $sql = "SELECT * FROM `usuario` WHERE `contrasena` = '$contrasena'";
+        $sql = "SELECT * FROM `usuario` WHERE `contrasena` = $contrasena;";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
         if(!isset($resultObj)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
@@ -41,7 +40,16 @@ class tableta {
         else{
             return true;
         }
-
+    }
+    function buscarTabletaNombre($nombre){
+        $sql = "SELECT * FROM `usuario` WHERE `nombre`='$nombre';";
+        $result = mysqli_query($this->conn,$sql);
+        $resultObj = mysqli_fetch_object($result);
+        if(!isset($resultObj)){
+            return false;
+        }else{
+            return true;
+        }
     }
     function modifyUser(){
         $sql = "UPDATE `usuario` SET `nombre` = BINARY '$this->nombre', `contrasena` = BINARY '$this->contrasena', `permEsTableta` = BINARY b'$this->permEsTableta' WHERE `usuario`.`id` = BINARY $this->id;";
