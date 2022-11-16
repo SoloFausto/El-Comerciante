@@ -69,8 +69,19 @@ require ("../controller/comandaController.php");
                   <td><h3>Capacidad</h3></td>
                   <td><h3>Precio</h3></td>
                 </thead>
-                  <?php if ($agregarComandaId != ""){ 
-                    $numberEnvase = envaseController::countRelatedEnvases($agregarComandaId);
+                
+                  <?php
+                  try{
+                   $numberProducts = productoController::returnProductos($agregarComandaId);
+                   $numberEnvase = envaseController::countRelatedEnvases($agregarComandaId);
+                  }
+                  catch(mysqli_sql_exception $e){
+
+
+
+                  }
+                  if ($agregarComandaId != ""){ 
+                   
                     $a = 0;
                     while ($a < $numberEnvase){
                     
@@ -122,13 +133,13 @@ require ("../controller/comandaController.php");
                             $a++;
                             } ?>
                             <tr>
-                            <td><h3>Nombre</h3></td>
+                            <td><h3>Nombre Producto</h3></td>
                             <td><h3>Descripcion</h3></td>
                             <td><h3>Precio</h3></td>
                             </tr>
                           <?php 
 
-                            $numberProducts = productoController::returnProductos($agregarComandaId);
+                           
                             $c = 0;
                             while ($c < $numberProducts){
                             ?>
