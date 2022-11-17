@@ -1,14 +1,10 @@
 <?php
 // {}
 class comandaEnvaseHelado {
-    private $idEnvase;
-    private $idHelado;
-    private $idComanda;
-    private $numEnvase;
-    private $cantidad;
-    private $conn;
-    function __construct($conn){
-        $this->conn = $conn;
+    static function newComandaEnvaseHelado($idEnvase,$idHelado,$idComanda,$numEnvase,$conn){
+        $sql = "INSERT INTO `comanda_envase_helado` (`idEnvase`, `idHelado`, `numComanda`, `numEnvase`, `cantidad`) VALUES ('$idEnvase', '$idHelado', '$idComanda', '$numEnvase', '1');";
+        mysqli_query($conn,$sql);
+
     }
     static function getRealtedEnvs($numEnvase,$idComanda,$conn){
         $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda AND `numEnvase` = $numEnvase;";
@@ -19,7 +15,7 @@ class comandaEnvaseHelado {
                 return $envase;
     }
     static function getRelatedEnvsComanda($idComanda,$conn){
-        $sql = "SELECT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda GROUP BY numEnvase;";
+        $sql = "SELECT DISTINCT `idEnvase` FROM `comanda_envase_helado` WHERE `numComanda` = $idComanda;";
         $respuesta = array();
         if ($resultsql = mysqli_query($conn,$sql)) {
             while ($objetoArray = mysqli_fetch_object($resultsql)) {

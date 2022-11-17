@@ -145,6 +145,7 @@ class productoController{
 
 }
 class envaseController{
+     
      public static function returnEnvases(){ //Nos devuelve cuantos productos tenemos
           $envArr = envase::loadAllEnvs(conectar());
           $salida = count($envArr);
@@ -188,6 +189,12 @@ class envaseController{
           $id = $salida->getPrecio(); 
           return $id;
      }
+     public static function hidrateEnvaseId($index){
+          $envArr = envase::loadAllEnvs(conectar());
+          $salida = $envArr[$index];
+          $id = $salida->getid();
+          return $id;
+     }
      public static function hidrateEnvaseCapacidad($idEnvase){ 
           $envArr = envase::loadAllEnvs(conectar());
 
@@ -199,6 +206,18 @@ class envaseController{
 
 }
 class heladoController{
+     public static function hidrateHeladoNombre($idEnvase){ 
+          $envArr = helado::loadAllHelados(conectar()); 
+          $salida = $envArr[$idEnvase];
+          $id = $salida->getNombre(); 
+          return $id; 
+     }
+     public static function returnHelados(){ //Nos devuelve cuantos productos tenemos para una comanda
+          $envArr = helado::loadAllHelados(conectar());
+          $salida = count($envArr);
+          return $salida;
+ 
+     }
      public static function countRelatedHeladosComanda($idComanda){
           $heladoArr = comandaEnvaseHelado::getRelatedHeladosComanda($idComanda,conectar());
           $salida = count($heladoArr);
@@ -227,5 +246,11 @@ class heladoController{
           $envArr = comandaEnvaseHelado::getRealtedEnvs($index,$idComanda,conectar());
           $precio = $envArr->getPrecio(); 
           return $precio; 
+     }
+     public static function hidrateHeladoId($idEnvase){ 
+          $envArr = helado::loadAllHelados(conectar());
+          $salida = $envArr[$idEnvase];
+          $id = $salida->getId(); 
+          return $id;
      }
 }
