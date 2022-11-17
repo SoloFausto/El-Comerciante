@@ -63,6 +63,10 @@ class comandaController{
            $idNuevaComanda = $newComanda->createComandaEnCurso($idUsuario);
           return $idNuevaComanda;
      }
+     public static function devolverComandaEnCurso($idUsuario){
+          $comandaresultado = comanda::devolverComandaEnCurso($idUsuario,conectar());
+          return $comandaresultado->getid();
+     }
 }
 
 class productoController{
@@ -101,6 +105,13 @@ class productoController{
           $id = $salida->getDescripcion(); // conseguimos el valor de la id con el getter de la ue elegimos 
           return $id; // devolvemos el valor
      }
+     public static function hidrateProductoId($idcomanda,$index){ //Nos devuelve la id de una Comanda pendiente cuando nosotros elegimos una de la lista con el valor index
+          $prodArr = producto::getRelatedProds(conectar(),$idcomanda); // este metodo nos devuelve un array de comandas pendientes y 
+          //lo ponemos en la variable
+          $salida = $prodArr[$index]; // elegimos una e el array 
+          $id = $salida->getId(); // conseguimos el valor de la id con el getter de la ue elegimos 
+          return $id; // devolvemos el valor
+     }
      public static function hidrateAllProductoNombre($index){
           $productoArr = producto::loadAllProds(conectar());
           $salida = $productoArr[$index];
@@ -117,6 +128,12 @@ class productoController{
           $productoArr = producto::loadAllProds(conectar());
           $salida = $productoArr[$index];
           $fP = $salida->getDescripcion();
+          return $fP;
+     }
+     public static function hidrateAllProductoId($index){
+          $productoArr = producto::loadAllProds(conectar());
+          $salida = $productoArr[$index];
+          $fP = $salida->getId();
           return $fP;
      }
      public static function returnProductoIndex(){ //Nos devuelve los productos

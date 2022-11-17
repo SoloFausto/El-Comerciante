@@ -18,6 +18,6 @@ require "../controller/menuController.php";
         $i++;
         } 
         ?>
-   </tbody>
+   
  </table>  
 </div>

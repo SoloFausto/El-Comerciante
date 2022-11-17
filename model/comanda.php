@@ -44,6 +44,15 @@ class comanda {
         return $result->id;
         
     }
+    static function devolverComandaEnCurso($idUsuario,$conn){ // Carga todas las comandas que tengan un cierto estado (servidas, no servidas)
+        $sql = "SELECT `id` FROM `comanda` WHERE `estado` = 2 AND `idUsuario`= $idUsuario;"; 
+        $result = mysqli_query($conn,$sql);
+        $objetoResultado = mysqli_fetch_object($result); // creamos un loop que vaya por los resultados
+            $comandaResultado = new comanda($conn); // creamos una objeto comanda por cada resultado
+            $comandaResultado->setid($objetoResultado->id);
+        return $comandaResultado; // devolvemos el array
+    
+    }
     //El siguiente código es para sacar de la BD los datos de una comanda utilizando como input el número de la misma
     function cargarComandaPorNumero($id){
         $sql = "SELECT *  FROM `comanda` WHERE `id` = $id;";

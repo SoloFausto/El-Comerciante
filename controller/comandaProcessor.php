@@ -14,3 +14,5 @@ ob_start();
           else {
             header("Location:../view/agregarcomanda.php?id=$info");
           }
+          
+        
