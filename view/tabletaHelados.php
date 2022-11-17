@@ -25,7 +25,7 @@
             </form>
         </div>
         <div class="titulo">
-            <h1>Menu Helados</h1>
+            <h1>Menu de Helados</h1>
         </div>
     </div>
     <div class="page">

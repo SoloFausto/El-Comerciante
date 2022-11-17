@@ -66,3 +66,13 @@ h1{
         border: 1px solid black;
         border-collapse: collapse;
       }
+      .table-responsive{
+        display: flex;
+        flex: auto;
+        flex-direction: row;
+        position: fixed;
+        left: 200px;
+        width: 97.4vw;
+        top: 50px;
+        z-index: -20;
+      }

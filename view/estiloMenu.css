@@ -1,4 +1,7 @@
     /*barra de navegacion left*/
+body{
+  background-color: rgb(246, 237, 225) !important;
+}
 .barnav{
   position:fixed;
   border:1px solid black;
@@ -70,7 +73,8 @@ h1{
     }
     table, th, td {
         border: 2px solid black;
-        border-collapse: collapse;
+        border-collapse: collapse !important;
+        background-color: antiquewhite;
       }
       .popupHelado{
         height: 100vh;
@@ -123,4 +127,7 @@ h1{
         margin-left: 20px;
         display: flex;
         justify-content: space-between;
+      }
+      .btn-light{
+        margin-top: 0.4vh;
       }
