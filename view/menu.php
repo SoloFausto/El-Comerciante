@@ -48,6 +48,7 @@ require "../controller/menuController.php";
    <tbody>
      <tr>
        <td ><div><h4>Envases</h4></div></td>
+       <td></td>
      </tr>
      <?php 
       $numberEnvase = envaseController::returnEnvases();
@@ -125,6 +126,7 @@ require "../controller/menuController.php";
   <table class="table">
         <tr>
             <td ><div><h4>Productos</h4></div></td>
+            <td></td>
         </tr>
         <?php 
           $numberproducto = productoController::returnProductoIndex();
@@ -200,6 +202,7 @@ require "../controller/menuController.php";
  <table class="table">
        <tr>
            <td ><div><h4>Sabores helado</h4></div></td>
+           <td></td>
        </tr>
        <?php 
           $numberhelado = heladocontroller::returnHelados();
@@ -274,6 +277,7 @@ require "../controller/menuController.php";
  <table class="table">
        <tr>
            <td ><div><h4>Combos</h4></div></td>
+           <td></td>
        </tr>
        <?php 
           $numbercombo = combocontroller::returnCombo();

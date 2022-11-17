@@ -23,7 +23,7 @@ class tableta {
         
     }
     function cargarTabletaCodigo($contrasena){
-        $sql = "SELECT *  FROM `usuario` WHERE `contrasena` = $contrasena;";
+        $sql = "SELECT *  FROM `usuario` WHERE `contrasena` = BINARY '$contrasena';";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
         $this->id = $resultOBJid;
@@ -31,7 +31,7 @@ class tableta {
         $this->contrasena = $resultObj->contrasena;
     }
     function cargarTabletaLogin($contrasena){
-        $sql = "SELECT * FROM `usuario` WHERE `contrasena` = $contrasena;";
+        $sql = "SELECT * FROM `usuario` WHERE `contrasena` = BINARY '$contrasena';";
         $result = mysqli_query($this->conn,$sql);
         $resultObj = mysqli_fetch_object($result);
         if(!isset($resultObj)){ /*Ponemos todo este codigo en un if para saber si hay una respuesta de la base de datos*/
