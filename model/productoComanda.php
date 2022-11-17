@@ -14,7 +14,6 @@
             $this->$numComanda = $numComanda;
             $sql = "INSERT INTO `producto_comanda` (`idProducto`, `numComanda`, `cantidad`) VALUES ('$idProducto', '$numComanda', '$cantidad');";
             $result = mysqli_query($this->conn,$sql);
-            $resultadoObj = mysqli_fetch_object($result);
         }
         function initProductoComanda($idProducto,$numComanda){
             $this->idProducto = $idProducto;
