@@ -34,7 +34,7 @@ else if ($valor == "agregarHelado"){
         }
         $i++;
     }
-
+    header("Location: ../view/agregarcomanda.php?id=$idcomanda");
 }
 
 ?>

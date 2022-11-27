@@ -6,7 +6,6 @@ require ("../controller/comandaController.php");
 if(!isset($agregarComandaId)){
   $idNuevaComanda = comandaController::createComandaEnCurso($_SESSION["id"]);
   header("Location: agregarComanda.php?id=$idNuevaComanda");
-  setcookie("idComanda",$agregarComandaId);
 
 }
 

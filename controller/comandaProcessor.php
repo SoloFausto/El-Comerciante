@@ -1,5 +1,5 @@
 <?php
-include "../controller/include/connection.php";
+include "connection.php";
 require "../model/comanda.php";
 ob_start();
         $delete = $_GET['delete'];
@@ -9,10 +9,10 @@ ob_start();
           $deleteComanda = new comanda(conectar());
           $deleteComanda->cargarComandaPorNumero($delete);
           $deleteComanda->deleteComanda();
-          header('Location: ../view/comanda.php');  
+          header('Location: ../view/comandas.php');  
           }
-          else {
-            header("Location:../view/agregarcomanda.php?id=$info");
+          else  if (isset($info)){
+            header("Location:../view/modificarComanda.php?id=$info");
           }
           
         

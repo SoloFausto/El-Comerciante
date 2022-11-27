@@ -36,7 +36,7 @@ class comanda {
     }
     function createComandaEnCurso($idUsuario){
         $sql = "INSERT INTO `comanda` (`estado`, `idUsuario`)
-        VALUES ('2', '$idUsuario');";
+        VALUES ('1', '$idUsuario');";
         mysqli_query($this->conn,$sql);
         $sql2 = "SELECT `id` FROM comanda WHERE `estado` = 2 ORDER BY ID DESC LIMIT 1;";
         $query = mysqli_query($this->conn,$sql2);
